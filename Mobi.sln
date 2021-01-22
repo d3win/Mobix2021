@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29009.5
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Mobi", "Mobi.vbproj", "{C745BE8E-E9B4-4F45-9746-CE2BA2CB6097}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "MOBI INSTALLER", "..\MOBI INSTALLER\MOBI INSTALLER.vdproj", "{71DF02E3-640A-4B1E-8C04-9D3EBB62DA63}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "MOBI3", "..\MOBI3\MOBI3.vdproj", "{DB1B412F-AE7D-46A2-9CA4-0B944009B5AD}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "MOBI4", "..\MOBI4\MOBI4.vdproj", "{008E0517-0E2F-424E-B02F-CA02256571A7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C745BE8E-E9B4-4F45-9746-CE2BA2CB6097}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C745BE8E-E9B4-4F45-9746-CE2BA2CB6097}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C745BE8E-E9B4-4F45-9746-CE2BA2CB6097}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C745BE8E-E9B4-4F45-9746-CE2BA2CB6097}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71DF02E3-640A-4B1E-8C04-9D3EBB62DA63}.Debug|Any CPU.ActiveCfg = Debug
+		{71DF02E3-640A-4B1E-8C04-9D3EBB62DA63}.Release|Any CPU.ActiveCfg = Release
+		{DB1B412F-AE7D-46A2-9CA4-0B944009B5AD}.Debug|Any CPU.ActiveCfg = Debug
+		{DB1B412F-AE7D-46A2-9CA4-0B944009B5AD}.Release|Any CPU.ActiveCfg = Release
+		{008E0517-0E2F-424E-B02F-CA02256571A7}.Debug|Any CPU.ActiveCfg = Debug
+		{008E0517-0E2F-424E-B02F-CA02256571A7}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B3D4A1CA-7145-4CE6-A6A9-DEB553FC061B}
+	EndGlobalSection
+EndGlobal
