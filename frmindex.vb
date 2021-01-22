@@ -7435,6 +7435,24 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
         Dim cmd31 As New MySqlCommand(Sql31, conexionMysql)
         reader = cmd31.ExecuteReader()
         reader.Read()
+
+
+
+        Try
+            Dim valor As String
+            valor = reader.GetString(13).ToString()
+            rtxtdatestatus.Text = valor
+            MsgBox(valor)
+        Catch ex As Exception
+
+        End Try
+
+
+
+
+
+
+
         Try
 
             rtxtequipo.Text = reader.GetString(1).ToString()
@@ -7480,7 +7498,7 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
 
         End Try
         Try
-            rcalendario.Text = reader.GetString(13).ToString()
+            ' rtxtdatestatus.Text = reader.GetString(13).ToString()
         Catch ex As Exception
 
         End Try
@@ -7499,15 +7517,10 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
 
         End Try
 
+
+
+
         conexionMysql.Close()
-
-        Try
-
-            rtxtdatestatus.Text = reader.GetString(13).ToString()
-        Catch ex As Exception
-
-        End Try
-
 
 
 
@@ -9619,7 +9632,7 @@ ADD COLUMN `posicion` INT NULL AFTER `idventa`;"
     End Sub
 
     Private Sub Cbstate_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbstate.SelectedIndexChanged
-        MsgBox("Valor cambiado")
+        ' MsgBox("Valor cambiado")
     End Sub
 
     Private Sub Btncerrarcajamenu_Click(sender As Object, e As EventArgs) Handles btncerrarcajamenu.Click
@@ -9826,6 +9839,11 @@ ADD COLUMN `posicion` INT NULL AFTER `idventa`;"
 
     End Sub
 
+    Private Sub Button42_Click(sender As Object, e As EventArgs) Handles Button42.Click
+        'se actualiza la fecha del cambio del estado del dispositivo
+        actualizarfecha()
+    End Sub
+
     Private Sub Button28_Click(sender As Object, e As EventArgs) Handles Button28.Click
         imprimirreparacion()
 
@@ -9955,26 +9973,28 @@ ADD COLUMN `posicion` INT NULL AFTER `idventa`;"
             Dim cmd22 As New MySqlCommand(Sql22, conexionMysql)
             cmd22.ExecuteNonQuery()
             conexionMysql.Close()
-            'MsgBox("Status update", MsgBoxStyle.Information, "MOBI")
+            MsgBox("Status update", MsgBoxStyle.Information, "MOBI")
             conexionMysql.Close()
             cerrarconexion()
+
+            rtxtdatestatus.Text = fecha
             'actualizar la fecha de entrega de la venta.
             '---------------------------------------------------------------------
         End If
     End Function
     Private Sub cbstate_SelectedValueChanged(sender As Object, e As EventArgs) Handles cbstate.SelectedValueChanged
-        If activarbusqueda = True Then
-            'si hay una busqueda en curso entonces se actualiza la fecha, en caso contrario no actualiza nada
-            'actualizarfecha()
-            'se actauliza la fecha
-            MsgBox("Fecha actualizada......")
-        End If
+        '    If activarbusqueda = True Then
+        'si hay una busqueda en curso entonces se actualiza la fecha, en caso contrario no actualiza nada
+        'actualizarfecha()
+        'se actauliza la fecha
+        '  MsgBox("Fecha actualizada......")
+        '  End If
 
     End Sub
 
 
 
     Private Sub cbstate_MouseClick(sender As Object, e As MouseEventArgs) Handles cbstate.MouseClick
-        MsgBox("mouse click")
+        ' MsgBox("mouse click")
     End Sub
 End Class

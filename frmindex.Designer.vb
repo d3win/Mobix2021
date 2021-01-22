@@ -348,6 +348,8 @@ Partial Class frmindex
         Me.PrintDocument2 = New System.Drawing.Printing.PrintDocument()
         Me.PrintDocument3 = New System.Drawing.Printing.PrintDocument()
         Me.PrintDocument4 = New System.Drawing.Printing.PrintDocument()
+        Me.Button42 = New System.Windows.Forms.Button()
+        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.FlowLayoutPanel2.SuspendLayout
         Me.FlowLayoutPanel1.SuspendLayout
         Me.TabControl1.SuspendLayout
@@ -1931,6 +1933,8 @@ Partial Class frmindex
         '
         Me.GroupBox8.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox8.Controls.Add(Me.Button42)
+        Me.GroupBox8.Controls.Add(Me.cb1)
         Me.GroupBox8.Controls.Add(Me.rtxtdatestatus)
         Me.GroupBox8.Controls.Add(Me.Label64)
         Me.GroupBox8.Controls.Add(Me.GroupBox21)
@@ -1968,14 +1972,14 @@ Partial Class frmindex
         Me.rtxtdatestatus.Location = New System.Drawing.Point(236, 224)
         Me.rtxtdatestatus.MaxLength = 30
         Me.rtxtdatestatus.Name = "rtxtdatestatus"
-        Me.rtxtdatestatus.Size = New System.Drawing.Size(245, 23)
+        Me.rtxtdatestatus.Size = New System.Drawing.Size(307, 23)
         Me.rtxtdatestatus.TabIndex = 36
         '
         'Label64
         '
         Me.Label64.AutoSize = True
         Me.Label64.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label64.Location = New System.Drawing.Point(230, 203)
+        Me.Label64.Location = New System.Drawing.Point(232, 203)
         Me.Label64.Name = "Label64"
         Me.Label64.Size = New System.Drawing.Size(135, 17)
         Me.Label64.TabIndex = 35
@@ -1985,13 +1989,12 @@ Partial Class frmindex
         '
         Me.GroupBox21.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.GroupBox21.Controls.Add(Me.cb1)
         Me.GroupBox21.Controls.Add(Me.Button30)
         Me.GroupBox21.Controls.Add(Me.Button25)
         Me.GroupBox21.Controls.Add(Me.rcbitemtemporal)
         Me.GroupBox21.Location = New System.Drawing.Point(237, 247)
         Me.GroupBox21.Name = "GroupBox21"
-        Me.GroupBox21.Size = New System.Drawing.Size(448, 60)
+        Me.GroupBox21.Size = New System.Drawing.Size(392, 60)
         Me.GroupBox21.TabIndex = 33
         Me.GroupBox21.TabStop = False
         Me.GroupBox21.Text = "ITems"
@@ -2001,9 +2004,9 @@ Partial Class frmindex
         Me.cb1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cb1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cb1.FormattingEnabled = True
-        Me.cb1.Location = New System.Drawing.Point(251, 7)
+        Me.cb1.Location = New System.Drawing.Point(628, 161)
         Me.cb1.Name = "cb1"
-        Me.cb1.Size = New System.Drawing.Size(152, 32)
+        Me.cb1.Size = New System.Drawing.Size(24, 32)
         Me.cb1.TabIndex = 1116
         Me.cb1.Visible = False
         '
@@ -2056,10 +2059,10 @@ Partial Class frmindex
         Me.Button28.ForeColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.Button28.Image = CType(resources.GetObject("Button28.Image"), System.Drawing.Image)
         Me.Button28.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button28.Location = New System.Drawing.Point(655, 227)
+        Me.Button28.Location = New System.Drawing.Point(650, 159)
         Me.Button28.Margin = New System.Windows.Forms.Padding(4)
         Me.Button28.Name = "Button28"
-        Me.Button28.Size = New System.Drawing.Size(59, 36)
+        Me.Button28.Size = New System.Drawing.Size(15, 36)
         Me.Button28.TabIndex = 18
         Me.Button28.Text = "Add list Item"
         Me.Button28.UseVisualStyleBackColor = False
@@ -2105,7 +2108,7 @@ Partial Class frmindex
         Me.cbstate.Items.AddRange(New Object() {"In Progress", "Ready", "Delivered"})
         Me.cbstate.Location = New System.Drawing.Point(14, 227)
         Me.cbstate.Name = "cbstate"
-        Me.cbstate.Size = New System.Drawing.Size(205, 24)
+        Me.cbstate.Size = New System.Drawing.Size(164, 24)
         Me.cbstate.TabIndex = 10
         '
         'Label33
@@ -2127,14 +2130,14 @@ Partial Class frmindex
         Me.rtxtproblem.MaxLength = 35
         Me.rtxtproblem.Multiline = True
         Me.rtxtproblem.Name = "rtxtproblem"
-        Me.rtxtproblem.Size = New System.Drawing.Size(451, 41)
+        Me.rtxtproblem.Size = New System.Drawing.Size(451, 34)
         Me.rtxtproblem.TabIndex = 12
         '
         'Label32
         '
         Me.Label32.AutoSize = True
         Me.Label32.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label32.Location = New System.Drawing.Point(232, 87)
+        Me.Label32.Location = New System.Drawing.Point(234, 79)
         Me.Label32.Name = "Label32"
         Me.Label32.Size = New System.Drawing.Size(45, 17)
         Me.Label32.TabIndex = 11
@@ -2145,11 +2148,11 @@ Partial Class frmindex
         Me.rtxtnote.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.rtxtnote.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rtxtnote.Location = New System.Drawing.Point(233, 106)
+        Me.rtxtnote.Location = New System.Drawing.Point(235, 98)
         Me.rtxtnote.MaxLength = 200
         Me.rtxtnote.Multiline = True
         Me.rtxtnote.Name = "rtxtnote"
-        Me.rtxtnote.Size = New System.Drawing.Size(452, 44)
+        Me.rtxtnote.Size = New System.Drawing.Size(452, 40)
         Me.rtxtnote.TabIndex = 13
         '
         'Label22
@@ -2184,7 +2187,7 @@ Partial Class frmindex
         '
         Me.Label39.AutoSize = True
         Me.Label39.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label39.Location = New System.Drawing.Point(234, 155)
+        Me.Label39.Location = New System.Drawing.Point(234, 143)
         Me.Label39.Name = "Label39"
         Me.Label39.Size = New System.Drawing.Size(84, 17)
         Me.Label39.TabIndex = 0
@@ -2203,9 +2206,9 @@ Partial Class frmindex
         'rcalendario
         '
         Me.rcalendario.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rcalendario.Location = New System.Drawing.Point(235, 180)
+        Me.rcalendario.Location = New System.Drawing.Point(235, 168)
         Me.rcalendario.Name = "rcalendario"
-        Me.rcalendario.Size = New System.Drawing.Size(246, 26)
+        Me.rcalendario.Size = New System.Drawing.Size(308, 26)
         Me.rcalendario.TabIndex = 14
         '
         'Label24
@@ -4252,6 +4255,22 @@ Partial Class frmindex
         'PrintDocument4
         '
         '
+        'Button42
+        '
+        Me.Button42.BackColor = System.Drawing.Color.White
+        Me.Button42.FlatAppearance.BorderSize = 0
+        Me.Button42.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button42.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button42.ForeColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.Button42.Image = CType(resources.GetObject("Button42.Image"), System.Drawing.Image)
+        Me.Button42.Location = New System.Drawing.Point(183, 223)
+        Me.Button42.Margin = New System.Windows.Forms.Padding(4)
+        Me.Button42.Name = "Button42"
+        Me.Button42.Size = New System.Drawing.Size(32, 33)
+        Me.Button42.TabIndex = 1117
+        Me.ToolTip1.SetToolTip(Me.Button42, "Update status")
+        Me.Button42.UseVisualStyleBackColor = False
+        '
         'frmindex
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -4666,4 +4685,6 @@ Partial Class frmindex
     Friend WithEvents rchpay As CheckBox
     Friend WithEvents Label64 As Label
     Friend WithEvents rtxtdatestatus As TextBox
+    Friend WithEvents Button42 As Button
+    Friend WithEvents ToolTip1 As ToolTip
 End Class
