@@ -132,6 +132,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="caconexion.vb" />
+    <Compile Include="config.Designer.vb">
+      <DependentUpon>config.vb</DependentUpon>
+    </Compile>
+    <Compile Include="config.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="data.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -208,6 +214,9 @@
   <ItemGroup>
     <EmbeddedResource Include="abono.resx">
       <DependentUpon>abono.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="config.resx">
+      <DependentUpon>config.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FRcustomer.resx">
       <DependentUpon>FRcustomer.vb</DependentUpon>

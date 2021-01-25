@@ -159,10 +159,11 @@ Partial Class frmindex
         Me.rtxtdeposito = New System.Windows.Forms.TextBox()
         Me.Label31 = New System.Windows.Forms.Label()
         Me.GroupBox8 = New System.Windows.Forms.GroupBox()
+        Me.Button42 = New System.Windows.Forms.Button()
+        Me.cb1 = New System.Windows.Forms.ComboBox()
         Me.rtxtdatestatus = New System.Windows.Forms.TextBox()
         Me.Label64 = New System.Windows.Forms.Label()
         Me.GroupBox21 = New System.Windows.Forms.GroupBox()
-        Me.cb1 = New System.Windows.Forms.ComboBox()
         Me.Button30 = New System.Windows.Forms.Button()
         Me.Button25 = New System.Windows.Forms.Button()
         Me.rcbitemtemporal = New System.Windows.Forms.ComboBox()
@@ -348,7 +349,6 @@ Partial Class frmindex
         Me.PrintDocument2 = New System.Drawing.Printing.PrintDocument()
         Me.PrintDocument3 = New System.Drawing.Printing.PrintDocument()
         Me.PrintDocument4 = New System.Drawing.Printing.PrintDocument()
-        Me.Button42 = New System.Windows.Forms.Button()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.FlowLayoutPanel2.SuspendLayout
         Me.FlowLayoutPanel1.SuspendLayout
@@ -758,7 +758,7 @@ Partial Class frmindex
         Me.TabControl1.Controls.Add(Me.TabPage5)
         Me.TabControl1.Controls.Add(Me.TabPage6)
         Me.TabControl1.Controls.Add(Me.TabPage7)
-        Me.TabControl1.Location = New System.Drawing.Point(132, 68)
+        Me.TabControl1.Location = New System.Drawing.Point(132, 43)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
         Me.TabControl1.Size = New System.Drawing.Size(1468, 803)
@@ -1965,11 +1965,38 @@ Partial Class frmindex
         Me.GroupBox8.TabStop = False
         Me.GroupBox8.Text = "Device"
         '
+        'Button42
+        '
+        Me.Button42.BackColor = System.Drawing.Color.White
+        Me.Button42.FlatAppearance.BorderSize = 0
+        Me.Button42.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button42.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button42.ForeColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.Button42.Image = CType(resources.GetObject("Button42.Image"), System.Drawing.Image)
+        Me.Button42.Location = New System.Drawing.Point(183, 223)
+        Me.Button42.Margin = New System.Windows.Forms.Padding(4)
+        Me.Button42.Name = "Button42"
+        Me.Button42.Size = New System.Drawing.Size(32, 33)
+        Me.Button42.TabIndex = 1117
+        Me.ToolTip1.SetToolTip(Me.Button42, "Update status")
+        Me.Button42.UseVisualStyleBackColor = False
+        '
+        'cb1
+        '
+        Me.cb1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cb1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cb1.FormattingEnabled = True
+        Me.cb1.Location = New System.Drawing.Point(628, 161)
+        Me.cb1.Name = "cb1"
+        Me.cb1.Size = New System.Drawing.Size(24, 32)
+        Me.cb1.TabIndex = 1116
+        Me.cb1.Visible = False
+        '
         'rtxtdatestatus
         '
         Me.rtxtdatestatus.Enabled = False
         Me.rtxtdatestatus.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rtxtdatestatus.Location = New System.Drawing.Point(236, 224)
+        Me.rtxtdatestatus.Location = New System.Drawing.Point(236, 220)
         Me.rtxtdatestatus.MaxLength = 30
         Me.rtxtdatestatus.Name = "rtxtdatestatus"
         Me.rtxtdatestatus.Size = New System.Drawing.Size(307, 23)
@@ -1979,7 +2006,7 @@ Partial Class frmindex
         '
         Me.Label64.AutoSize = True
         Me.Label64.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label64.Location = New System.Drawing.Point(232, 203)
+        Me.Label64.Location = New System.Drawing.Point(232, 199)
         Me.Label64.Name = "Label64"
         Me.Label64.Size = New System.Drawing.Size(135, 17)
         Me.Label64.TabIndex = 35
@@ -1998,17 +2025,6 @@ Partial Class frmindex
         Me.GroupBox21.TabIndex = 33
         Me.GroupBox21.TabStop = False
         Me.GroupBox21.Text = "ITems"
-        '
-        'cb1
-        '
-        Me.cb1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cb1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cb1.FormattingEnabled = True
-        Me.cb1.Location = New System.Drawing.Point(628, 161)
-        Me.cb1.Name = "cb1"
-        Me.cb1.Size = New System.Drawing.Size(24, 32)
-        Me.cb1.TabIndex = 1116
-        Me.cb1.Visible = False
         '
         'Button30
         '
@@ -4254,22 +4270,6 @@ Partial Class frmindex
         '
         'PrintDocument4
         '
-        '
-        'Button42
-        '
-        Me.Button42.BackColor = System.Drawing.Color.White
-        Me.Button42.FlatAppearance.BorderSize = 0
-        Me.Button42.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button42.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button42.ForeColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.Button42.Image = CType(resources.GetObject("Button42.Image"), System.Drawing.Image)
-        Me.Button42.Location = New System.Drawing.Point(183, 223)
-        Me.Button42.Margin = New System.Windows.Forms.Padding(4)
-        Me.Button42.Name = "Button42"
-        Me.Button42.Size = New System.Drawing.Size(32, 33)
-        Me.Button42.TabIndex = 1117
-        Me.ToolTip1.SetToolTip(Me.Button42, "Update status")
-        Me.Button42.UseVisualStyleBackColor = False
         '
         'frmindex
         '

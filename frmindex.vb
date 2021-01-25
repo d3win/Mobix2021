@@ -237,47 +237,51 @@ Public Class frmindex
     End Function
     Function asignar_impresora()
 
+        Try
 
 
-        Dim respuesta_nombre_impresora As String
+            Dim respuesta_nombre_impresora As String
 
 
-        respuesta_nombre_impresora = obtener_nombre_impresora()
-        'MsgBox(respuesta_nombre_impresora)
+            respuesta_nombre_impresora = obtener_nombre_impresora()
+            'MsgBox(respuesta_nombre_impresora)
 
-        If respuesta_nombre_impresora = "" Then
-            'en caso de que no exista impresora almacenada, entonces buscamos la que esta por default y la guardamos
-
-
-
-            Dim instance As New Printing.PrinterSettings
-            Dim impresosaPredt As String = instance.PrinterName
-            'MsgBox("LA IMPRESORA A GUARDAR ES:" & impresosaPredt)
-
-            txtnombreimpresora.Text = impresosaPredt
-
-            cerrarconexion()
-            conexionMysql.Open()
-            Dim Sql2 As String
-            Sql2 = "INSERT INTO `mobi`.`impresora` (`idimpresora`, `nombre_impresora`) VALUES ('1', '" & impresosaPredt & "');"
-            Dim cmd2 As New MySqlCommand(Sql2, conexionMysql)
-            cmd2.ExecuteNonQuery()
-            conexionMysql.Close()
-            MsgBox("Se ha asignado por default la impresora que esta predeterminada en el sistema", MsgBoxStyle.Information, "CTRL+y")
-
-            '            MsgBox("Hola esto es una prueba" & Chr(13) &
-            '" de un textbox multilinea" 
+            If respuesta_nombre_impresora = "" Then
+                'en caso de que no exista impresora almacenada, entonces buscamos la que esta por default y la guardamos
 
 
 
-        Else
-            'en caso contrario se supone que ya hay impresora, solo la asignamos al label de configuracion de impresora
+                Dim instance As New Printing.PrinterSettings
+                Dim impresosaPredt As String = instance.PrinterName
+                'MsgBox("LA IMPRESORA A GUARDAR ES:" & impresosaPredt)
 
-            txtnombreimpresora.Text = respuesta_nombre_impresora
+                txtnombreimpresora.Text = impresosaPredt
+
+                cerrarconexion()
+                conexionMysql.Open()
+                Dim Sql2 As String
+                Sql2 = "INSERT INTO `mobi`.`impresora` (`idimpresora`, `nombre_impresora`) VALUES ('1', '" & impresosaPredt & "');"
+                Dim cmd2 As New MySqlCommand(Sql2, conexionMysql)
+                cmd2.ExecuteNonQuery()
+                conexionMysql.Close()
+                MsgBox("Se ha asignado por default la impresora que esta predeterminada en el sistema", MsgBoxStyle.Information, "CTRL+y")
+
+                '            MsgBox("Hola esto es una prueba" & Chr(13) &
+                '" de un textbox multilinea" 
 
 
-        End If
 
+            Else
+                'en caso contrario se supone que ya hay impresora, solo la asignamos al label de configuracion de impresora
+
+                txtnombreimpresora.Text = respuesta_nombre_impresora
+
+
+            End If
+
+        Catch ex As Exception
+
+        End Try
 
 
 
@@ -1785,7 +1789,7 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
                 cerrarconexion()
                 conexionMysql.Open()
                 Dim Sql2 As String
-                Sql2 = "INSERT INTO `mobi`.`seller` (`name_seller`) VALUES ('" & conftxtseller.Text & "');"
+                Sql2 = "INSERT INTO `seller` (`name_seller`) VALUES ('" & conftxtseller.Text & "');"
                 Dim cmd2 As New MySqlCommand(Sql2, conexionMysql)
                 cmd2.ExecuteNonQuery()
                 conexionMysql.Close()
@@ -2955,7 +2959,7 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
                 conexionMysql.Open()
                 Dim Sql312 As String
                 'consultamos el id del cliente para obtener un registro de quien es al que se le esta vendiendo
-                Sql312 = "SELECT * FROM mobi.equipo where equipo='" & rcbitemtemporal.Text & "' and idventa='" & folio & "';"
+                Sql312 = "SELECT * FROM equipo where equipo='" & rcbitemtemporal.Text & "' and idventa='" & folio & "';"
                 Dim cmd312 As New MySqlCommand(Sql312, conexionMysql)
                 reader = cmd312.ExecuteReader()
                 reader.Read()
@@ -3539,7 +3543,7 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
             conexionMysql.Open()
             Dim Sql31234 As String
             'consultamos el id del cliente para obtener un registro de quien es al que se le esta vendiendo
-            Sql31234 = "SELECT * FROM mobi.equipo where equipo='" & rcbitemtemporal.Text & "' and idventa='" & folio & "'  and idequipo='" & cb1.Text & "';"
+            Sql31234 = "SELECT * FROM equipo where equipo='" & rcbitemtemporal.Text & "' and idventa='" & folio & "'  and idequipo='" & cb1.Text & "';"
             Dim cmd31234 As New MySqlCommand(Sql31234, conexionMysql)
             reader = cmd31234.ExecuteReader()
             reader.Read()
@@ -4656,7 +4660,7 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
 
 
 
-
+                'eb caso de que se haga una busqueda con un folio que no tenga el campo deliverydate, entonces lo actualizamos
 
                 If fecha = "" Then
 
@@ -4673,7 +4677,7 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
                     Dim cmd2 As New MySqlCommand(Sql2, conexionMysql)
                     cmd2.ExecuteNonQuery()
                     conexionMysql.Close()
-                    MsgBox("fechas actualizadas")
+                    MsgBox("Date update", MsgBoxStyle.Information, "MOBI")
                 End If
 
                 '------------------------------------------------------------------------------------------
@@ -4840,7 +4844,11 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
                     reparacion = reader.GetString(9).ToString()
                     partes = reader.GetString(10).ToString()
                     idventa = reader.GetString(11).ToString()
+
                     posicion = reader.GetString(12).ToString()
+
+
+
                     fechastatus = reader.GetString(13).ToString()
                     rtxtdatestatus.Text = fechastatus
 
@@ -5833,7 +5841,7 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
 
             conexionMysql.Open()
             Dim Sql1 As String
-            Sql1 = "SELECT * FROM mobi.equipo where idventa='" & slbfolio.Text & "';"
+            Sql1 = "SELECT * FROM equipo where idventa='" & slbfolio.Text & "';"
             Dim cmd1 As New MySqlCommand(Sql1, conexionMysql)
             reader = cmd1.ExecuteReader()
             reader.Read()
@@ -7368,7 +7376,7 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
 
         Dim Sql31 As String
         'consultamos el id del cliente para obtener un registro de quien es al que se le esta vendiendo
-        Sql31 = "SELECT * FROM mobi.equipo where equipo='" & rcbitems.Text & "' and idventa='" & rtxtbusquedafolio.Text & "';"
+        Sql31 = "SELECT * FROM equipo where equipo='" & rcbitems.Text & "' and idventa='" & rtxtbusquedafolio.Text & "';"
         Dim cmd31 As New MySqlCommand(Sql31, conexionMysql)
         reader = cmd31.ExecuteReader()
         reader.Read()
@@ -7431,7 +7439,7 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
 
         Dim Sql31 As String
         'consultamos el id del cliente para obtener un registro de quien es al que se le esta vendiendo
-        Sql31 = "SELECT * FROM mobi.equipo where equipo='" & rcbitemtemporal.Text & "' and idventa='" & folio & "' and idequipo='" & cb1.Text & "';"
+        Sql31 = "SELECT * FROM equipo where equipo='" & rcbitemtemporal.Text & "' and idventa='" & folio & "' and idequipo='" & cb1.Text & "';"
         Dim cmd31 As New MySqlCommand(Sql31, conexionMysql)
         reader = cmd31.ExecuteReader()
         reader.Read()
@@ -7442,7 +7450,7 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
             Dim valor As String
             valor = reader.GetString(13).ToString()
             rtxtdatestatus.Text = valor
-            MsgBox(valor)
+            ' MsgBox(valor)
         Catch ex As Exception
 
         End Try
@@ -7528,7 +7536,7 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
         conexionMysql.Open()
         Dim Sql312 As String
         'consultamos el id del cliente para obtener un registro de quien es al que se le esta vendiendo
-        Sql312 = "SELECT * FROM mobi.equipo where equipo='" & rcbitemtemporal.Text & "' and idventa='" & folio & "'  and idequipo='" & cb1.Text & "';"
+        Sql312 = "SELECT * FROM equipo where equipo='" & rcbitemtemporal.Text & "' and idventa='" & folio & "'  and idequipo='" & cb1.Text & "';"
         Dim cmd312 As New MySqlCommand(Sql312, conexionMysql)
         reader = cmd312.ExecuteReader()
         reader.Read()
@@ -7998,7 +8006,7 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
 
         Dim Sql31 As String
         'consultamos el id del cliente para obtener un registro de quien es al que se le esta vendiendo
-        Sql31 = "SELECT idequipo FROM mobi.equipo where equipo='" & rcbitemtemporal.Text & "' and idventa='" & folio & "' and idequipo='" & cb1.Text & "';"
+        Sql31 = "SELECT idequipo FROM equipo where equipo='" & rcbitemtemporal.Text & "' and idventa='" & folio & "' and idequipo='" & cb1.Text & "';"
         Dim cmd31 As New MySqlCommand(Sql31, conexionMysql)
         reader = cmd31.ExecuteReader()
         reader.Read()
@@ -9842,6 +9850,7 @@ ADD COLUMN `posicion` INT NULL AFTER `idventa`;"
     Private Sub Button42_Click(sender As Object, e As EventArgs) Handles Button42.Click
         'se actualiza la fecha del cambio del estado del dispositivo
         actualizarfecha()
+        seleccionaritem()
     End Sub
 
     Private Sub Button28_Click(sender As Object, e As EventArgs) Handles Button28.Click
