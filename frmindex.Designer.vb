@@ -357,51 +357,51 @@ Partial Class frmindex
         Me.GroupBox22.SuspendLayout
         Me.GroupBox15.SuspendLayout
         CType(Me.sgrilla, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.FlowLayoutPanel3.SuspendLayout
+        Me.FlowLayoutPanel3.SuspendLayout()
         CType(Me.pblogoticket, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox5.SuspendLayout
-        Me.GroupBox4.SuspendLayout
-        Me.GroupBox2.SuspendLayout
-        Me.GroupBox3.SuspendLayout
-        Me.GroupBox1.SuspendLayout
-        Me.TabPage3.SuspendLayout
-        Me.GroupBox12.SuspendLayout
+        Me.GroupBox5.SuspendLayout()
+        Me.GroupBox4.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
+        Me.GroupBox3.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
+        Me.TabPage3.SuspendLayout()
+        Me.GroupBox12.SuspendLayout()
         CType(Me.rgrilla, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox17.SuspendLayout
+        Me.GroupBox17.SuspendLayout()
         CType(Me.rgrilla2, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox16.SuspendLayout
-        Me.FlowLayoutPanel4.SuspendLayout
-        Me.GroupBox10.SuspendLayout
-        Me.GroupBox9.SuspendLayout
-        Me.GroupBox8.SuspendLayout
-        Me.GroupBox21.SuspendLayout
-        Me.GroupBox7.SuspendLayout
-        Me.TabPage4.SuspendLayout
-        Me.FlowLayoutPanel6.SuspendLayout
-        Me.GroupBox20.SuspendLayout
-        Me.GroupBox19.SuspendLayout
-        Me.GroupBox18.SuspendLayout
+        Me.GroupBox16.SuspendLayout()
+        Me.FlowLayoutPanel4.SuspendLayout()
+        Me.GroupBox10.SuspendLayout()
+        Me.GroupBox9.SuspendLayout()
+        Me.GroupBox8.SuspendLayout()
+        Me.GroupBox21.SuspendLayout()
+        Me.GroupBox7.SuspendLayout()
+        Me.TabPage4.SuspendLayout()
+        Me.FlowLayoutPanel6.SuspendLayout()
+        Me.GroupBox20.SuspendLayout()
+        Me.GroupBox19.SuspendLayout()
+        Me.GroupBox18.SuspendLayout()
         CType(Me.ssgrilla, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.TabPage5.SuspendLayout
-        Me.GroupBox25.SuspendLayout
-        Me.GroupBox11.SuspendLayout
-        Me.GroupBox6.SuspendLayout
-        Me.GroupBox38.SuspendLayout
-        Me.GroupBox33.SuspendLayout
-        Me.GroupBox34.SuspendLayout
+        Me.TabPage5.SuspendLayout()
+        Me.GroupBox25.SuspendLayout()
+        Me.GroupBox11.SuspendLayout()
+        Me.GroupBox6.SuspendLayout()
+        Me.GroupBox38.SuspendLayout()
+        Me.GroupBox33.SuspendLayout()
+        Me.GroupBox34.SuspendLayout()
         CType(Me.pblogo, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox31.SuspendLayout
-        Me.TabPage6.SuspendLayout
-        Me.FlowLayoutPanel5.SuspendLayout
-        Me.GroupBox14.SuspendLayout
+        Me.GroupBox31.SuspendLayout()
+        Me.TabPage6.SuspendLayout()
+        Me.FlowLayoutPanel5.SuspendLayout()
+        Me.GroupBox14.SuspendLayout()
         CType(Me.pgrilla, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox13.SuspendLayout
-        Me.TabPage7.SuspendLayout
-        Me.FlowLayoutPanel7.SuspendLayout
-        Me.GroupBox23.SuspendLayout
+        Me.GroupBox13.SuspendLayout()
+        Me.TabPage7.SuspendLayout()
+        Me.FlowLayoutPanel7.SuspendLayout()
+        Me.GroupBox23.SuspendLayout()
         CType(Me.cgrilla, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox24.SuspendLayout
-        Me.SuspendLayout
+        Me.GroupBox24.SuspendLayout()
+        Me.SuspendLayout()
         '
         'FlowLayoutPanel2
         '
@@ -758,7 +758,7 @@ Partial Class frmindex
         Me.TabControl1.Controls.Add(Me.TabPage5)
         Me.TabControl1.Controls.Add(Me.TabPage6)
         Me.TabControl1.Controls.Add(Me.TabPage7)
-        Me.TabControl1.Location = New System.Drawing.Point(132, 43)
+        Me.TabControl1.Location = New System.Drawing.Point(132, 41)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
         Me.TabControl1.Size = New System.Drawing.Size(1468, 803)
@@ -1698,7 +1698,7 @@ Partial Class frmindex
         Me.lblistarespuestos.ItemHeight = 20
         Me.lblistarespuestos.Location = New System.Drawing.Point(13, 97)
         Me.lblistarespuestos.Name = "lblistarespuestos"
-        Me.lblistarespuestos.Size = New System.Drawing.Size(224, 204)
+        Me.lblistarespuestos.Size = New System.Drawing.Size(224, 244)
         Me.lblistarespuestos.TabIndex = 9
         '
         'Button31
@@ -4285,78 +4285,78 @@ Partial Class frmindex
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "main"
         Me.FlowLayoutPanel2.ResumeLayout(False)
-        Me.FlowLayoutPanel2.PerformLayout
+        Me.FlowLayoutPanel2.PerformLayout()
         Me.FlowLayoutPanel1.ResumeLayout(False)
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
         Me.GroupBox22.ResumeLayout(False)
-        Me.GroupBox22.PerformLayout
+        Me.GroupBox22.PerformLayout()
         Me.GroupBox15.ResumeLayout(False)
         CType(Me.sgrilla, System.ComponentModel.ISupportInitialize).EndInit()
         Me.FlowLayoutPanel3.ResumeLayout(False)
         CType(Me.pblogoticket, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox5.ResumeLayout(False)
-        Me.GroupBox5.PerformLayout
+        Me.GroupBox5.PerformLayout()
         Me.GroupBox4.ResumeLayout(False)
-        Me.GroupBox4.PerformLayout
+        Me.GroupBox4.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
-        Me.GroupBox2.PerformLayout
+        Me.GroupBox2.PerformLayout()
         Me.GroupBox3.ResumeLayout(False)
-        Me.GroupBox3.PerformLayout
+        Me.GroupBox3.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout
+        Me.GroupBox1.PerformLayout()
         Me.TabPage3.ResumeLayout(False)
         Me.GroupBox12.ResumeLayout(False)
         CType(Me.rgrilla, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox17.ResumeLayout(False)
         CType(Me.rgrilla2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox16.ResumeLayout(False)
-        Me.GroupBox16.PerformLayout
+        Me.GroupBox16.PerformLayout()
         Me.FlowLayoutPanel4.ResumeLayout(False)
         Me.GroupBox10.ResumeLayout(False)
-        Me.GroupBox10.PerformLayout
+        Me.GroupBox10.PerformLayout()
         Me.GroupBox9.ResumeLayout(False)
-        Me.GroupBox9.PerformLayout
+        Me.GroupBox9.PerformLayout()
         Me.GroupBox8.ResumeLayout(False)
-        Me.GroupBox8.PerformLayout
+        Me.GroupBox8.PerformLayout()
         Me.GroupBox21.ResumeLayout(False)
         Me.GroupBox7.ResumeLayout(False)
-        Me.GroupBox7.PerformLayout
+        Me.GroupBox7.PerformLayout()
         Me.TabPage4.ResumeLayout(False)
         Me.FlowLayoutPanel6.ResumeLayout(False)
         Me.GroupBox20.ResumeLayout(False)
-        Me.GroupBox20.PerformLayout
+        Me.GroupBox20.PerformLayout()
         Me.GroupBox19.ResumeLayout(False)
-        Me.GroupBox19.PerformLayout
+        Me.GroupBox19.PerformLayout()
         Me.GroupBox18.ResumeLayout(False)
         CType(Me.ssgrilla, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage5.ResumeLayout(False)
-        Me.TabPage5.PerformLayout
+        Me.TabPage5.PerformLayout()
         Me.GroupBox25.ResumeLayout(False)
         Me.GroupBox11.ResumeLayout(False)
-        Me.GroupBox11.PerformLayout
+        Me.GroupBox11.PerformLayout()
         Me.GroupBox6.ResumeLayout(False)
-        Me.GroupBox6.PerformLayout
+        Me.GroupBox6.PerformLayout()
         Me.GroupBox38.ResumeLayout(False)
         Me.GroupBox33.ResumeLayout(False)
-        Me.GroupBox33.PerformLayout
+        Me.GroupBox33.PerformLayout()
         Me.GroupBox34.ResumeLayout(False)
-        Me.GroupBox34.PerformLayout
+        Me.GroupBox34.PerformLayout()
         CType(Me.pblogo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox31.ResumeLayout(False)
-        Me.GroupBox31.PerformLayout
+        Me.GroupBox31.PerformLayout()
         Me.TabPage6.ResumeLayout(False)
         Me.FlowLayoutPanel5.ResumeLayout(False)
         Me.GroupBox14.ResumeLayout(False)
         CType(Me.pgrilla, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox13.ResumeLayout(False)
-        Me.GroupBox13.PerformLayout
+        Me.GroupBox13.PerformLayout()
         Me.TabPage7.ResumeLayout(False)
         Me.FlowLayoutPanel7.ResumeLayout(False)
         Me.GroupBox23.ResumeLayout(False)
         CType(Me.cgrilla, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox24.ResumeLayout(False)
-        Me.GroupBox24.PerformLayout
+        Me.GroupBox24.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub

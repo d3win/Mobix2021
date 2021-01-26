@@ -3774,7 +3774,7 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
         'MsgBox(cantidaddedispositivos)
 
         If cantidaddedispositivos = 0 Then
-            MsgBox("Agrega al menos un dispositivo a la lista", MsgBoxStyle.Information, "MOBI")
+            MsgBox("Agrega al menos un  dispositivo a la lista", MsgBoxStyle.Information, "MOBI")
         Else
 
 
@@ -5765,7 +5765,7 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
     Private Sub Button23_Click(sender As Object, e As EventArgs) Handles Button23.Click
         cancelartodo()
 
-
+        obtenerfolio()
         '        eliminarregistrostemporalesequipo()
 
     End Sub
@@ -6850,6 +6850,18 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
             MsgBox("Falta información por agregar", MsgBoxStyle.Information, "MOBI")
         Else
             rchpay.Checked = False
+            '----------------------------------------------------------------------------------------------------------------------
+            '----------------------------------------------------------------------------------------------------------------------
+            '----------------------------------------------------------------------------------------------------------------------
+            '----------------------------------------------------------------------------------------------------------------------
+            '----------------------------------------------------------------------------------------------------------------------
+            'OBTENEMOS UN NUEVO FOLIO PARA LA BUSQUEDA EN CASO DE QUE SE NECESITE
+            obtenerfolio()
+            '----------------------------------------------------------------------------------------------------------------------
+            '----------------------------------------------------------------------------------------------------------------------
+            '----------------------------------------------------------------------------------------------------------------------
+            '----------------------------------------------------------------------------------------------------------------------
+            '----------------------------------------------------------------------------------------------------------------------
 
             'buscamos dentro de rgrilla2 si ya existe un item con el mismo nombre
             Dim respuestarepetido As Boolean
