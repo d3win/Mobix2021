@@ -33,7 +33,7 @@ Public Class frmproducto
 
                     conexionMysql.Open()
                     Dim Sqlx1 As String
-                    Sqlx1 = "INSERT INTO `mobi`.`producto` (`idproducto`, `name`, `cantidad`, `costo`, `precio`) VALUES ( '" & rtxtclaveproducto.Text & "', '" & rtxtnombre.Text & "', '" & rtxtcantidad.Text & "', '" & rtxtcosto.Text & "', '" & rtxtprecio.Text & "');"
+                    Sqlx1 = "INSERT INTO `producto` (`idproducto`, `name`, `cantidad`, `costo`, `precio`) VALUES ( '" & rtxtclaveproducto.Text & "', '" & rtxtnombre.Text & "', '" & rtxtcantidad.Text & "', '" & rtxtcosto.Text & "', '" & rtxtprecio.Text & "');"
                     Dim cmdx1 As New MySqlCommand(Sqlx1, conexionMysql)
                     cmdx1.ExecuteNonQuery()
                     conexionMysql.Close()

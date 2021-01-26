@@ -37,7 +37,6 @@ Partial Class frmindex
         Me.btncerrarcajamenu = New System.Windows.Forms.Button()
         Me.btnabrircajamenu = New System.Windows.Forms.Button()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
-        Me.btventas = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button67 = New System.Windows.Forms.Button()
@@ -259,7 +258,6 @@ Partial Class frmindex
         Me.GroupBox34 = New System.Windows.Forms.GroupBox()
         Me.Button87 = New System.Windows.Forms.Button()
         Me.Button84 = New System.Windows.Forms.Button()
-        Me.lbnombreimagen = New System.Windows.Forms.Label()
         Me.Button83 = New System.Windows.Forms.Button()
         Me.pblogo = New System.Windows.Forms.PictureBox()
         Me.GroupBox31 = New System.Windows.Forms.GroupBox()
@@ -350,12 +348,13 @@ Partial Class frmindex
         Me.PrintDocument3 = New System.Drawing.Printing.PrintDocument()
         Me.PrintDocument4 = New System.Drawing.Printing.PrintDocument()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.FlowLayoutPanel2.SuspendLayout
-        Me.FlowLayoutPanel1.SuspendLayout
-        Me.TabControl1.SuspendLayout
-        Me.TabPage1.SuspendLayout
-        Me.GroupBox22.SuspendLayout
-        Me.GroupBox15.SuspendLayout
+        Me.btventas = New System.Windows.Forms.PictureBox()
+        Me.FlowLayoutPanel2.SuspendLayout()
+        Me.FlowLayoutPanel1.SuspendLayout()
+        Me.TabControl1.SuspendLayout()
+        Me.TabPage1.SuspendLayout()
+        Me.GroupBox22.SuspendLayout()
+        Me.GroupBox15.SuspendLayout()
         CType(Me.sgrilla, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.FlowLayoutPanel3.SuspendLayout()
         CType(Me.pblogoticket, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -401,6 +400,7 @@ Partial Class frmindex
         Me.GroupBox23.SuspendLayout()
         CType(Me.cgrilla, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox24.SuspendLayout()
+        CType(Me.btventas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'FlowLayoutPanel2
@@ -619,21 +619,6 @@ Partial Class frmindex
         Me.FlowLayoutPanel1.Size = New System.Drawing.Size(130, 788)
         Me.FlowLayoutPanel1.TabIndex = 36
         '
-        'btventas
-        '
-        Me.btventas.BackColor = System.Drawing.Color.Transparent
-        Me.btventas.BackgroundImage = CType(resources.GetObject("btventas.BackgroundImage"), System.Drawing.Image)
-        Me.btventas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.btventas.FlatAppearance.BorderSize = 0
-        Me.btventas.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btventas.ForeColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.btventas.Location = New System.Drawing.Point(4, 4)
-        Me.btventas.Margin = New System.Windows.Forms.Padding(4)
-        Me.btventas.Name = "btventas"
-        Me.btventas.Size = New System.Drawing.Size(121, 104)
-        Me.btventas.TabIndex = 98
-        Me.btventas.UseVisualStyleBackColor = False
-        '
         'Button1
         '
         Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(27, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(44, Byte), Integer))
@@ -642,7 +627,7 @@ Partial Class frmindex
         Me.Button1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
         Me.Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button1.Location = New System.Drawing.Point(4, 116)
+        Me.Button1.Location = New System.Drawing.Point(4, 103)
         Me.Button1.Margin = New System.Windows.Forms.Padding(4)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(126, 67)
@@ -658,7 +643,7 @@ Partial Class frmindex
         Me.Button2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.Button2.Image = CType(resources.GetObject("Button2.Image"), System.Drawing.Image)
         Me.Button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button2.Location = New System.Drawing.Point(4, 191)
+        Me.Button2.Location = New System.Drawing.Point(4, 178)
         Me.Button2.Margin = New System.Windows.Forms.Padding(4)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(126, 67)
@@ -674,7 +659,7 @@ Partial Class frmindex
         Me.Button67.ForeColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.Button67.Image = CType(resources.GetObject("Button67.Image"), System.Drawing.Image)
         Me.Button67.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button67.Location = New System.Drawing.Point(4, 266)
+        Me.Button67.Location = New System.Drawing.Point(4, 253)
         Me.Button67.Margin = New System.Windows.Forms.Padding(4)
         Me.Button67.Name = "Button67"
         Me.Button67.Size = New System.Drawing.Size(126, 67)
@@ -690,7 +675,7 @@ Partial Class frmindex
         Me.Button14.ForeColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.Button14.Image = CType(resources.GetObject("Button14.Image"), System.Drawing.Image)
         Me.Button14.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button14.Location = New System.Drawing.Point(4, 341)
+        Me.Button14.Location = New System.Drawing.Point(4, 328)
         Me.Button14.Margin = New System.Windows.Forms.Padding(4)
         Me.Button14.Name = "Button14"
         Me.Button14.Size = New System.Drawing.Size(126, 67)
@@ -706,7 +691,7 @@ Partial Class frmindex
         Me.Button8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.Button8.Image = CType(resources.GetObject("Button8.Image"), System.Drawing.Image)
         Me.Button8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button8.Location = New System.Drawing.Point(4, 416)
+        Me.Button8.Location = New System.Drawing.Point(4, 403)
         Me.Button8.Margin = New System.Windows.Forms.Padding(4)
         Me.Button8.Name = "Button8"
         Me.Button8.Size = New System.Drawing.Size(126, 67)
@@ -722,7 +707,7 @@ Partial Class frmindex
         Me.Button38.ForeColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.Button38.Image = CType(resources.GetObject("Button38.Image"), System.Drawing.Image)
         Me.Button38.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button38.Location = New System.Drawing.Point(4, 491)
+        Me.Button38.Location = New System.Drawing.Point(4, 478)
         Me.Button38.Margin = New System.Windows.Forms.Padding(4)
         Me.Button38.Name = "Button38"
         Me.Button38.Size = New System.Drawing.Size(126, 67)
@@ -738,7 +723,7 @@ Partial Class frmindex
         Me.Button12.ForeColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.Button12.Image = CType(resources.GetObject("Button12.Image"), System.Drawing.Image)
         Me.Button12.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button12.Location = New System.Drawing.Point(4, 566)
+        Me.Button12.Location = New System.Drawing.Point(4, 553)
         Me.Button12.Margin = New System.Windows.Forms.Padding(4)
         Me.Button12.Name = "Button12"
         Me.Button12.Size = New System.Drawing.Size(126, 67)
@@ -758,7 +743,7 @@ Partial Class frmindex
         Me.TabControl1.Controls.Add(Me.TabPage5)
         Me.TabControl1.Controls.Add(Me.TabPage6)
         Me.TabControl1.Controls.Add(Me.TabPage7)
-        Me.TabControl1.Location = New System.Drawing.Point(132, 41)
+        Me.TabControl1.Location = New System.Drawing.Point(132, 65)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
         Me.TabControl1.Size = New System.Drawing.Size(1468, 803)
@@ -2737,19 +2722,21 @@ Partial Class frmindex
         Me.GroupBox25.Font = New System.Drawing.Font("Arial", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox25.Location = New System.Drawing.Point(713, 315)
         Me.GroupBox25.Name = "GroupBox25"
-        Me.GroupBox25.Size = New System.Drawing.Size(437, 149)
+        Me.GroupBox25.Size = New System.Drawing.Size(390, 149)
         Me.GroupBox25.TabIndex = 94
         Me.GroupBox25.TabStop = False
         Me.GroupBox25.Text = "Configure device status"
         '
         'Button27
         '
+        Me.Button27.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button27.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.Button27.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.Button27.ForeColor = System.Drawing.Color.White
-        Me.Button27.Location = New System.Drawing.Point(12, 40)
+        Me.Button27.Location = New System.Drawing.Point(27, 40)
         Me.Button27.Name = "Button27"
-        Me.Button27.Size = New System.Drawing.Size(406, 79)
+        Me.Button27.Size = New System.Drawing.Size(330, 79)
         Me.Button27.TabIndex = 93
         Me.Button27.Text = "Parche 241220"
         Me.Button27.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
@@ -2868,17 +2855,20 @@ Partial Class frmindex
         Me.GroupBox6.Font = New System.Drawing.Font("Arial", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox6.Location = New System.Drawing.Point(713, 161)
         Me.GroupBox6.Name = "GroupBox6"
-        Me.GroupBox6.Size = New System.Drawing.Size(437, 149)
+        Me.GroupBox6.Size = New System.Drawing.Size(390, 149)
         Me.GroupBox6.TabIndex = 91
         Me.GroupBox6.TabStop = False
         Me.GroupBox6.Text = "Configure seller"
         '
         'Button4
         '
+        Me.Button4.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button4.BackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(76, Byte), Integer), CType(CType(117, Byte), Integer))
         Me.Button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button4.ForeColor = System.Drawing.Color.White
-        Me.Button4.Location = New System.Drawing.Point(257, 102)
+        Me.Button4.Location = New System.Drawing.Point(214, 102)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(109, 29)
         Me.Button4.TabIndex = 95
@@ -2902,19 +2892,24 @@ Partial Class frmindex
         '
         'confcbseller
         '
+        Me.confcbseller.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.confcbseller.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.confcbseller.FormattingEnabled = True
         Me.confcbseller.Location = New System.Drawing.Point(6, 105)
         Me.confcbseller.Name = "confcbseller"
-        Me.confcbseller.Size = New System.Drawing.Size(246, 24)
+        Me.confcbseller.Size = New System.Drawing.Size(202, 24)
         Me.confcbseller.TabIndex = 93
         '
         'Button3
         '
+        Me.Button3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button3.BackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(76, Byte), Integer), CType(CType(117, Byte), Integer))
         Me.Button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button3.ForeColor = System.Drawing.Color.White
-        Me.Button3.Location = New System.Drawing.Point(257, 46)
+        Me.Button3.Location = New System.Drawing.Point(214, 46)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(109, 29)
         Me.Button3.TabIndex = 91
@@ -2924,14 +2919,13 @@ Partial Class frmindex
         '
         'conftxtseller
         '
-        Me.conftxtseller.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.conftxtseller.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.conftxtseller.BackColor = System.Drawing.Color.White
         Me.conftxtseller.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.conftxtseller.Location = New System.Drawing.Point(9, 49)
         Me.conftxtseller.Name = "conftxtseller"
-        Me.conftxtseller.Size = New System.Drawing.Size(246, 26)
+        Me.conftxtseller.Size = New System.Drawing.Size(199, 26)
         Me.conftxtseller.TabIndex = 92
         '
         'Label13
@@ -2954,7 +2948,7 @@ Partial Class frmindex
         Me.GroupBox38.Controls.Add(Me.Button65)
         Me.GroupBox38.Controls.Add(Me.Button52)
         Me.GroupBox38.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox38.Location = New System.Drawing.Point(375, 540)
+        Me.GroupBox38.Location = New System.Drawing.Point(372, 390)
         Me.GroupBox38.Name = "GroupBox38"
         Me.GroupBox38.Size = New System.Drawing.Size(335, 179)
         Me.GroupBox38.TabIndex = 90
@@ -2965,6 +2959,7 @@ Partial Class frmindex
         '
         Me.Button88.BackColor = System.Drawing.Color.FromArgb(CType(CType(47, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(72, Byte), Integer))
         Me.Button88.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button88.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button88.ForeColor = System.Drawing.Color.White
         Me.Button88.Location = New System.Drawing.Point(176, 102)
         Me.Button88.Name = "Button88"
@@ -2979,6 +2974,7 @@ Partial Class frmindex
         Me.Button65.BackColor = System.Drawing.Color.FromArgb(CType(CType(47, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(72, Byte), Integer))
         Me.Button65.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.Button65.FlatAppearance.BorderSize = 0
+        Me.Button65.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button65.ForeColor = System.Drawing.Color.White
         Me.Button65.Location = New System.Drawing.Point(8, 102)
         Me.Button65.Name = "Button65"
@@ -2992,6 +2988,7 @@ Partial Class frmindex
         '
         Me.Button52.BackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(76, Byte), Integer), CType(CType(117, Byte), Integer))
         Me.Button52.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button52.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button52.ForeColor = System.Drawing.Color.White
         Me.Button52.Image = CType(resources.GetObject("Button52.Image"), System.Drawing.Image)
         Me.Button52.Location = New System.Drawing.Point(8, 19)
@@ -3013,7 +3010,7 @@ Partial Class frmindex
         Me.GroupBox33.Font = New System.Drawing.Font("Arial", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox33.Location = New System.Drawing.Point(713, 6)
         Me.GroupBox33.Name = "GroupBox33"
-        Me.GroupBox33.Size = New System.Drawing.Size(437, 149)
+        Me.GroupBox33.Size = New System.Drawing.Size(390, 149)
         Me.GroupBox33.TabIndex = 89
         Me.GroupBox33.TabStop = False
         Me.GroupBox33.Text = "Configure printer"
@@ -3046,10 +3043,11 @@ Partial Class frmindex
         '
         Me.Button77.BackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(76, Byte), Integer), CType(CType(117, Byte), Integer))
         Me.Button77.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button77.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button77.ForeColor = System.Drawing.Color.White
-        Me.Button77.Location = New System.Drawing.Point(257, 39)
+        Me.Button77.Location = New System.Drawing.Point(266, 22)
         Me.Button77.Name = "Button77"
-        Me.Button77.Size = New System.Drawing.Size(161, 79)
+        Me.Button77.Size = New System.Drawing.Size(118, 96)
         Me.Button77.TabIndex = 87
         Me.Button77.Text = "To update printer"
         Me.Button77.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
@@ -3070,10 +3068,11 @@ Partial Class frmindex
         '
         Me.btnconfigticket.BackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(76, Byte), Integer), CType(CType(117, Byte), Integer))
         Me.btnconfigticket.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.btnconfigticket.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnconfigticket.ForeColor = System.Drawing.Color.White
-        Me.btnconfigticket.Location = New System.Drawing.Point(257, 94)
+        Me.btnconfigticket.Location = New System.Drawing.Point(257, 72)
         Me.btnconfigticket.Name = "btnconfigticket"
-        Me.btnconfigticket.Size = New System.Drawing.Size(161, 48)
+        Me.btnconfigticket.Size = New System.Drawing.Size(161, 57)
         Me.btnconfigticket.TabIndex = 85
         Me.btnconfigticket.Text = "Configurar posicion Ticket"
         Me.btnconfigticket.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
@@ -3098,13 +3097,12 @@ Partial Class frmindex
         '
         Me.GroupBox34.Controls.Add(Me.Button87)
         Me.GroupBox34.Controls.Add(Me.Button84)
-        Me.GroupBox34.Controls.Add(Me.lbnombreimagen)
         Me.GroupBox34.Controls.Add(Me.Button83)
         Me.GroupBox34.Controls.Add(Me.pblogo)
         Me.GroupBox34.Font = New System.Drawing.Font("Arial", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox34.Location = New System.Drawing.Point(372, 6)
         Me.GroupBox34.Name = "GroupBox34"
-        Me.GroupBox34.Size = New System.Drawing.Size(335, 528)
+        Me.GroupBox34.Size = New System.Drawing.Size(335, 381)
         Me.GroupBox34.TabIndex = 88
         Me.GroupBox34.TabStop = False
         Me.GroupBox34.Text = "Logo"
@@ -3113,6 +3111,7 @@ Partial Class frmindex
         '
         Me.Button87.BackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(76, Byte), Integer), CType(CType(117, Byte), Integer))
         Me.Button87.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button87.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button87.ForeColor = System.Drawing.Color.White
         Me.Button87.Location = New System.Drawing.Point(226, 307)
         Me.Button87.Name = "Button87"
@@ -3126,6 +3125,7 @@ Partial Class frmindex
         '
         Me.Button84.BackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(76, Byte), Integer), CType(CType(117, Byte), Integer))
         Me.Button84.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button84.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button84.ForeColor = System.Drawing.Color.White
         Me.Button84.Location = New System.Drawing.Point(137, 307)
         Me.Button84.Name = "Button84"
@@ -3135,24 +3135,11 @@ Partial Class frmindex
         Me.Button84.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         Me.Button84.UseVisualStyleBackColor = False
         '
-        'lbnombreimagen
-        '
-        Me.lbnombreimagen.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lbnombreimagen.AutoSize = True
-        Me.lbnombreimagen.Font = New System.Drawing.Font("Arial", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbnombreimagen.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.lbnombreimagen.Location = New System.Drawing.Point(0, 364)
-        Me.lbnombreimagen.Name = "lbnombreimagen"
-        Me.lbnombreimagen.Size = New System.Drawing.Size(335, 17)
-        Me.lbnombreimagen.TabIndex = 74
-        Me.lbnombreimagen.Text = "Nota: La imagen debe ser una tamaño de 250x250"
-        '
         'Button83
         '
         Me.Button83.BackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(76, Byte), Integer), CType(CType(117, Byte), Integer))
         Me.Button83.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button83.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button83.ForeColor = System.Drawing.Color.White
         Me.Button83.Location = New System.Drawing.Point(17, 307)
         Me.Button83.Name = "Button83"
@@ -3531,6 +3518,7 @@ Partial Class frmindex
         '
         Me.Button75.BackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(76, Byte), Integer), CType(CType(117, Byte), Integer))
         Me.Button75.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button75.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button75.ForeColor = System.Drawing.Color.White
         Me.Button75.Location = New System.Drawing.Point(36, 627)
         Me.Button75.Name = "Button75"
@@ -4271,6 +4259,14 @@ Partial Class frmindex
         'PrintDocument4
         '
         '
+        'btventas
+        '
+        Me.btventas.Location = New System.Drawing.Point(3, 3)
+        Me.btventas.Name = "btventas"
+        Me.btventas.Size = New System.Drawing.Size(123, 93)
+        Me.btventas.TabIndex = 102
+        Me.btventas.TabStop = False
+        '
         'frmindex
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -4341,7 +4337,6 @@ Partial Class frmindex
         Me.GroupBox33.ResumeLayout(False)
         Me.GroupBox33.PerformLayout()
         Me.GroupBox34.ResumeLayout(False)
-        Me.GroupBox34.PerformLayout()
         CType(Me.pblogo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox31.ResumeLayout(False)
         Me.GroupBox31.PerformLayout()
@@ -4357,6 +4352,7 @@ Partial Class frmindex
         CType(Me.cgrilla, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox24.ResumeLayout(False)
         Me.GroupBox24.PerformLayout()
+        CType(Me.btventas, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -4374,7 +4370,6 @@ Partial Class frmindex
     Friend WithEvents btncerrarcajamenu As Button
     Friend WithEvents btnabrircajamenu As Button
     Friend WithEvents FlowLayoutPanel1 As FlowLayoutPanel
-    Friend WithEvents btventas As Button
     Friend WithEvents Button1 As Button
     Friend WithEvents Button2 As Button
     Friend WithEvents Button67 As Button
@@ -4400,7 +4395,6 @@ Partial Class frmindex
     Friend WithEvents GroupBox34 As GroupBox
     Friend WithEvents Button87 As Button
     Friend WithEvents Button84 As Button
-    Friend WithEvents lbnombreimagen As Label
     Friend WithEvents Button83 As Button
     Friend WithEvents pblogo As PictureBox
     Friend WithEvents GroupBox31 As GroupBox
@@ -4687,4 +4681,5 @@ Partial Class frmindex
     Friend WithEvents rtxtdatestatus As TextBox
     Friend WithEvents Button42 As Button
     Friend WithEvents ToolTip1 As ToolTip
+    Friend WithEvents btventas As PictureBox
 End Class

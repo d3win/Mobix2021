@@ -59,7 +59,7 @@ Public Class frmindex
                 ms = New System.IO.MemoryStream(imageBuffer) 'Cargamos el MemoryStream con la imagen ya convertida en Bytes.
                 pblogo.BackgroundImage = Nothing 'Si existe una imagen cargada en el PictureBox la borramos.
                 pblogo.BackgroundImage = (Image.FromStream(ms)) 'Cargamos la imagen al PictureBox, Nota: Lo hacemos como .BackgroundImage pero igual lo podemos hacer como .Image.
-                pblogo.BackgroundImageLayout = ImageLayout.Stretch 'Ajustamos la imagen al todo el PictureBox.
+                pblogo.BackgroundImageLayout = ImageLayout.Zoom 'Ajustamos la imagen al todo el PictureBox.
                 conexionMysql.Close()
                 dt.Clear()
                 dt.Reset()
@@ -260,7 +260,7 @@ Public Class frmindex
                 cerrarconexion()
                 conexionMysql.Open()
                 Dim Sql2 As String
-                Sql2 = "INSERT INTO `mobi`.`impresora` (`idimpresora`, `nombre_impresora`) VALUES ('1', '" & impresosaPredt & "');"
+                Sql2 = "INSERT INTO `impresora` (`idimpresora`, `nombre_impresora`) VALUES ('1', '" & impresosaPredt & "');"
                 Dim cmd2 As New MySqlCommand(Sql2, conexionMysql)
                 cmd2.ExecuteNonQuery()
                 conexionMysql.Close()
@@ -503,6 +503,9 @@ Public Class frmindex
             'conexionMysql.Close()
             ''asignamos la ruta a la imagen
             pblogoticket.Image = Image.FromFile(rutaImagen)
+            btventas.Image = Image.FromFile(rutaImagen)
+            'btventas.BackgroundImageLayout = ImageLayout.Stretch
+            btventas.SizeMode = PictureBoxSizeMode.Zoom
         Catch ex As Exception
             cerrarconexion()
         End Try
@@ -861,6 +864,7 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
             'Obteniendo la ruta completa del archivo xml
             filename = openfiler.FileName
             Me.pblogo.Image = Image.FromFile(filename)
+            pblogo.SizeMode = PictureBoxSizeMode.Zoom
             pblogo.Visible = True
 
             txtrutaimagen.Text = pblogo.ImageLocation
@@ -961,7 +965,7 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
             conexionMysql.Open()
 
             Dim Sql36 As String
-            Sql36 = "UPDATE `mobi`.`datos_empresa` SET `ruta_logo` = '" & nuevaruta & "'"
+            Sql36 = "UPDATE `datos_empresa` SET `ruta_logo` = '" & nuevaruta & "'"
             Dim cmd36 As New MySqlCommand(Sql36, conexionMysql)
             cmd36.ExecuteNonQuery()
             conexionMysql.Close()
@@ -1063,8 +1067,13 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
             ' Establecemos a Nothing el valor de la propiedad Image
             ' del control PictureBox.
 
+
+
+
+
+
             cargarlogook()
-            MsgBox("Producto Eliminado", MsgBoxStyle.Information, "Sistema")
+            MsgBox("Logotipo Eliminado", MsgBoxStyle.Information, "Sistema")
             'comprobarexistenciadelogo()
 
         Catch ex As Exception
@@ -1220,7 +1229,7 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
                 'en caso de que no este el cliente, lo guardamos
                 conexionMysql.Open()
                 Dim Sqlx1 As String
-                Sqlx1 = "INSERT INTO `mobi`.`customer` (`name`, `address`, `state`, `city`, `telephone`,`email`) VALUES ( '" & txtname.Text & "', '" & txtaddress.Text & "', '" & txtstate.Text & "', '" & txtcity.Text & "', '" & txttelephone.Text & "','" & stxtemail.Text & "');"
+                Sqlx1 = "INSERT INTO `customer` (`name`, `address`, `state`, `city`, `telephone`,`email`) VALUES ( '" & txtname.Text & "', '" & txtaddress.Text & "', '" & txtstate.Text & "', '" & txtcity.Text & "', '" & txttelephone.Text & "','" & stxtemail.Text & "');"
                 Dim cmdx1 As New MySqlCommand(Sqlx1, conexionMysql)
                 cmdx1.ExecuteNonQuery()
                 conexionMysql.Close()
@@ -1297,7 +1306,7 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
             conexionMysql.Open()
             Dim Sql As String
             'Sql = "INSERT INTO `mobi`.`venta` (`idventa`, `idcustomer`,  `idseller`, `total`, `fechaventa`, `fechaentrega`, `costo_reparacion`, `deposito`, `resto`,`tipoventa`) VALUES ('" & lbfolio.Text & "', '" & idcliente & "', '" & idseller & "', '" & stxttotalfinal.Text & "', '" & fecha & "', '" & fecha & "', '0', '0', '0',1);"
-            Sql = "INSERT INTO `mobi`.`venta` (`idventa`, `idcustomer`,  `idseller`, `total`, `fechaventa`, `fechaentrega`, `deposito`, `resto`,`tipoventa`) VALUES ('" & lbfolio.Text & "', '" & idcliente & "', '" & idseller & "', '" & stxttotalfinal.Text & "', '" & fecha & "', '" & fecha & "', '0', '0',1);"
+            Sql = "INSERT INTO `venta` (`idventa`, `idcustomer`,  `idseller`, `total`, `fechaventa`, `fechaentrega`, `deposito`, `resto`,`tipoventa`) VALUES ('" & lbfolio.Text & "', '" & idcliente & "', '" & idseller & "', '" & stxttotalfinal.Text & "', '" & fecha & "', '" & fecha & "', '0', '0',1);"
             Dim cmd As New MySqlCommand(Sql, conexionMysql)
             cmd.ExecuteNonQuery()
             conexionMysql.Close()
@@ -1959,7 +1968,7 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
                 cerrarconexion()
                 conexionMysql.Open()
                 Dim Sql2 As String
-                Sql2 = "INSERT INTO `mobi`.`seller` (`name_seller`) VALUES ('" & conftxtseller.Text & "');"
+                Sql2 = "INSERT INTO `seller` (`name_seller`) VALUES ('" & conftxtseller.Text & "');"
                 Dim cmd2 As New MySqlCommand(Sql2, conexionMysql)
                 cmd2.ExecuteNonQuery()
                 conexionMysql.Close()
@@ -3841,7 +3850,7 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
                     'en caso de que no este el cliente, lo guardamos
                     conexionMysql.Open()
                     Dim Sqlx1 As String
-                    Sqlx1 = "INSERT INTO `mobi`.`customer` (`name`, `address`, `state`, `city`, `telephone`,`email`) VALUES ( '" & rtxtcustomername.Text & "', '" & rtxtaddress.Text & "', '" & rtxtstate.Text & "', '" & rtxtcity.Text & "', '" & rtxttelephone.Text & "','" & rtxtemail.Text & "');"
+                    Sqlx1 = "INSERT INTO `customer` (`name`, `address`, `state`, `city`, `telephone`,`email`) VALUES ( '" & rtxtcustomername.Text & "', '" & rtxtaddress.Text & "', '" & rtxtstate.Text & "', '" & rtxtcity.Text & "', '" & rtxttelephone.Text & "','" & rtxtemail.Text & "');"
                     Dim cmdx1 As New MySqlCommand(Sqlx1, conexionMysql)
                     'cmdx1.ExecuteNonQuery()
                     conexionMysql.Close()
@@ -3934,7 +3943,7 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
                 conexionMysql.Open()
                 Dim Sql As String
                 '                Sql = "INSERT INTO `mobi`.`venta` (`idventa`, `idcustomer`,  `idseller`, `total`, `fechaventa`, `fechaentrega`, `deposito`, `resto`,`tipoventa`) VALUES ('" & slbfolio.Text & "', '" & idcliente & "', '" & idseller & "', '" & rtxttotal.Text & "', '" & fecha & "', '" & fechacalendarioentrega & "', '" & sumdeposito & "', '" & sumresto & "',2);"
-                Sql = "INSERT INTO `mobi`.`venta` (`idventa`, `idcustomer`,  `idseller`, `total`, `fechaventa`, `fechaentrega`, `deposito`,`resto`,`tipoventa`) VALUES ('" & slbfolio.Text & "', '" & idcliente & "', '" & idseller & "', '" & rtxttotal.Text & "', '" & fecha & "', '" & fechacalendarioentrega & "','" & rtxtdeposito.Text & "','" & rtxtresto.Text & "',2);"
+                Sql = "INSERT INTO `venta` (`idventa`, `idcustomer`,  `idseller`, `total`, `fechaventa`, `fechaentrega`, `deposito`,`resto`,`tipoventa`) VALUES ('" & slbfolio.Text & "', '" & idcliente & "', '" & idseller & "', '" & rtxttotal.Text & "', '" & fecha & "', '" & fechacalendarioentrega & "','" & rtxtdeposito.Text & "','" & rtxtresto.Text & "',2);"
 
                 Dim cmd As New MySqlCommand(Sql, conexionMysql)
                 cmd.ExecuteNonQuery()
@@ -5919,7 +5928,7 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
             cerrarconexion()
             conexionMysql.Open()
             Dim Sql2 As String
-            Sql2 = "UPDATE `mobi`.`customer` SET `name` = '" & rtxtcustomername.Text & "', `address` = '" & rtxtaddress.Text & "', `state` = '" & rtxtstate.Text & "', `city` = '" & rtxtcity.Text & "', `telephone` = '" & rtxttelephone.Text & "', `email` = '" & rtxtemail.Text & "' WHERE (`idcustomer` = '" & customeract & "');"
+            Sql2 = "UPDATE `customer` SET `name` = '" & rtxtcustomername.Text & "', `address` = '" & rtxtaddress.Text & "', `state` = '" & rtxtstate.Text & "', `city` = '" & rtxtcity.Text & "', `telephone` = '" & rtxttelephone.Text & "', `email` = '" & rtxtemail.Text & "' WHERE (`idcustomer` = '" & customeract & "');"
             'Sql2 = "update customer set name='" & rtxtcustomername.Text & "', address='" & rtxtaddress.Text & "', state='" & rtxtcity.Text & "', city='" & rtxtstate.Text & "', telephone='" & rtxttelephone.Text & "', email='" & rtxtemail.Text & "' where idcustomer='" & idcustomerbus & "';"
             Dim cmd2 As New MySqlCommand(Sql2, conexionMysql)
             cmd2.ExecuteNonQuery()
@@ -5935,7 +5944,7 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
             cerrarconexion()
             conexionMysql.Open()
             Dim Sql23 As String
-            Sql23 = "UPDATE `mobi`.`equipo` SET  `modelo` = '" & rtxtmodelo.Text & "', `imei` = '" & rtxtimei.Text & "', `password` = '" & rtxtpassword.Text & "', `status` = '" & cbstate.Text & "', `problema` = '" & rtxtproblem.Text & "', `nota` = '" & rtxtnote.Text & "' WHERE (equipo='" & rtxtequipo.Text & "' and idventa='" & rtxtbusquedafolio.Text & "' and idequipo='" & cb1.Text & "');"
+            Sql23 = "UPDATE `equipo` SET  `modelo` = '" & rtxtmodelo.Text & "', `imei` = '" & rtxtimei.Text & "', `password` = '" & rtxtpassword.Text & "', `status` = '" & cbstate.Text & "', `problema` = '" & rtxtproblem.Text & "', `nota` = '" & rtxtnote.Text & "' WHERE (equipo='" & rtxtequipo.Text & "' and idventa='" & rtxtbusquedafolio.Text & "' and idequipo='" & cb1.Text & "');"
             'Sql23 = "update equipo set modelo='" & rtxtmodelo.Text & "', imei='" & rtxtimei.Text & "', password='" & rtxtpassword.Text & "', status='" & cbstate.Text & "', problema='" & rtxtproblem.Text & "', nota='" & rtxtnote.Text & "' where idequipo='" & rtxtequipo.Text & "' and idventa='" & rtxtbusquedafolio.Text & "';"
             Dim cmd23 As New MySqlCommand(Sql23, conexionMysql)
             cmd23.ExecuteNonQuery()
@@ -6996,7 +7005,7 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
             'en caso de que no este el cliente, lo guardamos
             conexionMysql.Open()
             Dim Sqlx1 As String
-            Sqlx1 = "INSERT INTO `mobi`.`customer` (`name`, `address`, `state`, `city`, `telephone`,`email`) VALUES ( '" & rtxtcustomername.Text & "', '" & rtxtaddress.Text & "', '" & rtxtstate.Text & "', '" & rtxtcity.Text & "', '" & rtxttelephone.Text & "','" & rtxtemail.Text & "');"
+            Sqlx1 = "INSERT INTO `customer` (`name`, `address`, `state`, `city`, `telephone`,`email`) VALUES ( '" & rtxtcustomername.Text & "', '" & rtxtaddress.Text & "', '" & rtxtstate.Text & "', '" & rtxtcity.Text & "', '" & rtxttelephone.Text & "','" & rtxtemail.Text & "');"
             Dim cmdx1 As New MySqlCommand(Sqlx1, conexionMysql)
             cmdx1.ExecuteNonQuery()
             conexionMysql.Close()
@@ -7057,7 +7066,7 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
         cerrarconexion()
         conexionMysql.Open()
         Dim Sql2 As String
-        Sql2 = "INSERT INTO `mobi`.`equipo` (`equipo`, `modelo`, `imei`, `password`, `status`, `problema`, `nota`, `idcustomer`,`reparacion`,`partes`,`idventa`,`posicion`) VALUES ('" & rtxtequipo.Text & "', '" & rtxtmodelo.Text & "', '" & rtxtimei.Text & "', '" & rtxtpassword.Text & "', '" & cbstate.Text & "', '" & rtxtproblem.Text & "', '" & rtxtnote.Text & "', '" & idcliente & "','" & rtxtcostoreparacion.Text & "','" & rtxtpriceparts.Text & "','" & folio & "','" & indicecomboitem & "');"
+        Sql2 = "INSERT INTO `equipo` (`equipo`, `modelo`, `imei`, `password`, `status`, `problema`, `nota`, `idcustomer`,`reparacion`,`partes`,`idventa`,`posicion`) VALUES ('" & rtxtequipo.Text & "', '" & rtxtmodelo.Text & "', '" & rtxtimei.Text & "', '" & rtxtpassword.Text & "', '" & cbstate.Text & "', '" & rtxtproblem.Text & "', '" & rtxtnote.Text & "', '" & idcliente & "','" & rtxtcostoreparacion.Text & "','" & rtxtpriceparts.Text & "','" & folio & "','" & indicecomboitem & "');"
         Dim cmd2 As New MySqlCommand(Sql2, conexionMysql)
         cmd2.ExecuteNonQuery()
         conexionMysql.Close()
@@ -8137,7 +8146,7 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
 
             conexionMysql.Open()
             Dim Sqlu5 As String
-            Sqlu5 = "ALTER TABLE `mobi`.`equipo` 
+            Sqlu5 = "ALTER TABLE `equipo` 
 ADD COLUMN `datedelivery` DATE NULL AFTER `posicion`;"
             Dim cmdu5 As New MySqlCommand(Sqlu5, conexionMysql)
             cmdu5.ExecuteNonQuery()
@@ -8244,9 +8253,9 @@ ADD COLUMN `datedelivery` DATE NULL AFTER `posicion`;"
                 conexionMysql.Open()
 
                 Dim sql23 As String
-                sql23 = "ALTER TABLE `mobi`.`venta_ind` 
+            sql23 = "ALTER TABLE `venta_ind` 
 ADD COLUMN `idequipo` VARCHAR(45) NULL AFTER `name_item`;;"
-                Dim cmd23 As New MySqlCommand(sql23, conexionMysql)
+            Dim cmd23 As New MySqlCommand(sql23, conexionMysql)
                 cmd23.ExecuteNonQuery()
 
                 conexionMysql.Close()
@@ -8262,9 +8271,9 @@ ADD COLUMN `idequipo` VARCHAR(45) NULL AFTER `name_item`;;"
                 conexionMysql.Open()
 
                 Dim sql23 As String
-                sql23 = "ALTER TABLE `mobi`.`venta_ind` 
+            sql23 = "ALTER TABLE `venta_ind` 
 ADD COLUMN `idequipo` VARCHAR(45) NULL AFTER `name_item`;;"
-                Dim cmd23 As New MySqlCommand(sql23, conexionMysql)
+            Dim cmd23 As New MySqlCommand(sql23, conexionMysql)
                 cmd23.ExecuteNonQuery()
 
                 conexionMysql.Close()
@@ -8281,9 +8290,9 @@ ADD COLUMN `idequipo` VARCHAR(45) NULL AFTER `name_item`;;"
                 conexionMysql.Open()
 
                 Dim sql2 As String
-                sql2 = "ALTER TABLE `mobi`.`equipo` 
+            sql2 = "ALTER TABLE `equipo` 
 ADD COLUMN `posicion` INT NULL AFTER `idventa`;"
-                Dim cmd2 As New MySqlCommand(sql2, conexionMysql)
+            Dim cmd2 As New MySqlCommand(sql2, conexionMysql)
                 cmd2.ExecuteNonQuery()
 
                 conexionMysql.Close()
@@ -9755,7 +9764,7 @@ ADD COLUMN `posicion` INT NULL AFTER `idventa`;"
                 cerrarconexion()
                 conexionMysql.Open()
                 Dim Sql2X As String
-                Sql2X = "INSERT INTO `mobi`.`seller` (`name_seller`) VALUES ('SELLER');"
+                Sql2X = "INSERT INTO `seller` (`name_seller`) VALUES ('SELLER');"
                 Dim cmd2X As New MySqlCommand(Sql2X, conexionMysql)
                 cmd2X.ExecuteNonQuery()
                 conexionMysql.Close()
@@ -9863,6 +9872,10 @@ ADD COLUMN `posicion` INT NULL AFTER `idventa`;"
         'se actualiza la fecha del cambio del estado del dispositivo
         actualizarfecha()
         seleccionaritem()
+    End Sub
+
+    Private Sub Btventasx_Click(sender As Object, e As EventArgs)
+
     End Sub
 
     Private Sub Button28_Click(sender As Object, e As EventArgs) Handles Button28.Click

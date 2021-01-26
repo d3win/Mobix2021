@@ -35,6 +35,7 @@ Module caconexion
             'MsgBox(servidor)
             'MsgBox(contenido) 'pego primera linea
             bd = "mobi" 'leo segunda linea
+            'bd = "u594602316_m1"
             'user = freader.ReadLine()
             'pass = freader.ReadLine()
             puerto = port

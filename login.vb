@@ -15,9 +15,50 @@ Public Class login
         'If respuesta = False Then
         '    Me.Finalize()
         'End If
-
+        cargarlogoticket()
 
     End Sub
+    Function cargarlogoticket()
+        Dim ruta As String
+        Try
+            '------------------- LEER INFORMACIÓN DE ARCHIVO ---------------------------
+
+            Dim lineas As New ArrayList()
+            Dim carpeta As String
+            Dim rutaImagen As String
+
+            carpeta = Environment.GetFolderPath(Environment.SpecialFolder.Personal)
+
+            Dim freader As New StreamReader(carpeta & "\rutaImagenNoBorrar.txt")
+
+            rutaImagen = freader.ReadLine() 'leo primera linea
+            'port = freader.ReadLine() 'leo primera linea
+
+            'MsgBox(rutaImagen)
+            ''verificamos que exista al menos 1 registro, en caso de que exista 0, indicamos que el valor es 0;
+            'cerrarconexion()
+            'conexionMysql.Open()
+            'Dim sql22 As String
+            'sql22 = "select ruta_logo from datos_empresa;"
+            'Dim cmd22 As New MySqlCommand(sql22, conexionMysql)
+            'reader = cmd22.ExecuteReader
+            'reader.Read()
+            'ruta = reader.GetString(0).ToString()
+            'conexionMysql.Close()
+            ''asignamos la ruta a la imagen
+            PictureBox1.Image = Image.FromFile(rutaImagen)
+            PictureBox1.BackgroundImageLayout = ImageLayout.Stretch
+            PictureBox1.SizeMode = PictureBoxSizeMode.Zoom
+            '  btventas.Image = Image.FromFile(rutaImagen)
+        Catch ex As Exception
+            cerrarconexion()
+
+
+        End Try
+
+
+
+    End Function
     Function creararchivo()
         ' Create a string array with the lines of text
         Try
@@ -26,7 +67,7 @@ Public Class login
             Dim IP, port As String
 
             IP = InputBox("Ingresa la ip del servidor de la BD")
-            port = InputBox("Ingresa la ip del servidor de la BD")
+            port = InputBox("Ingresa el puerto del servidor de la BD")
 
 
             Dim lines() As String = {IP, port}
