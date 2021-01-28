@@ -129,8 +129,9 @@ Public Class frmindex
         Button14.BackColor = Color.FromArgb(27, 38, 44)
         Button38.BackColor = Color.FromArgb(27, 38, 44)
 
-        cargarlogook()
-        comprobarexistenciadelogo()
+        'cargarlogook()
+        cargarlogoticket()
+        'comprobarexistenciadelogo()
 
         'Dim tipo As Integer
 
@@ -506,6 +507,10 @@ Public Class frmindex
             btventas.Image = Image.FromFile(rutaImagen)
             'btventas.BackgroundImageLayout = ImageLayout.Stretch
             btventas.SizeMode = PictureBoxSizeMode.Zoom
+            pblogo.Image = Image.FromFile(rutaImagen)
+            'btventas.BackgroundImageLayout = ImageLayout.Stretch
+            pblogo.SizeMode = PictureBoxSizeMode.Zoom
+
         Catch ex As Exception
             cerrarconexion()
         End Try
@@ -939,7 +944,11 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
 
         cerrarconexion()
 
+        'Try
+        Dim res As Integer
+
         Try
+
             conexionMysql.Open()
             Dim sql As String = "insert into logo_empresa(idlogo_empresa,logo)values(1,?imagen)"
             'conexionMysql = New MySqlConnection(StrConexion)
@@ -955,25 +964,63 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
             'End If
             conexionMysql.Close()
 
+            res = 0
 
-            Dim nuevaruta As String
-            nuevaruta = Replace(txtrutaimagen.Text, "\", "\\")
+        Catch ex As Exception
+            res = 1
+        End Try
 
 
-            'MsgBox(nuevaruta)
+
+        If res = 1 Then
+
+            ' Try
+            MsgBox("Ya existe una imagen en el sistema, será remplazada", MsgBoxStyle.Information, "CTRL+y")
             cerrarconexion()
             conexionMysql.Open()
 
+            Dim sql2 As String
+            sql2 = "delete from  logo_empresa"
+            Dim cmd2 As New MySqlCommand(sql2, conexionMysql)
+            cmd2.ExecuteNonQuery()
+
+            conexionMysql.Close()
+
+            conexionMysql.Open()
+            Dim sql As String = "insert into logo_empresa(idlogo_empresa,logo)values(1,?imagen)"
+            'conexionMysql = New MySqlConnection(StrConexion)
+            Dim Comando As New MySqlCommand(sql, conexionMysql)
+
+            Dim Imag As Byte()
+            Imag = Imagen_Bytes(Me.pblogo.Image)
+
+            Comando.Parameters.AddWithValue("?imagen", Imag)
+
+            'conexionMysql.Open()
+            'If conexionMysql.State = ConnectionState.Open Then
+            Comando.ExecuteNonQuery()
+            'End If
+            conexionMysql.Close()
+
+
+
+            Dim nuevaruta As String
+            nuevaruta = Replace(txtrutaimagen.Text, "\", "\\")
+            ' MsgBox("nuevaruta" & nuevaruta)
+
+            cerrarconexion()
+            conexionMysql.Open()
+            'Try
+
             Dim Sql36 As String
-            Sql36 = "UPDATE `datos_empresa` SET `ruta_logo` = '" & nuevaruta & "'"
+            Sql36 = "UPDATE `datos_empresa` SET `ruta_logo` = '" & nuevaruta & "' WHERE (`iddatos_empresa` = '1');"
             Dim cmd36 As New MySqlCommand(Sql36, conexionMysql)
             cmd36.ExecuteNonQuery()
             conexionMysql.Close()
 
             'MsgBox(txtrutaimagen.Text)
+            '-------------------------------------------------------------------------------------------------------
 
-
-            '.........................................
             '--------ALMACENAMOS LA RUTA EN EL ARCHIVO DE TEXTO
 
             Try
@@ -1007,21 +1054,17 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
 
 
 
+            ' MsgBox("Logotipo Guardado", MsgBoxStyle.Information, "CTRL+y")
+
+
+
+
+            '----------------------------------------------------------------------------------------------------------
             MsgBox("Logotipo Guardado", MsgBoxStyle.Information, "CTRL+y")
+            cargarlogoticket()
 
 
-
-
-
-
-
-
-
-        Catch ex As Exception
-            'MessageBox.Show(ex.Message)
-            MsgBox("Ya existe un logotipo en el sistema", MsgBoxStyle.Information, "CTRL+y")
-        End Try
-        '-------------------------
+        End If
 
 
 
