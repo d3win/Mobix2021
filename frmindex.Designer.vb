@@ -59,6 +59,11 @@ Partial Class frmindex
         Me.stotal = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.FlowLayoutPanel3 = New System.Windows.Forms.FlowLayoutPanel()
         Me.Button5 = New System.Windows.Forms.Button()
+        Me.GroupBox26 = New System.Windows.Forms.GroupBox()
+        Me.Label66 = New System.Windows.Forms.Label()
+        Me.Button43 = New System.Windows.Forms.Button()
+        Me.txtbusquedafolioventa = New System.Windows.Forms.TextBox()
+        Me.Label59 = New System.Windows.Forms.Label()
         Me.pblogoticket = New System.Windows.Forms.PictureBox()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
         Me.cbseller = New System.Windows.Forms.ComboBox()
@@ -349,6 +354,7 @@ Partial Class frmindex
         Me.PrintDocument3 = New System.Drawing.Printing.PrintDocument()
         Me.PrintDocument4 = New System.Drawing.Printing.PrintDocument()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.Button44 = New System.Windows.Forms.Button()
         Me.FlowLayoutPanel2.SuspendLayout
         Me.FlowLayoutPanel1.SuspendLayout
         CType(Me.btventas, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -358,6 +364,7 @@ Partial Class frmindex
         Me.GroupBox15.SuspendLayout
         CType(Me.sgrilla, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.FlowLayoutPanel3.SuspendLayout
+        Me.GroupBox26.SuspendLayout
         CType(Me.pblogoticket, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox5.SuspendLayout
         Me.GroupBox4.SuspendLayout
@@ -871,6 +878,8 @@ Partial Class frmindex
         '
         Me.FlowLayoutPanel3.BackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(76, Byte), Integer), CType(CType(117, Byte), Integer))
         Me.FlowLayoutPanel3.Controls.Add(Me.Button5)
+        Me.FlowLayoutPanel3.Controls.Add(Me.GroupBox26)
+        Me.FlowLayoutPanel3.Controls.Add(Me.Button44)
         Me.FlowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Right
         Me.FlowLayoutPanel3.Location = New System.Drawing.Point(1327, 3)
         Me.FlowLayoutPanel3.Name = "FlowLayoutPanel3"
@@ -894,11 +903,70 @@ Partial Class frmindex
         Me.Button5.Text = "Check Out"
         Me.Button5.UseVisualStyleBackColor = False
         '
+        'GroupBox26
+        '
+        Me.GroupBox26.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox26.Controls.Add(Me.Label66)
+        Me.GroupBox26.Controls.Add(Me.Button43)
+        Me.GroupBox26.Controls.Add(Me.txtbusquedafolioventa)
+        Me.GroupBox26.Controls.Add(Me.Label59)
+        Me.GroupBox26.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox26.ForeColor = System.Drawing.Color.White
+        Me.GroupBox26.Location = New System.Drawing.Point(3, 90)
+        Me.GroupBox26.Name = "GroupBox26"
+        Me.GroupBox26.Size = New System.Drawing.Size(121, 128)
+        Me.GroupBox26.TabIndex = 107
+        Me.GroupBox26.TabStop = False
+        Me.GroupBox26.Text = "Search"
+        '
+        'Label66
+        '
+        Me.Label66.AutoSize = True
+        Me.Label66.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label66.Location = New System.Drawing.Point(6, 28)
+        Me.Label66.Name = "Label66"
+        Me.Label66.Size = New System.Drawing.Size(97, 17)
+        Me.Label66.TabIndex = 1117
+        Me.Label66.Text = "Sheet number"
+        '
+        'Button43
+        '
+        Me.Button43.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(130, Byte), Integer), CType(CType(184, Byte), Integer))
+        Me.Button43.FlatAppearance.BorderSize = 0
+        Me.Button43.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button43.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button43.ForeColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.Button43.Image = CType(resources.GetObject("Button43.Image"), System.Drawing.Image)
+        Me.Button43.Location = New System.Drawing.Point(7, 77)
+        Me.Button43.Margin = New System.Windows.Forms.Padding(4)
+        Me.Button43.Name = "Button43"
+        Me.Button43.Size = New System.Drawing.Size(107, 34)
+        Me.Button43.TabIndex = 1116
+        Me.Button43.UseVisualStyleBackColor = False
+        '
+        'txtbusquedafolioventa
+        '
+        Me.txtbusquedafolioventa.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtbusquedafolioventa.Location = New System.Drawing.Point(6, 48)
+        Me.txtbusquedafolioventa.Name = "txtbusquedafolioventa"
+        Me.txtbusquedafolioventa.Size = New System.Drawing.Size(110, 22)
+        Me.txtbusquedafolioventa.TabIndex = 14
+        '
+        'Label59
+        '
+        Me.Label59.AutoSize = True
+        Me.Label59.Font = New System.Drawing.Font("Microsoft Sans Serif", 34.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label59.Location = New System.Drawing.Point(116, 34)
+        Me.Label59.Name = "Label59"
+        Me.Label59.Size = New System.Drawing.Size(0, 53)
+        Me.Label59.TabIndex = 13
+        Me.Label59.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
         'pblogoticket
         '
-        Me.pblogoticket.Location = New System.Drawing.Point(634, 20)
+        Me.pblogoticket.Location = New System.Drawing.Point(859, 16)
         Me.pblogoticket.Name = "pblogoticket"
-        Me.pblogoticket.Size = New System.Drawing.Size(142, 79)
+        Me.pblogoticket.Size = New System.Drawing.Size(30, 79)
         Me.pblogoticket.TabIndex = 96
         Me.pblogoticket.TabStop = False
         Me.pblogoticket.Visible = False
@@ -1023,13 +1091,13 @@ Partial Class frmindex
         Me.lblistaproducto.ItemHeight = 20
         Me.lblistaproducto.Location = New System.Drawing.Point(19, 101)
         Me.lblistaproducto.Name = "lblistaproducto"
-        Me.lblistaproducto.Size = New System.Drawing.Size(246, 64)
+        Me.lblistaproducto.Size = New System.Drawing.Size(246, 24)
         Me.lblistaproducto.TabIndex = 1116
         '
         'stxttotal
         '
         Me.stxttotal.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.stxttotal.Location = New System.Drawing.Point(182, 125)
+        Me.stxttotal.Location = New System.Drawing.Point(182, 126)
         Me.stxttotal.Name = "stxttotal"
         Me.stxttotal.Size = New System.Drawing.Size(78, 22)
         Me.stxttotal.TabIndex = 11111
@@ -1190,7 +1258,7 @@ Partial Class frmindex
         Me.slbcustomer.ItemHeight = 20
         Me.slbcustomer.Location = New System.Drawing.Point(19, 57)
         Me.slbcustomer.Name = "slbcustomer"
-        Me.slbcustomer.Size = New System.Drawing.Size(246, 124)
+        Me.slbcustomer.Size = New System.Drawing.Size(246, 24)
         Me.slbcustomer.TabIndex = 13
         '
         'Button19
@@ -1691,7 +1759,7 @@ Partial Class frmindex
         Me.lblistarespuestos.ItemHeight = 20
         Me.lblistarespuestos.Location = New System.Drawing.Point(13, 97)
         Me.lblistarespuestos.Name = "lblistarespuestos"
-        Me.lblistarespuestos.Size = New System.Drawing.Size(224, 244)
+        Me.lblistarespuestos.Size = New System.Drawing.Size(224, 124)
         Me.lblistarespuestos.TabIndex = 9
         '
         'Button31
@@ -3159,7 +3227,7 @@ Partial Class frmindex
         Me.Button83.Name = "Button83"
         Me.Button83.Size = New System.Drawing.Size(114, 54)
         Me.Button83.TabIndex = 73
-        Me.Button83.Text = "Save image"
+        Me.Button83.Text = "doc"
         Me.Button83.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         Me.Button83.UseVisualStyleBackColor = False
         '
@@ -4273,6 +4341,23 @@ Partial Class frmindex
         'PrintDocument4
         '
         '
+        'Button44
+        '
+        Me.Button44.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(130, Byte), Integer), CType(CType(184, Byte), Integer))
+        Me.Button44.FlatAppearance.BorderSize = 0
+        Me.Button44.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button44.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button44.ForeColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.Button44.Image = CType(resources.GetObject("Button44.Image"), System.Drawing.Image)
+        Me.Button44.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button44.Location = New System.Drawing.Point(4, 225)
+        Me.Button44.Margin = New System.Windows.Forms.Padding(4)
+        Me.Button44.Name = "Button44"
+        Me.Button44.Size = New System.Drawing.Size(126, 79)
+        Me.Button44.TabIndex = 108
+        Me.Button44.Text = "Cancel all"
+        Me.Button44.UseVisualStyleBackColor = False
+        '
         'frmindex
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -4297,6 +4382,8 @@ Partial Class frmindex
         Me.GroupBox15.ResumeLayout(False)
         CType(Me.sgrilla, System.ComponentModel.ISupportInitialize).EndInit()
         Me.FlowLayoutPanel3.ResumeLayout(False)
+        Me.GroupBox26.ResumeLayout(False)
+        Me.GroupBox26.PerformLayout
         CType(Me.pblogoticket, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox5.ResumeLayout(False)
         Me.GroupBox5.PerformLayout
@@ -4688,4 +4775,10 @@ Partial Class frmindex
     Friend WithEvents Button42 As Button
     Friend WithEvents ToolTip1 As ToolTip
     Friend WithEvents btventas As PictureBox
+    Friend WithEvents GroupBox26 As GroupBox
+    Friend WithEvents Label66 As Label
+    Friend WithEvents Button43 As Button
+    Friend WithEvents txtbusquedafolioventa As TextBox
+    Friend WithEvents Label59 As Label
+    Friend WithEvents Button44 As Button
 End Class

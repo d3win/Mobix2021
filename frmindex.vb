@@ -9,7 +9,7 @@ Public Class frmindex
     Public hora, hora2, minuto, segundo, usuarioactual As String
     Public idcustomer, idequipo, idseller, idcustomerbus As String
     Public activarbusqueda, activarreparacion As Boolean
-    Public restatus, redeliverdate, rechekout, recustomer, rephone, remodelo, reorder As Boolean
+    Public restatus, redeliverdate, rechekout, recustomer, rephone, remodelo, reorder, statusbusquedaventa As Boolean
 
     Private Sub Button75_Click(sender As Object, e As EventArgs) Handles Button75.Click
 
@@ -791,6 +791,13 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
 
 
         Button38.BackColor = Color.FromArgb(27, 38, 44)
+        sgrilla.DefaultCellStyle.Font = New Font("Arial", 16)
+        sgrilla.RowHeadersVisible = False
+        'ampliar columna 
+        'grillap.Columns(2).Width = 120
+
+
+        sgrilla.AlternatingRowsDefaultCellStyle.BackColor = Color.SkyBlue
         sgrilla.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
 
         obtenerfolio()
@@ -1223,7 +1230,7 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
 
         'Try
 
-        If stxttotalfinal.Text = "0" Or ii <= 0 Then
+        If stxttotalfinal.Text = "0" Or ii <= 0 Or cbseller.Text = "" Then
             MsgBox("No hay ventas que realizar", MsgBoxStyle.Information, "Sistema")
             stxttotalfinal.Text = ""
         Else
@@ -1331,10 +1338,10 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
             Dim cmdx4 As New MySqlCommand(Sqlx4, conexionMysql)
             reader = cmdx4.ExecuteReader()
             reader.Read()
-            idequipo = reader.GetString(0).ToString()
+            idseller = reader.GetString(0).ToString()
             conexionMysql.Close()
 
-            idequipo = 0
+            ' idequipo = 0
 
             '            Dim ii As Integer = rgrilla.RowCount
             '           ii = rgrilla.RowCount
@@ -1362,6 +1369,7 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
 
             '------------------ insertar reginstro en tabla ventaIND ---------------------------------------
             Dim i As Integer = sgrilla.RowCount
+            ' MsgBox(i)
             Dim clave As String
             Dim actividad As String
             Dim cantidad, precio, total As Double
@@ -1370,7 +1378,7 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
             conexionMysql.Open()
 
             'suma de valores
-            For j = 0 To i - 2
+            For j = 0 To i - 1
                 'MsgBox("valosr de j:" & j)
                 'a = venta.grillaventa.Item(j, 3).Value.ToString()
                 clave = sgrilla.Rows(j).Cells(0).Value 'descripcion
@@ -1379,7 +1387,7 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
                 cantidad = sgrilla.Rows(j).Cells(3).Value
                 total = sgrilla.Rows(j).Cells(4).Value
                 cerrarconexion()
-
+                '  MsgBox("insertar")
 
                 '                If clave = "00" Then
                 '               clave = fechaclave
@@ -1603,7 +1611,15 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
 
     End Function
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
-        sventa()
+
+
+        If statusbusquedaventa = True Then
+            cancelartodoventa()
+        Else
+
+            sventa()
+
+        End If
         'aqui vamos a guardar el registro
 
 
@@ -1710,7 +1726,7 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
             MsgBox("Hay problemas con la impresion", MsgBoxStyle.Exclamation, "CTRL+y")
 
             'MessageBox.Show("Hay un problema de impresión",
-            ex.ToString()
+            'ex.ToString()
         End Try
 
     End Sub
@@ -4290,45 +4306,55 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
         Else
 
 
-            Dim dia, mes, año, fecha, fechaclave, claveproducto As String
-            hora2 = Now.Hour()
-            minuto = Now.Minute()
-            segundo = Now.Second()
+            If statusbusquedaventa = True Then
+                MsgBox("Hay una busqueda en curso, cancelaremos la busqueda u vuelta a agregar el producto")
+                cancelartodoventa()
+                statusbusquedaventa = False
 
-            hora = hora2 & ":" & minuto & ":" & segundo
-
-            dia = Date.Now.Day
-            mes = Date.Now.Month
-            año = Date.Now.Year
-            fecha = año & "-" & mes & "-" & dia
-
-            fechaclave = año & mes & dia & hora2 & minuto & segundo
-
-            If txtclaveproducto.Text = "" Then
-                claveproducto = fechaclave
             Else
-                claveproducto = txtclaveproducto.Text
+
+
+
+                Dim dia, mes, año, fecha, fechaclave, claveproducto As String
+                hora2 = Now.Hour()
+                minuto = Now.Minute()
+                segundo = Now.Second()
+
+                hora = hora2 & ":" & minuto & ":" & segundo
+
+                dia = Date.Now.Day
+                mes = Date.Now.Month
+                año = Date.Now.Year
+                fecha = año & "-" & mes & "-" & dia
+
+                fechaclave = año & mes & dia & hora2 & minuto & segundo
+
+                If txtclaveproducto.Text = "" Then
+                    claveproducto = fechaclave
+                Else
+                    claveproducto = txtclaveproducto.Text
+                End If
+                'consultamos
+
+                Dim i As Integer = sgrilla.RowCount
+                Dim gananciatotal As Double
+                'txtcostoconproducto.Text = Math.Round(f, 2)
+                'MsgBox(txtprice.Text)
+                'MsgBox(txtpiece.Text)
+
+                gananciatotal = CDbl(txtpiece.Text) * CDbl(txtprice.Text)
+                gananciatotal = Math.Round(gananciatotal, 2)
+                sgrilla.Rows.Add(claveproducto, txtnombreproducto.Text, txtprice.Text, txtpiece.Text, gananciatotal)
+                ' sgrilla.Columns(1).Width = 350
+
+
+                srsumatorio()
+
+                slimpiar()
+
+
+                txtclaveproducto.Focus()
             End If
-            'consultamos
-
-            Dim i As Integer = sgrilla.RowCount
-            Dim gananciatotal As Double
-            'txtcostoconproducto.Text = Math.Round(f, 2)
-            'MsgBox(txtprice.Text)
-            'MsgBox(txtpiece.Text)
-
-            gananciatotal = CDbl(txtpiece.Text) * CDbl(txtprice.Text)
-            gananciatotal = Math.Round(gananciatotal, 2)
-            sgrilla.Rows.Add(claveproducto, txtnombreproducto.Text, txtprice.Text, txtpiece.Text, gananciatotal)
-            ' sgrilla.Columns(1).Width = 350
-
-
-            srsumatorio()
-
-            slimpiar()
-
-
-            txtclaveproducto.Focus()
         End If
 
     End Sub
@@ -9921,6 +9947,10 @@ ADD COLUMN `posicion` INT NULL AFTER `idventa`;"
 
     End Sub
 
+    Private Sub Ptxtcantidad_TextChanged(sender As Object, e As EventArgs) Handles ptxtcantidad.TextChanged
+
+    End Sub
+
     Private Sub Button28_Click(sender As Object, e As EventArgs) Handles Button28.Click
         imprimirreparacion()
 
@@ -9936,10 +9966,494 @@ ADD COLUMN `posicion` INT NULL AFTER `idventa`;"
 
     End Sub
 
+    Private Sub TextBox2_TextChanged(sender As Object, e As EventArgs) Handles txtbusquedafolioventa.TextChanged
+
+    End Sub
+
     Private Sub rtxtcantidad_GotFocus(sender As Object, e As EventArgs) Handles rtxtcantidad.GotFocus
         rtxtcantidad.BackColor = Color.White
 
     End Sub
+
+    Private Sub Button43_Click(sender As Object, e As EventArgs) Handles Button43.Click
+        realizarbusquedaventa()
+    End Sub
+    Function realizarbusquedaventa()
+
+        If txtbusquedafolioventa.Text = "" Then
+            statusbusquedaventa = False
+        Else
+            busquedaventa()
+            statusbusquedaventa = True
+
+        End If
+
+
+    End Function
+    Function cancelartodoventa()
+        txtname.Text = ""
+        txtaddress.Text = ""
+        txtcity.Text = ""
+        txtclaveproducto.Text = ""
+        txtnombreproducto.Text = ""
+        txtprice.Text = ""
+        txtpiece.Text = ""
+        stxttotal.Text = ""
+        txtstate.Text = ""
+        txttelephone.Text = ""
+        stxttotalfinal.Text = ""
+        txtbusquedafolioventa.Text = ""
+        statusbusquedaventa = False
+
+        sgrilla.Rows.Clear()
+    End Function
+
+    Private Sub Button44_Click(sender As Object, e As EventArgs) Handles Button44.Click
+        cancelartodoventa()
+
+    End Sub
+
+    Function busquedaventa()
+        If txtbusquedafolioventa.Text = "" Then
+            ' MsgBox("No hay folios que buscar", MsgBoxStyle.Information, "MOBI")
+            cancelartodoventa() 'pendiente de cancelar todo
+            ' MsgBox("cancel")
+
+        Else
+            'MsgBox("cancel")
+
+            'rcbitems.Items.Clear()
+            sgrilla.Rows.Clear()
+            Dim tipoventa As Integer
+            'primero verifico si se trata de un servicio de reparación
+            Try
+                conexionMysql.Open()
+                ' Dim idcustomer, idequipo, idseller As Integer
+                Dim Sqlaa As String
+                Sqlaa = "select tipoventa from venta where idventa='" & txtbusquedafolioventa.Text & "';"
+                Dim cmdaa As New MySqlCommand(Sqlaa, conexionMysql)
+                reader = cmdaa.ExecuteReader()
+                reader.Read()
+                tipoventa = reader.GetString(0).ToString()
+                'reader.Close()
+                cerrarconexion()
+            Catch ex As Exception
+                tipoventa = 0
+                cerrarconexion()
+            End Try
+
+
+            If tipoventa <> 1 Then
+                ' MsgBox("El folio corresponde a una venta directa", MsgBoxStyle.Information, "MOBI")
+
+                cancelartodoventa()
+                ' MsgBox("cancel")
+
+            Else
+
+
+                ' MsgBox("cancel 2")
+
+
+
+
+                conexionMysql.Open()
+                Dim idequipobus, idcus, idsellerbus, fechaactualizar, fechaventa As String
+                Dim Sql As String
+                Sql = "select * from venta where idventa='" & txtbusquedafolioventa.Text & "';"
+                Dim cmd As New MySqlCommand(Sql, conexionMysql)
+                reader = cmd.ExecuteReader()
+                reader.Read()
+                idcus = reader.GetString(1).ToString()
+                idsellerbus = reader.GetString(2).ToString()
+                stxttotalfinal.Text = reader.GetString(3).ToString()
+                fechaventa = reader.GetString(4).ToString()
+                'fechaactualizar = reader.GetString(5).ToString()
+
+                'rtxtbalancetotal.Text = 
+                'rtxtdeposito.Text = reader.GetString(6).ToString()
+                'rtxtresto.Text = reader.GetString(7).ToString()
+
+                'rtxttotal.Text = reader.GetString(4).ToString()
+                'rcalendario.Text = reader.GetString(6).ToString()
+                'reader.Close()
+                ' MsgBox(idcustomer)
+                'MsgBox(idequipo)
+                'MsgBox(idseller)
+
+                cerrarconexion()
+
+
+
+                ''----------------------comprobar si no tienen fecha, actualizamos la fecha----------------
+                'Dim fecha As String
+                'Try
+
+                '    conexionMysql.Open()
+                '    Dim Sqla2 As String
+                '    Sqla2 = "select datedelivery from equipo where idventa='" & rtxtbusquedafolio.Text & "';"
+                '    Dim cmda2 As New MySqlCommand(Sqla2, conexionMysql)
+                '    reader = cmda2.ExecuteReader()
+                '    reader.Read()
+                '    fecha = reader.GetString(0).ToString()
+                '    cerrarconexion()
+                'Catch ex As Exception
+                '    cerrarconexion()
+                '    fecha = ""
+
+                'End Try
+
+
+
+                'eb caso de que se haga una busqueda con un folio que no tenga el campo deliverydate, entonces lo actualizamos
+
+                'If fecha = "" Then
+
+                '    Dim fechaactualizarfinal As String
+                '    fechaactualizarfinal = rcalendario.Value.ToString("yyyy/MM/dd")
+
+                '    'si la fecha esta vacia, actualizo el dato, en caso contrario, no hago nada.
+                '    cerrarconexion()
+                '    conexionMysql.Open()
+                '    Dim Sql2 As String
+                '    Sql2 = "update equipo set datedelivery='" & fechaactualizarfinal & "' where idventa='" & rtxtbusquedafolio.Text & "';"
+                '    'Sql2 = "UPDATE `mobi`.`customer` SET `name` = '" & rtxtcustomername.Text & "', `address` = '" & rtxtaddress.Text & "', `state` = '" & rtxtstate.Text & "', `city` = '" & rtxtcity.Text & "', `telephone` = '" & rtxttelephone.Text & "', `email` = '" & rtxtemail.Text & "' WHERE (`idcustomer` = '" & customeract & "');"
+                '    'Sql2 = "update customer set name='" & rtxtcustomername.Text & "', address='" & rtxtaddress.Text & "', state='" & rtxtcity.Text & "', city='" & rtxtstate.Text & "', telephone='" & rtxttelephone.Text & "', email='" & rtxtemail.Text & "' where idcustomer='" & idcustomerbus & "';"
+                '    Dim cmd2 As New MySqlCommand(Sql2, conexionMysql)
+                '    cmd2.ExecuteNonQuery()
+                '    conexionMysql.Close()
+                '    MsgBox("Date update", MsgBoxStyle.Information, "MOBI")
+                'End If
+
+                ''------------------------------------------------------------------------------------------
+
+
+
+
+                'Try
+
+                '    conexionMysql.Open()
+                '    'Dim idequipobus, idcus, idsellerbus As String
+                '    Dim Sqla As String
+                '    Sqla = "select * from venta where idventa='" & txtbusquedafolioventa.Text & "';"
+                '    Dim cmda As New MySqlCommand(Sqla, conexionMysql)
+                '    reader = cmda.ExecuteReader()
+                '    reader.Read()
+                '    'idcus = reader.GetString(1).ToString()
+                '    'idsellerbus = reader.GetString(2).ToString()
+                '    'rtxttotal.Text = reader.GetString(3).ToString()
+                '    'rcalendario.Text = reader.GetString(5).ToString()
+                '    ''rtxtbalancetotal.Text = 
+                '    'rtxtdeposito.Text = reader.GetString(6).ToString()
+                '    rtxtresto.Text = reader.GetString(7).ToString()
+
+                '    'rtxttotal.Text = reader.GetString(4).ToString()
+                '    'rcalendario.Text = reader.GetString(6).ToString()
+                '    'reader.Close()
+                '    ' MsgBox(idcustomer)
+                '    'MsgBox(idequipo)
+                '    'MsgBox(idseller)
+                '    cerrarconexion()
+                'Catch ex As Exception
+
+                'End Try
+
+                '                MsgBox(rtxttotal.Text)
+
+                '----------------------------------
+                cerrarconexion()
+
+
+                '----------------------------------------------------------------------------------------------------------------------
+                ' Try
+                ' MsgBox(rtxttotal.Text)
+                'cargamos los datos necesarios
+                conexionMysql.Open()
+                'Dim idcustomer, idequipo, idseller As Integer
+                Dim Sql22 As String
+                Sql22 = "select * from customer where idcustomer=" & idcus & ";"
+                Dim cmd22 As New MySqlCommand(Sql22, conexionMysql)
+                reader = cmd22.ExecuteReader()
+                reader.Read()
+
+                Try
+
+                    txtaddress.Text = reader.GetString(2).ToString()
+                Catch ex As Exception
+
+                End Try
+                Try
+
+                    txtstate.Text = reader.GetString(3).ToString()
+                Catch ex As Exception
+
+                End Try
+                Try
+
+                    txtcity.Text = reader.GetString(4).ToString()
+                Catch ex As Exception
+
+                End Try
+                Try
+
+                    txttelephone.Text = reader.GetString(5).ToString()
+                Catch ex As Exception
+
+                End Try
+                Try
+
+                    txtname.Text = reader.GetString(1).ToString()
+                Catch ex As Exception
+
+                End Try
+
+
+
+                Try
+
+                    stxtemail.Text = reader.GetString(6).ToString()
+                Catch ex As Exception
+
+                End Try
+                '----------------------------------------------------------------------------------------------------
+                'reader.Close()
+                cerrarconexion()
+
+                ' MsgBox("1")
+
+                rlbcustomer.Visible = False
+                Dim seller As String
+
+                '-------------------------
+                conexionMysql.Open()
+                ' Dim idcustomer, idequipo, idseller As Integer
+                Dim Sqlx2 As String
+                Sqlx2 = "select name_seller from seller where idseller='" & idsellerbus & "';"
+                Dim cmdx2 As New MySqlCommand(Sqlx2, conexionMysql)
+                reader = cmdx2.ExecuteReader()
+                reader.Read()
+                seller = reader.GetString(0).ToString()
+                'reader.Close()
+                cerrarconexion()
+                'MsgBox("2")
+                'MsgBox(seller)
+
+                cbseller.Text = seller
+
+                '----------------------
+
+                conexionMysql.Open()
+                ' Dim idcustomer, idequipo, idseller As Integer
+                Dim Sqlx3 As String
+                Sqlx3 = "select count(*) as contador from venta_ind where idventa=" & txtbusquedafolioventa.Text & ";"
+                Dim cmdx3 As New MySqlCommand(Sqlx3, conexionMysql)
+                reader = cmdx3.ExecuteReader()
+                reader.Read()
+                Dim cantidad As Integer = reader.GetString(0).ToString()
+                ' reader.Close()
+                cerrarconexion()
+                'MsgBox("2")
+                'MsgBox(cantidad)
+
+                ' MsgBox(cantidad)
+                '------------------------
+
+                Dim idequipo, equipo, modelo, imei, password, status, problema, nota, idcustomer2, reparacion, partes, idventa As String
+                Dim ii As Integer
+                '-------------------------------------- buscamos los valores de la grilla y lo mandamos a eso
+                'reader.Close()
+
+
+                Try
+
+                    cerrarconexion()
+                    conexionMysql.Open()
+                    Dim idproducto, actividad As String
+                    Dim costo, piezas, total As Double
+                    Dim Sql3 As String
+                    Sql3 = "select * from venta_ind where idventa='" & txtbusquedafolioventa.Text & "';"
+                    Dim cmd3 As New MySqlCommand(Sql3, conexionMysql)
+                    reader = cmd3.ExecuteReader()
+
+                    For ii = 0 To cantidad - 1
+                        'MsgBox(ii)
+                        reader.Read()
+
+
+                        actividad = reader.GetString(1).ToString()
+                        cantidad = reader.GetString(2).ToString()
+                        costo = reader.GetString(3).ToString()
+                        password = reader.GetString(4).ToString()
+                        'status = reader.GetString(5).ToString()
+                        idproducto = reader.GetString(5).ToString()
+
+
+                        total = CDbl(cantidad) * CDbl(costo)
+                        sgrilla.Rows.Add(idproducto, actividad, costo, cantidad, total)
+
+
+                        'agregamos la fecha del status de la actualizacion
+                        'calendariostatus.Value = New Date(1000, 12, 23)
+
+
+
+                        ''ocultamos el combotemporal ymostramos el combo de busqueda
+                        'rcbitems.Visible = True
+                        'rcbitemtemporal.Visible = False
+                    Next
+
+
+                Catch ex As Exception
+                    btninconsistencia.Visible = True
+                    btninconsistencia.Text = ex.Message
+                End Try
+
+
+                ''----------------------------------
+                'conexionMysql.Open()
+                'Dim equipoultimo As String
+                'Dim Sql34 As String
+                'Sql34 = "select * from equipo where idventa='" & rtxtbusquedafolio.Text & "';"
+                'Dim cmd34 As New MySqlCommand(Sql34, conexionMysql)
+                'reader = cmd34.ExecuteReader()
+
+                'For ii = 0 To cantidad - 1
+                '    'MsgBox(ii)
+                '    reader.Read()
+
+                '    rcbitemtemporal.Items.Add(equipo)
+                '    'rcbitemtemporal.SelectedIndex = 0
+
+                '    ''ocultamos el combotemporal ymostramos el combo de busqueda
+                '    'rcbitems.Visible = True
+                '    'rcbitemtemporal.Visible = False
+                'Next
+
+
+
+
+                '----------------------------------
+                'cerrarconexion()
+
+                'conexionMysql.Open()
+                'Dim Sql2 As String
+                'Sql2 = "select * from tipo_pago;"
+                'Dim cmd2 As New MySqlCommand(Sql2, conexionMysql)
+                'reader = cmd2.ExecuteReader()
+
+                'For i = 1 To cantidadproveedor
+
+                '    reader.Read()
+
+                '    cbformadepago.Items.Add(reader.GetString(1).ToString())
+                '    cbformadepagoservicios.Items.Add(reader.GetString(1).ToString())
+                'Next
+                '---------------------------------
+
+
+
+
+                reader.Close()
+                conexionMysql.Close()
+                cerrarconexion()
+                '----------------
+
+                'conexionMysql.Open()
+                ''Dim idcustomer, idequipo, idseller As Integer
+                'Dim Sql23 As String
+                'Sql23 = "select * from equipo where idequipo='" & rtxtbusquedafolio.Text & "';"
+                'Dim cmd23 As New MySqlCommand(Sql23, conexionMysql)
+                'reader = cmd23.ExecuteReader()
+                'reader.Read()
+                'rtxtequipo.Text = reader.GetString(1).ToString()
+                'rtxtmodelo.Text = reader.GetString(2).ToString()
+                'rtxtimei.Text = reader.GetString(3).ToString()
+                'rtxtpassword.Text = reader.GetString(4).ToString()
+                'cbstate.Text = reader.GetString(5).ToString()
+                'rtxtproblem.Text = reader.GetString(6).ToString()
+                'rtxtnote.Text = reader.GetString(7).ToString()
+
+                'reader.Close()
+                'cerrarconexion()
+
+                'conexionMysql.Open()
+                ''Dim idcustomer, idequipo, idseller As Integer
+                'Dim Sql24 As String
+                'Sql24 = "select name_seller from seller  where idseller='" & idseller & "';"
+                'Dim cmd24 As New MySqlCommand(Sql24, conexionMysql)
+                'reader = cmd24.ExecuteReader()
+                'reader.Read()
+
+                'Dim seller As String = reader.GetString(0).ToString()
+                'MsgBox(seller)
+
+                'reader.Close()
+                'cerrarconexion()
+                ' Catch ex As Exception
+
+                'End Try
+
+                '-------------------------------
+
+                '-------------------------------------- buscamos los valores de la grilla y lo mandamos a eso
+                'cerrarconexion()
+                'conexionMysql.Open()
+                'Dim contador As Integer
+                'Dim Sql2 As String
+                'Sql2 = "select count(*) as contador from venta_ind where idventa='" & rtxtbusquedafolio.Text & "';"
+                'Dim cmd2 As New MySqlCommand(Sql2, conexionMysql)
+                'reader = cmd2.ExecuteReader()
+                'reader.Read()
+                'contador = reader.GetString(0).ToString()
+                'reader.Close()
+                'conexionMysql.Close()
+                'cerrarconexion()
+                ''---------------------------------------------
+                'If contador > 0 Then
+
+
+                '    '-------------------------------------- buscamos los valores de la grilla y lo mandamos a eso
+                '    cerrarconexion()
+                '    conexionMysql.Open()
+                '    'Dim clave, costo, cantidad, actividad As String
+                '    Dim Sql33 As String
+                '    Sql33 = "select * from venta_ind where idventa='" & rtxtbusquedafolio.Text & "';"
+                '    Dim cmd33 As New MySqlCommand(Sql33, conexionMysql)
+                '    reader = cmd33.ExecuteReader()
+
+                '    For i = 0 To contador - 1
+
+                '        reader.Read()
+
+
+                '        clave = reader.GetString(5).ToString()
+                '        actividad = reader.GetString(1).ToString()
+                '        cantidad = reader.GetString(3).ToString()
+                '        costo = reader.GetString(2).ToString()
+
+
+                '        rgrilla.Rows.Add(clave, actividad, cantidad, costo, CDbl(cantidad) * CDbl(costo))
+
+
+                '    Next
+
+
+
+
+                '    reader.Close()
+                '    conexionMysql.Close()
+                '    cerrarconexion()
+                '    '---------------------------------------------
+
+                'End If
+
+
+            End If
+        End If
+
+
+
+    End Function
 
     Private Sub pgrilla_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles pgrilla.CellDoubleClick
         Dim Variable As String = pgrilla.Item(0, pgrilla.CurrentRow.Index).Value
@@ -9958,6 +10472,7 @@ ADD COLUMN `posicion` INT NULL AFTER `idventa`;"
         'cargamos los datos del producto
         cargardatosproductoventa()
         lblistaproducto.Visible = False
+        txtpiece.Focus()
 
     End Sub
     Function cargardatosproductoventa()
@@ -10073,5 +10588,29 @@ ADD COLUMN `posicion` INT NULL AFTER `idventa`;"
 
     Private Sub cbstate_MouseClick(sender As Object, e As MouseEventArgs) Handles cbstate.MouseClick
         ' MsgBox("mouse click")
+    End Sub
+
+    Private Sub ptxtcantidad_KeyPress(sender As Object, e As KeyPressEventArgs) Handles ptxtcantidad.KeyPress
+        If InStr(1, "0123456789.," & Chr(8), e.KeyChar) = 0 Then
+            e.KeyChar = ""
+        End If
+    End Sub
+
+    Private Sub Button67_KeyPress(sender As Object, e As KeyPressEventArgs) Handles Button67.KeyPress
+        If InStr(1, "0123456789.," & Chr(8), e.KeyChar) = 0 Then
+            e.KeyChar = ""
+        End If
+    End Sub
+
+    Private Sub ptxtprecio_KeyPress(sender As Object, e As KeyPressEventArgs) Handles ptxtprecio.KeyPress
+        If InStr(1, "0123456789.," & Chr(8), e.KeyChar) = 0 Then
+            e.KeyChar = ""
+        End If
+    End Sub
+
+    Private Sub TextBox2_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtbusquedafolioventa.KeyPress
+        If InStr(1, "0123456789.," & Chr(8), e.KeyChar) = 0 Then
+            e.KeyChar = ""
+        End If
     End Sub
 End Class
