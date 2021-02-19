@@ -474,7 +474,75 @@ Public Class frmindex
 
         cargarlogoticket()
 
+
+        ComprobarActualizacionBD
+
     End Sub
+    Function ComprobarActualizacionBD()
+        Try
+            'actualizacion dodne se crea la caja para poder manejar el efectivo de ventas un resumen de ventas.
+            cerrarconexion()
+            conexionMysql.Open()
+            Dim Sql2 As String
+            Sql2 = "CREATE TABLE `caja` (
+  `idcaja` int(11) NOT NULL AUTO_INCREMENT,
+  `monto_inicial` double DEFAULT NULL,
+  `monto_final` double DEFAULT NULL,
+  `existencia_caja` double DEFAULT NULL,
+  `fecha` date DEFAULT NULL,
+  `hora_inicial` time DEFAULT NULL,
+  `hora_final` time DEFAULT NULL,
+  `estado` int(11) DEFAULT NULL,
+  `observaciones` text,
+  `venta_rapida` double DEFAULT NULL,
+  `anticipos` double DEFAULT NULL,
+  `compras` double DEFAULT NULL,
+  `total_ventas_compras` double DEFAULT NULL,
+  `total_deberia_existir` double DEFAULT NULL,
+  `diferencia` double DEFAULT NULL,
+  PRIMARY KEY (`idcaja`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1"
+            Dim cmd2 As New MySqlCommand(Sql2, conexionMysql)
+            cmd2.ExecuteNonQuery()
+            cerrarconexion()
+            conexionMysql.Close()
+            'llamar a la funcion limpiar, para limpiar las cajas cada vez que se agrege una nueva compra.
+            'MsgBox("USUARIO CREADO CORRECTAMENTE", MsgBoxStyle.Information, "Sistema")
+            conexionMysql.Close()
+            cerrarconexion()
+
+        Catch ex As Exception
+
+        End Try
+
+        Try
+            'actualizacion dodne se crea la caja para poder manejar el efectivo de ventas un resumen de ventas.
+            cerrarconexion()
+            conexionMysql.Open()
+            Dim Sql23 As String
+            Sql23 = "ALTER TABLE `mobi`.`venta` 
+ADD COLUMN `hora` TIME NULL AFTER `tipoventa`;"
+            Dim cmd23 As New MySqlCommand(Sql23, conexionMysql)
+            cmd23.ExecuteNonQuery()
+            cerrarconexion()
+            conexionMysql.Close()
+            'llamar a la funcion limpiar, para limpiar las cajas cada vez que se agrege una nueva compra.
+            'MsgBox("USUARIO CREADO CORRECTAMENTE", MsgBoxStyle.Information, "Sistema")
+            conexionMysql.Close()
+            cerrarconexion()
+
+        Catch ex As Exception
+
+        End Try
+
+
+
+
+
+
+
+
+    End Function
     Function cargarlogoticket()
         Dim ruta As String
         Try
@@ -559,7 +627,7 @@ Public Class frmindex
             End Try
         End If
 
-
+        'MsgBox(cantidad)
         If cantidad = 0 Then
 
 
@@ -573,7 +641,7 @@ Public Class frmindex
         End If
 
         ''.-----------------------------------------------
-        btnabrircajamenu.Visible = False
+        '  btnabrircajamenu.Visible = False
 
         '-actualizacion diciembre 2020, desactivamos la caja
 
@@ -635,7 +703,7 @@ Public Class frmindex
                     cerrarconexion()
                     conexionMysql.Open()
                     Dim Sql2 As String
-                    Sql2 = "INSERT INTO `dwin`.`tipo_usuario` (`tipo_usuario`, `tipo`) VALUES (1, 'ADMINISTRADOR');"
+                    Sql2 = "INSERT INTO `tipo_usuario` (`tipo_usuario`, `tipo`) VALUES (1, 'ADMINISTRADOR');"
                     Dim cmd2 As New MySqlCommand(Sql2, conexionMysql)
                     cmd2.ExecuteNonQuery()
                     cerrarconexion()
@@ -648,14 +716,14 @@ Public Class frmindex
                     cerrarconexion()
                     conexionMysql.Open()
                     Dim Sql3 As String
-                    Sql3 = "INSERT INTO `dwin`.`tipo_usuario` (`tipo_usuario`, `tipo`) VALUES (2, 'USUARIO');"
+                    Sql3 = "INSERT INTO `tipo_usuario` (`tipo_usuario`, `tipo`) VALUES (2, 'USUARIO');"
                     Dim cmd3 As New MySqlCommand(Sql3, conexionMysql)
                     cmd3.ExecuteNonQuery()
                     conexionMysql.Close()
 
                     conexionMysql.Open()
                     Dim Sql4 As String
-                    Sql4 = "INSERT INTO `dwin`.`impresora` (`idimpresora`, `nombre_impresora`) VALUES ('1', 'impresora');"
+                    Sql4 = "INSERT INTO `impresora` (`idimpresora`, `nombre_impresora`) VALUES ('1', 'impresora');"
                     Dim cmd4 As New MySqlCommand(Sql4, conexionMysql)
                     cmd4.ExecuteNonQuery()
                     conexionMysql.Close()
@@ -678,7 +746,7 @@ Public Class frmindex
                     cerrarconexion()
                     conexionMysql.Open()
                     Dim Sql44 As String
-                    Sql44 = "INSERT INTO `dwin`.`CLIENTE` (`idcliente`, `nombre`, `ap`, `am`, `rfc`, `direccion`, `telefono`, `correo`) VALUES ('1', 'USUARIO', 'USUARIO', 'USUARIO', '000', '000', '000', '000');"
+                    Sql44 = "INSERT INTO `CLIENTE` (`idcliente`, `nombre`, `ap`, `am`, `rfc`, `direccion`, `telefono`, `correo`) VALUES ('1', 'USUARIO', 'USUARIO', 'USUARIO', '000', '000', '000', '000');"
                     Dim cmd44 As New MySqlCommand(Sql44, conexionMysql)
                     cmd44.ExecuteNonQuery()
                     conexionMysql.Close()
@@ -686,7 +754,7 @@ Public Class frmindex
                     cerrarconexion()
                     conexionMysql.Open()
                     Dim Sql33 As String
-                    Sql33 = "INSERT INTO `dwin`.`proveedor` (`nombre_empresa`, `nombre_encargado`, `ap_encargado`, `am_encargado`, `ciudad`, `estado`, `telefono`, `correo`) VALUES ('general', 'general', 'general', 'general', 'general', 'general', '00', '00');"
+                    Sql33 = "INSERT INTO `proveedor` (`nombre_empresa`, `nombre_encargado`, `ap_encargado`, `am_encargado`, `ciudad`, `estado`, `telefono`, `correo`) VALUES ('general', 'general', 'general', 'general', 'general', 'general', '00', '00');"
                     Dim cmd33 As New MySqlCommand(Sql33, conexionMysql)
                     cmd33.ExecuteNonQuery()
                     conexionMysql.Close()
@@ -694,7 +762,7 @@ Public Class frmindex
                     cerrarconexion()
                     conexionMysql.Open()
                     Dim Sql34 As String
-                    Sql34 = "INSERT INTO `dwin`.`tipoproducto` (`tipo`) VALUES ('general');"
+                    Sql34 = "INSERT INTO `tipoproducto` (`tipo`) VALUES ('general');"
                     Dim cmd34 As New MySqlCommand(Sql34, conexionMysql)
                     cmd34.ExecuteNonQuery()
                     conexionMysql.Close()
@@ -705,20 +773,20 @@ Public Class frmindex
 
                     conexionMysql.Open()
                     Dim Sql35 As String
-                    Sql35 = "INSERT INTO `dwin`.`tipoventa` (`idtipoventa`,`tipoventa`) VALUES ('1','venta');"
+                    Sql35 = "INSERT INTO `tipoventa` (`idtipoventa`,`tipoventa`) VALUES ('1','venta');"
                     Dim cmd35 As New MySqlCommand(Sql35, conexionMysql)
                     cmd35.ExecuteNonQuery()
                     conexionMysql.Close()
                     conexionMysql.Open()
                     Dim Sql36 As String
-                    Sql36 = "INSERT INTO `dwin`.`tipoventa` (`idtipoventa`,`tipoventa`) VALUES ('2','servicios');"
+                    Sql36 = "INSERT INTO `tipoventa` (`idtipoventa`,`tipoventa`) VALUES ('2','servicios');"
                     Dim cmd36 As New MySqlCommand(Sql36, conexionMysql)
                     cmd36.ExecuteNonQuery()
                     conexionMysql.Close()
                     'MsgBox("se creo tipo de venta")
                     conexionMysql.Open()
                     Dim Sql37 As String
-                    Sql37 = "INSERT INTO `dwin`.`tipoventa` (`idtipoventa`,`tipo`) VALUES ('3','vinil');"
+                    Sql37 = "INSERT INTO `tipoventa` (`idtipoventa`,`tipo`) VALUES ('3','vinil');"
                     Dim cmd37 As New MySqlCommand(Sql37, conexionMysql)
                     cmd37.ExecuteNonQuery()
                     conexionMysql.Close()
@@ -728,7 +796,7 @@ Public Class frmindex
                         conexionMysql.Open()
 
                         Dim Sql40 As String
-                        Sql40 = "INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('1', 'EFECTIVO');
+                        Sql40 = "INSERT INTO `tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('1', 'EFECTIVO');
 INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('2', 'DEPOSITO');
 INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENCIA');
 ;"
@@ -769,7 +837,7 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
         Button67.BackColor = Color.FromArgb(27, 38, 44)
         Button14.BackColor = Color.FromArgb(27, 38, 44)
         Button38.BackColor = Color.FromArgb(27, 38, 44)
-
+        'btnabrircajamenu.Visible = true
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
@@ -1617,7 +1685,29 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
             cancelartodoventa()
         Else
 
-            sventa()
+
+
+            Dim estadocaja As Integer
+
+
+            estadocaja = comprobarcaja()
+
+            If estadocaja = 0 Then
+
+                'obtenerfolio()
+                ' venta()
+                ' RPT1.Show()
+                sventa()
+            Else
+                MsgBox("No existe ninguna caja abierta", MsgBoxStyle.Information, "CTRL+y")
+            End If
+
+
+
+
+
+
+
 
         End If
         'aqui vamos a guardar el registro
@@ -1686,6 +1776,99 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
 
 
     End Sub
+    Function comprobarcaja()
+        Dim registrar As Boolean
+        Dim idestado, idmaximo, cantidad As Integer
+
+        '---------------------------
+        'PRIMERO COMPROBAMOS QUE EXISTE UNA CAJA, PRIMER REGISTRO
+        '------------------------------
+        Try
+            cerrarconexion()
+
+            conexionMysql.Open()
+            Dim sql22 As String
+            sql22 = "select count(idcaja) from caja;"
+            Dim cmd22 As New MySqlCommand(sql22, conexionMysql)
+            reader = cmd22.ExecuteReader
+            reader.Read()
+            cantidad = reader.GetString(0).ToString()
+            conexionMysql.Close()
+
+            '---------------------------
+        Catch ex As Exception
+            'cantidad = 0
+        End Try
+
+
+        If cantidad <= 0 Then
+            registrar = False
+            idestado = 1
+            'MsgBox("primer")
+            Return idestado
+        Else
+
+            Try
+                'todos los datos son obtenidos con la fecha actual para evitar conflictos
+                Dim dia, mes, año, fecha, fechacaja, horacaja As String
+                Dim hora2, minuto, segundo, hora As String
+                hora2 = Now.Hour()
+                minuto = Now.Minute()
+                segundo = Now.Second()
+
+                hora = hora2 & ":" & minuto & ":" & segundo
+
+                dia = Date.Now.Day
+                mes = Date.Now.Month
+                año = Date.Now.Year
+                fecha = año & "-" & mes & "-" & dia
+                Dim fechahoy As String
+
+                '---------------------------
+                'PRIMERO OBTENERMOS EL MAYOR ID
+                '------------------------------
+                conexionMysql.Open()
+                Dim sql2 As String
+                sql2 = "select max(idcaja)as maximo from caja;"
+                Dim cmd2 As New MySqlCommand(sql2, conexionMysql)
+                reader = cmd2.ExecuteReader
+                reader.Read()
+                idmaximo = reader.GetString(0).ToString()
+                conexionMysql.Close()
+                '---------------------------
+
+                conexionMysql.Open()
+                Dim sql25 As String
+                sql25 = "select estado from caja where idcaja=" & idmaximo & ";"
+                Dim cmd25 As New MySqlCommand(sql25, conexionMysql)
+                reader = cmd25.ExecuteReader
+                reader.Read()
+                idestado = reader.GetString(0).ToString()
+                conexionMysql.Close()
+                registrar = False
+                'MsgBox("No existe caja abierta", MsgBoxStyle.Exclamation, "CTRL+y")
+
+                ' MsgBox("segundo")
+                Return idestado
+
+            Catch ex As Exception
+                registrar = True
+                ' MsgBox("error")
+            End Try
+
+
+        End If
+
+        'If idestado = 0 Then
+        '    'en caso de que exista una caja abierta, entonces abrimos la ventana para cerrar la caja
+        '    Dim formulario As New FRcerrarcaja
+        '    formulario.ShowDialog()
+
+        'End If
+
+
+
+    End Function
     Private Sub imprimir()
 
         'consultamos a la BD la impresora seleccionada por default
@@ -3758,11 +3941,33 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
 
         If activarbusqueda = False Then
 
+            Dim estadocaja As Integer
 
 
-            venta()
+            estadocaja = comprobarcaja()
 
-            activarreparacion = False
+
+
+            'MsgBox(estadocaja)
+            If estadocaja = 0 Then
+
+                'obtenerfolio()
+                ' venta()
+                ' RPT1.Show()
+                'sventa()
+
+                venta()
+
+                activarreparacion = False
+            Else
+                MsgBox("No existe ninguna caja abierta", MsgBoxStyle.Information, "CTRL+y")
+            End If
+
+
+
+
+
+
         Else
             MsgBox("Hay una busqueda en curso", MsgBoxStyle.Information, "MOBI")
         End If
@@ -3834,7 +4039,7 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
     End Sub
 
     Function venta()
-
+        obtenerfolio()
 
         'Try
         Dim cantidaddedispositivos As Integer
@@ -3867,7 +4072,7 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
                 'rtxttotal.Text = ""
             Else
                 'obtener fecha y hora
-
+                Dim hora, minuto, segundo, hora2 As String
                 Dim dia, mes, año, fecha As String
                 hora2 = Now.Hour()
                 minuto = Now.Minute()
@@ -3995,14 +4200,20 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
                 'sumresto = reader.GetString(1).ToString()
                 'conexionMysql.Close()
                 '-------------------------------------------------------------------------------
+                'Dim hora2, minuto, segundo, hora As String
+                ' Dim fechacaja As Date
+                hora2 = Now.Hour()
+                minuto = Now.Minute()
+                segundo = Now.Second()
 
+                hora = hora2 & ":" & minuto & ":" & segundo
 
 
                 cerrarconexion()
                 conexionMysql.Open()
                 Dim Sql As String
                 '                Sql = "INSERT INTO `mobi`.`venta` (`idventa`, `idcustomer`,  `idseller`, `total`, `fechaventa`, `fechaentrega`, `deposito`, `resto`,`tipoventa`) VALUES ('" & slbfolio.Text & "', '" & idcliente & "', '" & idseller & "', '" & rtxttotal.Text & "', '" & fecha & "', '" & fechacalendarioentrega & "', '" & sumdeposito & "', '" & sumresto & "',2);"
-                Sql = "INSERT INTO `venta` (`idventa`, `idcustomer`,  `idseller`, `total`, `fechaventa`, `fechaentrega`, `deposito`,`resto`,`tipoventa`) VALUES ('" & slbfolio.Text & "', '" & idcliente & "', '" & idseller & "', '" & rtxttotal.Text & "', '" & fecha & "', '" & fechacalendarioentrega & "','" & rtxtdeposito.Text & "','" & rtxtresto.Text & "',2);"
+                Sql = "INSERT INTO `venta` (`idventa`, `idcustomer`,  `idseller`, `total`, `fechaventa`, `fechaentrega`, `deposito`,`resto`,`tipoventa`,`hora`) VALUES ('" & slbfolio.Text & "', '" & idcliente & "', '" & idseller & "', '" & rtxttotal.Text & "', '" & fecha & "', '" & fechacalendarioentrega & "','" & rtxtdeposito.Text & "','" & rtxtresto.Text & "',2,'" & hora & "');"
 
                 Dim cmd As New MySqlCommand(Sql, conexionMysql)
                 cmd.ExecuteNonQuery()
@@ -5278,8 +5489,7 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
             t2 = yy(18)
             t3 = yy(19)
             t4 = 40
-            'MsgBox(jj)
-            'MsgBox()
+            'MsgBox(jj)m
             'suma de valores
             For jj = 0 To i - 1
 
@@ -7013,7 +7223,7 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
                 rgrilla2.Rows.Add(idequipo, rtxtequipo.Text, rtxtmodelo.Text, rtxtimei.Text, rtxtpassword.Text, rtxtstate.Text, rcbseller.Text, rtxtproblem.Text, rtxtnote.Text, rtxttotaltemporal.Text)
                 ' sgrilla.Columns(1).Width = 350
 
-                MsgBox("agregado")
+                'MsgBox("agregado")
 
                 'rsumatorio()
                 '        rrguardarproductostemporal()
@@ -9734,8 +9944,92 @@ ADD COLUMN `posicion` INT NULL AFTER `idventa`;"
     End Sub
 
     Private Sub Btncerrarcajamenu_Click(sender As Object, e As EventArgs) Handles btncerrarcajamenu.Click
-
+        cerrarcaja()
     End Sub
+    Function cerrarcaja()
+        Dim registrar As Boolean
+        Dim idestado, idmaximo, contador As Integer
+
+        Try
+            'todos los datos son obtenidos con la fecha actual para evitar conflictos
+            Dim dia, mes, año, fecha, fechacaja, horacaja As String
+            Dim hora2, minuto, segundo, hora As String
+            hora2 = Now.Hour()
+            minuto = Now.Minute()
+            segundo = Now.Second()
+
+            hora = hora2 & ":" & minuto & ":" & segundo
+
+            dia = Date.Now.Day
+            mes = Date.Now.Month
+            año = Date.Now.Year
+            fecha = año & "-" & mes & "-" & dia
+            Dim fechahoy As String
+
+
+
+
+            '---------------------------
+            'PRIMERO VERIFICAMOS QUE EXISTA UN REGISTRO EN LA TABLA
+            '------------------------------
+
+            conexionMysql.Open()
+            Dim sql22 As String
+            sql22 = "select count(*) from caja;"
+            Dim cmd22 As New MySqlCommand(sql22, conexionMysql)
+            reader = cmd22.ExecuteReader
+            reader.Read()
+            contador = reader.GetString(0).ToString()
+            conexionMysql.Close()
+            '---------------------------
+
+            If contador <= 0 Then
+                idestado = 1
+                MsgBox("Al parecer tu sistema es nuevo, inicia abriendo una caja!!!", MsgBoxStyle.Information, "CTRL+y")
+            Else
+
+                '---------------------------
+                'PRIMERO OBTENERMOS EL MAYOR ID
+                '------------------------------
+                conexionMysql.Open()
+                Dim sql2 As String
+                sql2 = "select max(idcaja)as maximo from caja;"
+                Dim cmd2 As New MySqlCommand(sql2, conexionMysql)
+                reader = cmd2.ExecuteReader
+                reader.Read()
+                idmaximo = reader.GetString(0).ToString()
+                conexionMysql.Close()
+                '---------------------------
+
+                conexionMysql.Open()
+                Dim sql25 As String
+                sql25 = "select estado from caja where idcaja=" & idmaximo & ";"
+                Dim cmd25 As New MySqlCommand(sql25, conexionMysql)
+                reader = cmd25.ExecuteReader
+                reader.Read()
+                idestado = reader.GetString(0).ToString()
+                conexionMysql.Close()
+                registrar = False
+                'MsgBox(idestado, MsgBoxStyle.Exclamation, "CTRL+y")
+
+                'MsgBox("No existe caja abierta", MsgBoxStyle.Exclamation, "CTRL+y")
+            End If
+
+        Catch ex As Exception
+            registrar = True
+            ' idestado = 1
+            ' MsgBox("error")
+        End Try
+
+
+
+        If idestado = 0 Then
+            'en caso de que exista una caja abierta, entonces abrimos la ventana para cerrar la caja
+            Dim formulario As New FRcerrarcaja
+            formulario.ShowDialog()
+
+        End If
+    End Function
 
     Private Sub Button65_Click(sender As Object, e As EventArgs) Handles Button65.Click
         Dim respuesta As String
@@ -9985,6 +10279,7 @@ ADD COLUMN `posicion` INT NULL AFTER `idventa`;"
         Else
             busquedaventa()
             statusbusquedaventa = True
+            slbcustomer.Visible = False
 
         End If
 
@@ -10455,6 +10750,92 @@ ADD COLUMN `posicion` INT NULL AFTER `idventa`;"
 
     End Function
 
+    Private Sub Sgrilla_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles sgrilla.CellContentClick
+
+    End Sub
+
+    Private Sub Btnabrircajamenu_Click(sender As Object, e As EventArgs) Handles btnabrircajamenu.Click
+        abrircaja()
+
+    End Sub
+    Function abrircaja()
+
+        'primero comprobamos si existe caja abierta.
+        '------------------------------------------------
+        Dim cantidad As Integer
+
+        Try
+            'verificamos que exista al menos 1 registro, en caso de que exista 0, indicamos que el valor es 0;
+            conexionMysql.Open()
+            Dim sql22 As String
+            sql22 = "select count(idcaja) from caja;"
+            Dim cmd22 As New MySqlCommand(sql22, conexionMysql)
+            reader = cmd22.ExecuteReader
+            reader.Read()
+            cantidad = reader.GetString(0).ToString()
+            conexionMysql.Close()
+        Catch ex As Exception
+            cantidad = 0
+        End Try
+
+        'si la cantidad es cero, entonces, significa que si puede abrir una caja, porque no hay nada aun.
+        If cantidad = 0 Then
+
+
+        Else
+
+
+            Try
+
+                conexionMysql.Open()
+                Dim sql2 As String
+                sql2 = "select count(idcaja) from caja where estado=0;"
+                Dim cmd2 As New MySqlCommand(sql2, conexionMysql)
+                reader = cmd2.ExecuteReader
+                reader.Read()
+                cantidad = reader.GetString(0).ToString()
+                conexionMysql.Close()
+            Catch ex As Exception
+                cantidad = 1
+            End Try
+        End If
+
+
+        If cantidad = 0 Then
+
+
+            Dim formulario As New FRabrircaja
+
+            formulario.ShowDialog()
+        Else
+            Dim respuesta As String
+            respuesta = MsgBox("Existen cajas abiertas sin cerrar, ¿deseas forzas cierre?, todo se pondrá en Ceros", MsgBoxStyle.YesNo, "CTRL+y")
+
+
+            If respuesta = vbYes Then
+
+                cerrarconexion()
+
+                conexionMysql.Open()
+                'actualizo el dato
+                Dim Sql5 As String
+                Sql5 = "UPDATE `caja` SET `estado` = '1';"
+                Dim cmd5 As New MySqlCommand(Sql5, conexionMysql)
+                cmd5.ExecuteNonQuery()
+                conexionMysql.Close()
+                MsgBox("Cajas cerradas", MsgBoxStyle.Information, "CTR+y")
+                Dim formulario As New FRabrircaja
+                formulario.ShowDialog()
+                '---------------------------------
+            End If
+
+
+
+
+        End If
+
+    End Function
+
     Private Sub pgrilla_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles pgrilla.CellDoubleClick
         Dim Variable As String = pgrilla.Item(0, pgrilla.CurrentRow.Index).Value
         'MsgBox(Variable)
@@ -10611,6 +10992,15 @@ ADD COLUMN `posicion` INT NULL AFTER `idventa`;"
     Private Sub TextBox2_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtbusquedafolioventa.KeyPress
         If InStr(1, "0123456789.," & Chr(8), e.KeyChar) = 0 Then
             e.KeyChar = ""
+
+
         End If
+    End Sub
+
+    Private Sub txtbusquedafolioventa_KeyDown(sender As Object, e As KeyEventArgs) Handles txtbusquedafolioventa.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            realizarbusquedaventa()
+        End If
+
     End Sub
 End Class

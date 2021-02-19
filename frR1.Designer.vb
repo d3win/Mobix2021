@@ -29,11 +29,9 @@ Partial Class frR1
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frR1))
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.dslogoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.data = New Mobi.data()
         Me.dsdatos_empresaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.dsstatusBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         CType(Me.dslogoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.data, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dsdatos_empresaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dsstatusBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -57,26 +55,6 @@ Partial Class frR1
         Me.ReportViewer1.Size = New System.Drawing.Size(1292, 732)
         Me.ReportViewer1.TabIndex = 0
         '
-        'dslogoBindingSource
-        '
-        Me.dslogoBindingSource.DataMember = "dslogo"
-        Me.dslogoBindingSource.DataSource = Me.data
-        '
-        'data
-        '
-        Me.data.DataSetName = "data"
-        Me.data.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'dsdatos_empresaBindingSource
-        '
-        Me.dsdatos_empresaBindingSource.DataMember = "dsdatos_empresa"
-        Me.dsdatos_empresaBindingSource.DataSource = Me.data
-        '
-        'dsstatusBindingSource
-        '
-        Me.dsstatusBindingSource.DataMember = "dsstatus"
-        Me.dsstatusBindingSource.DataSource = Me.data
-        '
         'frR1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -88,14 +66,12 @@ Partial Class frR1
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Report"
         CType(Me.dslogoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.data, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dsdatos_empresaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dsstatusBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
     Friend WithEvents dsdatos_empresaBindingSource As BindingSource
-    Friend WithEvents data As data
     Friend WithEvents dslogoBindingSource As BindingSource
     Friend WithEvents dsstatusBindingSource As BindingSource
     Friend WithEvents ReportViewer1 As Microsoft.Reporting.WinForms.ReportViewer

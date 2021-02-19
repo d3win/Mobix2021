@@ -27,11 +27,9 @@ Partial Class FRcustomer
         Dim ReportDataSource2 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Dim ReportDataSource3 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
-        Me.data = New Mobi.data()
         Me.dslogoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.dsdatos_empresaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.dscustomerBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        CType(Me.data, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dslogoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dsdatos_empresaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dscustomerBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -56,26 +54,6 @@ Partial Class FRcustomer
         Me.ReportViewer1.Size = New System.Drawing.Size(1169, 705)
         Me.ReportViewer1.TabIndex = 0
         '
-        'data
-        '
-        Me.data.DataSetName = "data"
-        Me.data.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'dslogoBindingSource
-        '
-        Me.dslogoBindingSource.DataMember = "dslogo"
-        Me.dslogoBindingSource.DataSource = Me.data
-        '
-        'dsdatos_empresaBindingSource
-        '
-        Me.dsdatos_empresaBindingSource.DataMember = "dsdatos_empresa"
-        Me.dsdatos_empresaBindingSource.DataSource = Me.data
-        '
-        'dscustomerBindingSource
-        '
-        Me.dscustomerBindingSource.DataMember = "dscustomer"
-        Me.dscustomerBindingSource.DataSource = Me.data
-        '
         'FRcustomer
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -84,7 +62,6 @@ Partial Class FRcustomer
         Me.Controls.Add(Me.ReportViewer1)
         Me.Name = "FRcustomer"
         Me.Text = "FRcustomer"
-        CType(Me.data, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dslogoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dsdatos_empresaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dscustomerBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
@@ -94,7 +71,6 @@ Partial Class FRcustomer
 
     Friend WithEvents ReportViewer1 As Microsoft.Reporting.WinForms.ReportViewer
     Friend WithEvents dslogoBindingSource As BindingSource
-    Friend WithEvents data As data
     Friend WithEvents dsdatos_empresaBindingSource As BindingSource
     Friend WithEvents dscustomerBindingSource As BindingSource
 End Class

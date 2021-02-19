@@ -23,16 +23,14 @@ Partial Class FRinventario
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ReportDataSource4 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
-        Dim ReportDataSource5 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
-        Dim ReportDataSource6 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource2 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource3 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FRinventario))
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
-        Me.data = New Mobi.data()
         Me.dslogoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.dsdatos_empresaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.dsproductoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        CType(Me.data, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dslogoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dsdatos_empresaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dsproductoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -41,41 +39,21 @@ Partial Class FRinventario
         'ReportViewer1
         '
         Me.ReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill
-        ReportDataSource4.Name = "dtlogo"
-        ReportDataSource4.Value = Me.dslogoBindingSource
-        ReportDataSource5.Name = "dtdatos_empresa"
-        ReportDataSource5.Value = Me.dsdatos_empresaBindingSource
-        ReportDataSource6.Name = "dtproducto"
-        ReportDataSource6.Value = Me.dsproductoBindingSource
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource4)
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource5)
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource6)
+        ReportDataSource1.Name = "dtlogo"
+        ReportDataSource1.Value = Me.dslogoBindingSource
+        ReportDataSource2.Name = "dtdatos_empresa"
+        ReportDataSource2.Value = Me.dsdatos_empresaBindingSource
+        ReportDataSource3.Name = "dtproducto"
+        ReportDataSource3.Value = Me.dsproductoBindingSource
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource2)
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource3)
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "Mobi.RPinventario.rdlc"
         Me.ReportViewer1.Location = New System.Drawing.Point(0, 0)
         Me.ReportViewer1.Name = "ReportViewer1"
         Me.ReportViewer1.ServerReport.BearerToken = Nothing
         Me.ReportViewer1.Size = New System.Drawing.Size(1133, 692)
         Me.ReportViewer1.TabIndex = 0
-        '
-        'data
-        '
-        Me.data.DataSetName = "data"
-        Me.data.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'dslogoBindingSource
-        '
-        Me.dslogoBindingSource.DataMember = "dslogo"
-        Me.dslogoBindingSource.DataSource = Me.data
-        '
-        'dsdatos_empresaBindingSource
-        '
-        Me.dsdatos_empresaBindingSource.DataMember = "dsdatos_empresa"
-        Me.dsdatos_empresaBindingSource.DataSource = Me.data
-        '
-        'dsproductoBindingSource
-        '
-        Me.dsproductoBindingSource.DataMember = "dsproducto"
-        Me.dsproductoBindingSource.DataSource = Me.data
         '
         'FRinventario
         '
@@ -87,7 +65,6 @@ Partial Class FRinventario
         Me.Name = "FRinventario"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "FRinventario"
-        CType(Me.data, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dslogoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dsdatos_empresaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dsproductoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
@@ -97,7 +74,6 @@ Partial Class FRinventario
 
     Friend WithEvents ReportViewer1 As Microsoft.Reporting.WinForms.ReportViewer
     Friend WithEvents dslogoBindingSource As BindingSource
-    Friend WithEvents data As data
     Friend WithEvents dsdatos_empresaBindingSource As BindingSource
     Friend WithEvents dsproductoBindingSource As BindingSource
 End Class

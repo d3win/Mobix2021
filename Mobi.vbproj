@@ -6,9 +6,9 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{C745BE8E-E9B4-4F45-9746-CE2BA2CB6097}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>Mobi.My.MyApplication</StartupObject>
-    <RootNamespace>Mobi</RootNamespace>
-    <AssemblyName>Mobi</AssemblyName>
+    <StartupObject>Ctrly.My.MyApplication</StartupObject>
+    <RootNamespace>Ctrly</RootNamespace>
+    <AssemblyName>Ctrly</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
@@ -40,7 +40,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>Mobi.xml</DocumentationFile>
+    <DocumentationFile>Ctrly.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -50,7 +50,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>Mobi.xml</DocumentationFile>
+    <DocumentationFile>Ctrly.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
@@ -78,7 +78,7 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>compurepair.ico</ApplicationIcon>
+    <ApplicationIcon>LOGO CTRL+Y.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
@@ -146,6 +146,18 @@
     </Compile>
     <Compile Include="data.vb">
       <DependentUpon>data.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FRabrircaja.Designer.vb">
+      <DependentUpon>FRabrircaja.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FRabrircaja.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRcerrarcaja.Designer.vb">
+      <DependentUpon>FRcerrarcaja.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FRcerrarcaja.vb">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="FRcustomer.Designer.vb">
       <DependentUpon>FRcustomer.vb</DependentUpon>
@@ -218,6 +230,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="config.resx">
       <DependentUpon>config.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRabrircaja.resx">
+      <DependentUpon>FRabrircaja.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRcerrarcaja.resx">
+      <DependentUpon>FRcerrarcaja.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FRcustomer.resx">
       <DependentUpon>FRcustomer.vb</DependentUpon>
@@ -293,6 +311,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="compurepair.ico" />
+    <Content Include="LOGO CTRL+Y.ico" />
     <Content Include="SqlServerTypes\Loader.cs" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">

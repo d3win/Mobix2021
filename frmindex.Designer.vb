@@ -64,6 +64,8 @@ Partial Class frmindex
         Me.Button43 = New System.Windows.Forms.Button()
         Me.txtbusquedafolioventa = New System.Windows.Forms.TextBox()
         Me.Label59 = New System.Windows.Forms.Label()
+        Me.Button44 = New System.Windows.Forms.Button()
+        Me.Button45 = New System.Windows.Forms.Button()
         Me.pblogoticket = New System.Windows.Forms.PictureBox()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
         Me.cbseller = New System.Windows.Forms.ComboBox()
@@ -354,7 +356,6 @@ Partial Class frmindex
         Me.PrintDocument3 = New System.Drawing.Printing.PrintDocument()
         Me.PrintDocument4 = New System.Drawing.Printing.PrintDocument()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.Button44 = New System.Windows.Forms.Button()
         Me.FlowLayoutPanel2.SuspendLayout
         Me.FlowLayoutPanel1.SuspendLayout
         CType(Me.btventas, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -590,7 +591,6 @@ Partial Class frmindex
         Me.btncerrarcajamenu.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btncerrarcajamenu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         Me.btncerrarcajamenu.UseVisualStyleBackColor = False
-        Me.btncerrarcajamenu.Visible = False
         '
         'btnabrircajamenu
         '
@@ -607,7 +607,6 @@ Partial Class frmindex
         Me.btnabrircajamenu.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnabrircajamenu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         Me.btnabrircajamenu.UseVisualStyleBackColor = False
-        Me.btnabrircajamenu.Visible = False
         '
         'FlowLayoutPanel1
         '
@@ -880,6 +879,7 @@ Partial Class frmindex
         Me.FlowLayoutPanel3.Controls.Add(Me.Button5)
         Me.FlowLayoutPanel3.Controls.Add(Me.GroupBox26)
         Me.FlowLayoutPanel3.Controls.Add(Me.Button44)
+        Me.FlowLayoutPanel3.Controls.Add(Me.Button45)
         Me.FlowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Right
         Me.FlowLayoutPanel3.Location = New System.Drawing.Point(1327, 3)
         Me.FlowLayoutPanel3.Name = "FlowLayoutPanel3"
@@ -961,6 +961,40 @@ Partial Class frmindex
         Me.Label59.Size = New System.Drawing.Size(0, 53)
         Me.Label59.TabIndex = 13
         Me.Label59.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Button44
+        '
+        Me.Button44.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(130, Byte), Integer), CType(CType(184, Byte), Integer))
+        Me.Button44.FlatAppearance.BorderSize = 0
+        Me.Button44.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button44.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button44.ForeColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.Button44.Image = CType(resources.GetObject("Button44.Image"), System.Drawing.Image)
+        Me.Button44.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button44.Location = New System.Drawing.Point(4, 225)
+        Me.Button44.Margin = New System.Windows.Forms.Padding(4)
+        Me.Button44.Name = "Button44"
+        Me.Button44.Size = New System.Drawing.Size(126, 79)
+        Me.Button44.TabIndex = 108
+        Me.Button44.Text = "Cancel all"
+        Me.Button44.UseVisualStyleBackColor = False
+        '
+        'Button45
+        '
+        Me.Button45.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(130, Byte), Integer), CType(CType(184, Byte), Integer))
+        Me.Button45.FlatAppearance.BorderSize = 0
+        Me.Button45.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button45.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button45.ForeColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.Button45.Image = CType(resources.GetObject("Button45.Image"), System.Drawing.Image)
+        Me.Button45.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button45.Location = New System.Drawing.Point(4, 312)
+        Me.Button45.Margin = New System.Windows.Forms.Padding(4)
+        Me.Button45.Name = "Button45"
+        Me.Button45.Size = New System.Drawing.Size(133, 79)
+        Me.Button45.TabIndex = 109
+        Me.Button45.Text = "Reprint"
+        Me.Button45.UseVisualStyleBackColor = False
         '
         'pblogoticket
         '
@@ -4341,23 +4375,6 @@ Partial Class frmindex
         'PrintDocument4
         '
         '
-        'Button44
-        '
-        Me.Button44.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(130, Byte), Integer), CType(CType(184, Byte), Integer))
-        Me.Button44.FlatAppearance.BorderSize = 0
-        Me.Button44.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button44.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button44.ForeColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.Button44.Image = CType(resources.GetObject("Button44.Image"), System.Drawing.Image)
-        Me.Button44.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button44.Location = New System.Drawing.Point(4, 225)
-        Me.Button44.Margin = New System.Windows.Forms.Padding(4)
-        Me.Button44.Name = "Button44"
-        Me.Button44.Size = New System.Drawing.Size(126, 79)
-        Me.Button44.TabIndex = 108
-        Me.Button44.Text = "Cancel all"
-        Me.Button44.UseVisualStyleBackColor = False
-        '
         'frmindex
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -4781,4 +4798,5 @@ Partial Class frmindex
     Friend WithEvents txtbusquedafolioventa As TextBox
     Friend WithEvents Label59 As Label
     Friend WithEvents Button44 As Button
+    Friend WithEvents Button45 As Button
 End Class
