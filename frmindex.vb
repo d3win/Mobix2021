@@ -1424,7 +1424,7 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
             conexionMysql.Open()
             Dim Sql As String
             'Sql = "INSERT INTO `mobi`.`venta` (`idventa`, `idcustomer`,  `idseller`, `total`, `fechaventa`, `fechaentrega`, `costo_reparacion`, `deposito`, `resto`,`tipoventa`) VALUES ('" & lbfolio.Text & "', '" & idcliente & "', '" & idseller & "', '" & stxttotalfinal.Text & "', '" & fecha & "', '" & fecha & "', '0', '0', '0',1);"
-            Sql = "INSERT INTO `venta` (`idventa`, `idcustomer`,  `idseller`, `total`, `fechaventa`, `fechaentrega`, `deposito`, `resto`,`tipoventa`) VALUES ('" & lbfolio.Text & "', '" & idcliente & "', '" & idseller & "', '" & stxttotalfinal.Text & "', '" & fecha & "', '" & fecha & "', '0', '0',1);"
+            Sql = "INSERT INTO `venta` (`idventa`, `idcustomer`,  `idseller`, `total`, `fechaventa`, `fechaentrega`, `deposito`, `resto`,`tipoventa`,`hora`) VALUES ('" & lbfolio.Text & "', '" & idcliente & "', '" & idseller & "', '" & stxttotalfinal.Text & "', '" & fecha & "', '" & fecha & "', '0', '0',1,'" & hora & "');"
             Dim cmd As New MySqlCommand(Sql, conexionMysql)
             cmd.ExecuteNonQuery()
             conexionMysql.Close()
@@ -10835,6 +10835,11 @@ ADD COLUMN `posicion` INT NULL AFTER `idventa`;"
         End If
 
     End Function
+
+    Private Sub Button45_Click(sender As Object, e As EventArgs) Handles Button45.Click
+        'reimprimir reparacion
+        reimprimirreparacion()
+    End Sub
 
     Private Sub pgrilla_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles pgrilla.CellDoubleClick
         Dim Variable As String = pgrilla.Item(0, pgrilla.CurrentRow.Index).Value
