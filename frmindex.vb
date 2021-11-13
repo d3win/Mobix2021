@@ -11521,6 +11521,118 @@ ADD COLUMN `posicion` INT NULL AFTER `idventa`;"
         reader.Close()
     End Function
 
+    Private Sub Button46_Click(sender As Object, e As EventArgs) Handles Button46.Click
+        Button1.Text = "Inicio"
+        Button2.Text = "Ventas"
+        Button67.Text = "Reparaciones"
+        Button14.Text = "Productos"
+        Button8.Text = "Busqueda"
+        Button38.Text = "Clientes"
+        Button12.Text = "Configuración"
+        Label11.Text = "Id"
+        Label10.Text = "Descripción"
+        GroupBox3.Text = "Producto"
+        GroupBox1.Text = "Cliente"
+        Label1.Text = "Nombre"
+        Label2.Text = "Dirección"
+        Label6.Text = "Ciudad"
+        Label5.Text = "Estado"
+        Label3.Text = "Telefono"
+        Label4.Text = "Correo"
+        Button19.Text = "Agregar"
+        Label15.Text = "Técnico"
+        Label7.Text = "Folio"
+        GroupBox22.Text = "Número de venta"
+        Button5.Text = "Vender"
+        Label66.Text = "Folio"
+        GroupBox26.Text = "Busqueda"
+        Button44.Text = "Cancelar"
+        Button45.Text = "Reimpresión"
+        Label9.Text = "Precio"
+        Label8.Text = "Cantidad"
+        '---
+        GroupBox7.Text = "Cliente"
+        Label21.Text = "Nombre"
+        Label18.Text = "Dirección"
+        Label19.Text = "City"
+        Label20.Text = "Estado"
+        Label17.Text = "Telefono"
+        Label48.Text = "E-mail"
+        GroupBox8.Text = "Dispositivo"
+        Label26.Text = "Nombre Dispositivo"
+        Label23.Text = "Modelo"
+        Label25.Text = "IMEI"
+        Label24.Text = "Contraseña"
+        Label33.Text = "Estado"
+        Label46.Text = "Técnico"
+        Label22.Text = "Descripción"
+        Label32.Text = "Notas"
+        Label39.Text = "Fecha de entrega"
+        Label64.Text = "Fecha cambio de estado"
+
+        GroupBox21.Text = "Dispositivos"
+        GroupBox16.Text = "Número de venta"
+        Label44.Text = "Id del producto"
+        Label31.Text = "Pieza"
+
+
+
+
+
+
+        Label29.Text = "Precio"
+        Label43.Text = "Cantidad"
+        Button17.Text = "Agregar"
+        Label28.Text = "Precio reparación"
+        Label60.Text = "Total en piezas"
+        Label30.Text = "Anticipo"
+        Label45.Text = "Restante"
+        Button13.Text = "Registrar"
+        Button22.Text = "Actualizar"
+        Button23.Text = "Limpiar"
+        Button29.Text = "Agregar dispositivo"
+        btnreimpresion.Text = "Reimpresión"
+
+
+        '----
+        GroupBox19.Text = "Reparaciones"
+        Label53.Text = "Estados"
+        Label56.Text = "Técnico"
+        Label55.Text = "Fecha de entrega"
+        Label54.Text = "Fecha de venta"
+        GroupBox20.Text = "Datos generales"
+        Label50.Text = "Nombre de cliente"
+        Label52.Text = "Número telefonico"
+        Label57.Text = "Modelo equipo"
+        Label58.Text = "ID Venta"
+        Button32.Text = "Imprimir"
+        Button26.Text = "Limpiar"
+
+        '---
+        Button11.Text = "Salir"
+        '---
+        GroupBox31.Text = "Datos de la empresa"
+        Label99.Text = "Empresa"
+        Label107.Text = "Subnombre"
+        Label102.Text = "Calle"
+        Button83.Text = "Guardar imagen"
+        Button84.Text = "Abrir imagen"
+        Button87.Text = "Eliminar imagen"
+        GroupBox38.Text = "Configuración del sistema"
+        Button52.Text = "Respaldar Base de datos"
+        Button65.Text = "Reiniciar sistema"
+        Button88.Text = "Eliminar Base de datos"
+        GroupBox33.Text = "Configuración de impresora"
+        Label109.Text = "Impresora"
+        chticket.Text = "Imprimir ticket"
+        GroupBox6.Text = "Configurar"
+        Label13.Text = "Agregar técnico"
+        Button3.Text = "Agregar"
+        Label4.Text = "Tecnicos"
+        Button4.Text = "Eliminar"
+        GroupBox25.Text = "Configuración General"
+    End Sub
+
     Private Sub rtxtcustomername_KeyDown(sender As Object, e As KeyEventArgs) Handles rtxtcustomername.KeyDown
         If e.KeyCode = Keys.Escape Then
             rlbcustomer.Visible = False
