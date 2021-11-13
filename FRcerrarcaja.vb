@@ -1,10 +1,14 @@
 ﻿Imports MySql.Data.MySqlClient
+Imports System.IO.StreamWriter
+Imports System.IO
+Imports System.ComponentModel
 Public Class FRcerrarcaja
 
-
+    Public respaldar As New SaveFileDialog
+    Public carpeta As New FolderBrowserDialog
     Private Sub FRcerrarcaja_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         lbmensaje.Visible = False
-
+        cargarlogoticket()
         desglosecorte()
     End Sub
     Function cerrarconexion()
@@ -12,6 +16,51 @@ Public Class FRcerrarcaja
             conexionMysql.Close()
 
         End If
+    End Function
+    Function cargarlogoticket()
+        Dim ruta As String
+        'Dim mystreamreader As StreamReader = myProcess.StandardOutput
+
+        Try
+            '------------------- LEER INFORMACIÓN DE ARCHIVO ---------------------------
+
+            Dim lineas As New ArrayList()
+            Dim carpeta As String
+            Dim rutaImagen As String
+
+            carpeta = Environment.GetFolderPath(Environment.SpecialFolder.Personal)
+
+            Dim freader As New StreamReader(carpeta & "\rutaImagenNoBorrar.txt")
+
+            rutaImagen = freader.ReadLine() 'leo primera linea
+            'port = freader.ReadLine() 'leo primera linea
+
+            'MsgBox(rutaImagen)
+            ''verificamos que exista al menos 1 registro, en caso de que exista 0, indicamos que el valor es 0;
+            'cerrarconexion()
+            'conexionMysql.Open()
+            'Dim sql22 As String
+            'sql22 = "select ruta_logo from datos_empresa;"
+            'Dim cmd22 As New MySqlCommand(sql22, conexionMysql)
+            'reader = cmd22.ExecuteReader
+            'reader.Read()
+            'ruta = reader.GetString(0).ToString()
+            'conexionMysql.Close()
+            ''asignamos la ruta a la imagen
+            pblogoticket.Image = Image.FromFile(rutaImagen)
+            ' btventas.Image = Image.FromFile(rutaImagen)
+            'btventas.BackgroundImageLayout = ImageLayout.Stretch
+            'btventas.SizeMode = PictureBoxSizeMode.Zoom
+            'pblogo.Image = Image.FromFile(rutaImagen)
+            'btventas.BackgroundImageLayout = ImageLayout.Stretch
+            'pblogo.SizeMode = PictureBoxSizeMode.Zoom
+
+        Catch ex As Exception
+            cerrarconexion()
+        End Try
+
+
+
     End Function
     Function desglosecorte()
 
@@ -65,8 +114,11 @@ Public Class FRcerrarcaja
         reader.Read()
         'fecha que se abrio la caja
         fechacaja = reader.GetString(0).ToString()
+        lbfechainicial.Text = fecha
+
         'hora en que se abrio la caja
         horacaja = reader.GetString(1).ToString()
+        lbhorainicial.Text = horacaja
         txtsaldoinicial.Text = reader.GetString(2).ToString()
         conexionMysql.Close()
         'MsgBox(fechacaja & " hora: " & horacaja)
@@ -528,6 +580,14 @@ Public Class FRcerrarcaja
             '-----------------------------------
             'guardamos el registro dentro de la BD CORTE
             '------------------------------------
+
+
+            lbfechafinal.Text = fecha
+            lbhorafinal.Text = hora
+
+
+
+
             cerrarconexion()
             conexionMysql.Open()
             'actualizo el dato
@@ -604,11 +664,11 @@ Public Class FRcerrarcaja
 
     Private Sub PrintDocument1_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles PrintDocument1.PrintPage
         Dim folio As Integer
-        If activarbusqueda = True Then
-            folio = rtxtbusquedafolio.Text
-        Else
-            folio = slbfolio.Text
-        End If
+        'If activarbusqueda = True Then
+        '    folio = rtxtbusquedafolio.Text
+        'Else
+        '    folio = slbfolio.Text
+        'End If
 
         'e.Graphics.DrawString(txtetiqueta1, New Font("verdana", 11, FontStyle.Bold), New SolidBrush(Color.Black), 1, 9)
         'e.Graphics.DrawString(txtetiqueta2, New Font("verdana", 9, FontStyle.Bold), New SolidBrush(Color.Black), 1, 28)
@@ -657,6 +717,73 @@ Public Class FRcerrarcaja
             MsgBox("Los datos de la empresa aun estan vacios", MsgBoxStyle.Information, "MOBI")
         End Try
 
+
+        'OBTENEMOS LOS DATOS DEL CIERRE DE CAJA
+        'todos los datos son obtenidos con la fecha actual para evitar conflictos
+        Dim dia, mes, año, fecha, horacaja, fechacaja As String
+        Dim hora2, minuto, segundo, hora As String
+        ' Dim fechacaja As Date
+        hora2 = Now.Hour()
+        minuto = Now.Minute()
+        segundo = Now.Second()
+
+        hora = hora2 & ":" & minuto & ":" & segundo
+
+        dia = Date.Now.Day
+        mes = Date.Now.Month
+        año = Date.Now.Year
+        fecha = año & "-" & mes & "-" & dia
+
+        Try
+
+            cerrarconexion()
+            conexionMysql.Open()
+            Dim Sql1 As String
+            Sql1 = "select * from datos_empresa;"
+            Dim cmd1 As New MySqlCommand(Sql1, conexionMysql)
+            reader = cmd1.ExecuteReader()
+            reader.Read()
+            ticketnombre = reader.GetString(1).ToString()
+            callenumero = reader.GetString(2).ToString()
+            ticketcoloniaciudad = reader.GetString(3).ToString()
+            cp = reader.GetString(4).ToString()
+            estado = reader.GetString(5).ToString()
+            tickettelefono = reader.GetString(6).ToString()
+            whatsapp = reader.GetString(7).ToString()
+            correo = reader.GetString(8).ToString()
+
+            conexionMysql.Close()
+        Catch ex As Exception
+
+        End Try
+
+
+        Try
+
+            cerrarconexion()
+            conexionMysql.Open()
+            Dim Sql1 As String
+            Sql1 = "select * from corte;"
+            Dim cmd1 As New MySqlCommand(Sql1, conexionMysql)
+            reader = cmd1.ExecuteReader()
+            reader.Read()
+            ticketnombre = reader.GetString(1).ToString()
+            callenumero = reader.GetString(2).ToString()
+            ticketcoloniaciudad = reader.GetString(3).ToString()
+            cp = reader.GetString(4).ToString()
+            estado = reader.GetString(5).ToString()
+            tickettelefono = reader.GetString(6).ToString()
+            whatsapp = reader.GetString(7).ToString()
+            correo = reader.GetString(8).ToString()
+
+            conexionMysql.Close()
+        Catch ex As Exception
+
+        End Try
+
+
+
+
         tfuente = 10 '7
         tfuente2 = 14
         tfuente3 = 16
@@ -664,7 +791,7 @@ Public Class FRcerrarcaja
         x = 5
         y = 5
         Dim ii, incremento As Integer
-        incremento = 14
+        incremento = 16
         Dim yy(29) As Integer
         For ii = 0 To 29
             y = y + incremento
@@ -678,7 +805,7 @@ Public Class FRcerrarcaja
             Dim prFont As New Font("Arial", 15, FontStyle.Bold)
             'POSICION DEL LOGO
             ' la posición superior
-            'e.Graphics.DrawImage(pblogoticket.Image, 50, 20, 120, 120)
+            e.Graphics.DrawImage(pblogoticket.Image, 50, 20, 120, 100)
 
 
             'imprimir el titutlo del ticket
@@ -686,295 +813,308 @@ Public Class FRcerrarcaja
 
 
             prFont = New Font("Arial", tfuente2, FontStyle.Bold)
-            e.Graphics.DrawString(ticketnombre, prFont, Brushes.Black, x, yy(0))
+            e.Graphics.DrawString(ticketnombre, prFont, Brushes.Black, x, yy(7))
+            prFont = New Font("Arial", tfuente, FontStyle.Bold)
+            e.Graphics.DrawString(ticketgiro, prFont, Brushes.Black, x, yy(8))
+            'IMPRESION DE LOGOTIPO,
             'prFont = New Font("Arial", tfuente, FontStyle.Bold)
             'e.Graphics.DrawString(ticketgiro, prFont, Brushes.Black, x, yy(2))
-            ''IMPRESION DE LOGOTIPO,
-            ''prFont = New Font("Arial", tfuente, FontStyle.Bold)
-            ''e.Graphics.DrawString(ticketgiro, prFont, Brushes.Black, x, yy(2))
 
-
-            'prFont = New Font("Arial", tfuente, FontStyle.Bold)
-            'e.Graphics.DrawString(callenumero, prFont, Brushes.Black, x, yy(3))
-
-            ''imprimir el titutlo del ticket
-            'prFont = New Font("Arial", tfuente, FontStyle.Bold)
-            'e.Graphics.DrawString(ticketcoloniaciudad, prFont, Brushes.Black, x, yy(4))
-            'prFont = New Font("Arial", tfuente, FontStyle.Bold)
-            'e.Graphics.DrawString(cp, prFont, Brushes.Black, x, yy(5))
-            'prFont = New Font("Arial", tfuente, FontStyle.Bold)
-            'e.Graphics.DrawString("TEL:" & tickettelefono, prFont, Brushes.Black, x, yy(6))
-            'prFont = New Font("Arial", tfuente, FontStyle.Bold)
-            'e.Graphics.DrawString("LIC." & rfc, prFont, Brushes.Black, x, yy(7))
-            prFont = New Font("Arial", tfuente, FontStyle.Bold)
-            e.Graphics.DrawString("==================================", prFont, Brushes.Black, x, yy(1))
 
             prFont = New Font("Arial", tfuente, FontStyle.Bold)
-            e.Graphics.DrawString("Tech:" & rcbseller.Text, prFont, Brushes.Black, x, yy(2))
+            e.Graphics.DrawString(callenumero, prFont, Brushes.Black, x, yy(9))
 
             'imprimir el titutlo del ticket
             prFont = New Font("Arial", tfuente, FontStyle.Bold)
-            e.Graphics.DrawString("Customer:" & rtxtcustomername.Text, prFont, Brushes.Black, x, yy(3))
+            e.Graphics.DrawString(ticketcoloniaciudad, prFont, Brushes.Black, x, yy(10))
             prFont = New Font("Arial", tfuente, FontStyle.Bold)
-            e.Graphics.DrawString("Phone number" & rtxttelephone.Text, prFont, Brushes.Black, x, yy(4))
+            e.Graphics.DrawString(cp, prFont, Brushes.Black, x, yy(11))
             prFont = New Font("Arial", tfuente, FontStyle.Bold)
-
-            e.Graphics.DrawString("Date:" & Date.Now, prFont, Brushes.Black, x, yy(5))
+            e.Graphics.DrawString("TEL:" & tickettelefono, prFont, Brushes.Black, x, yy(12))
+            prFont = New Font("Arial", tfuente, FontStyle.Bold)
+            e.Graphics.DrawString("LIC." & rfc, prFont, Brushes.Black, x, yy(13))
+            prFont = New Font("Arial", tfuente, FontStyle.Bold)
+            e.Graphics.DrawString("==================================", prFont, Brushes.Black, x, yy(14))
             prFont = New Font("Arial", tfuente2, FontStyle.Bold)
-            e.Graphics.DrawString("ORDER #" & folio, prFont, Brushes.Black, x, yy(6))
+            e.Graphics.DrawString("FOLIO #" & txtid.Text, prFont, Brushes.Black, x, yy(15))
+
+            prFont = New Font("Arial", tfuente, FontStyle.Bold)
+            e.Graphics.DrawString("Fecha Ini: " & lbfechainicial.Text, prFont, Brushes.Black, x, yy(16))
+
+            prFont = New Font("Arial", tfuente, FontStyle.Bold)
+            e.Graphics.DrawString("Hora ini: " & lbhorainicial.Text, prFont, Brushes.Black, x, yy(17))
+
+            prFont = New Font("Arial", tfuente, FontStyle.Bold)
+            e.Graphics.DrawString("Fecha fin: " & lbfechafinal.Text, prFont, Brushes.Black, x, yy(18))
+
+            prFont = New Font("Arial", tfuente, FontStyle.Bold)
+            e.Graphics.DrawString("Hora fin: " & lbhorafinal.Text, prFont, Brushes.Black, x, yy(19))
+
+            prFont = New Font("Arial", tfuente, FontStyle.Bold)
+            e.Graphics.DrawString("Saldo inicial: $" & txtsaldoinicial.Text, prFont, Brushes.Black, x, yy(20))
+
+            prFont = New Font("Arial", tfuente, FontStyle.Bold)
+            e.Graphics.DrawString("Saldo Existente: $" & txtsaldocaja.Text, prFont, Brushes.Black, x, yy(21))
+
+            prFont = New Font("Arial", tfuente, FontStyle.Bold)
+            e.Graphics.DrawString("Saldo Esperado: $" & txtdeberialexistir.Text, prFont, Brushes.Black, x, yy(22))
+
+
+            prFont = New Font("Arial", tfuente, FontStyle.Bold)
+            e.Graphics.DrawString("Diferencia : $" & txtdiferencia.Text, prFont, Brushes.Black, x, yy(23))
 
 
             '---------------------------------------------------------------------------------------------------------------------------------
             'consulto, cuantos dispositivos son, para obtener su informacion
 
-            Dim cantidaddispositivos, vueltas As Integer
-            cerrarconexion()
-            conexionMysql.Open()
-            Dim Sql12 As String
-            'temporalmente slbfolio.text por rtxtbusquedatemporal
-            Sql12 = "select count(*) from equipo where idventa='" & folio & "';"
-            Dim cmd12 As New MySqlCommand(Sql12, conexionMysql)
-            reader = cmd12.ExecuteReader()
-            reader.Read()
-            cantidaddispositivos = reader.GetString(0).ToString()
-            'callenumero = reader.GetString(2).ToString()
-            'ticketcoloniaciudad = reader.GetString(3).ToString()
-            'cp = reader.GetString(4).ToString()
-            conexionMysql.Close()
-            cerrarconexion()
-
-            conexionMysql.Open()
-            Dim Sql123, problema, equipo, modelo, imei, estadox, pass, notes As String
-            Sql123 = "select * from equipo where idventa='" & folio & "';"
-            Dim cmd123 As New MySqlCommand(Sql123, conexionMysql)
-            reader = cmd123.ExecuteReader()
-
-            Dim pp1, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14 As Integer
-
-            pp1 = yy(7)
-
-            p2 = yy(8)
-            p3 = yy(9)
-            p4 = yy(10)
-            p5 = yy(11)
-            p6 = yy(12)
-            p7 = yy(13)
-            p8 = yy(14)
-            p9 = yy(15)
-            p10 = yy(16)
-            p11 = yy(17)
-            p12 = yy(18)
-            p13 = yy(19)
-            p14 = yy(20)
-
-
-
-
-            For vueltas = 1 To cantidaddispositivos
-
-
-                reader.Read()
-                equipo = reader.GetString(1).ToString()
-                modelo = reader.GetString(2).ToString()
-                pass = reader.GetString(4).ToString()
-                notes = reader.GetString(7).ToString()
-                problema = reader.GetString(6).ToString()
-
-
-                'imprimir el titutlo del ticket
-                '----------------------------------------------------------------------------------------------------------------------------
-
-                prFont = New Font("Arial", tfuente, FontStyle.Bold)
-                e.Graphics.DrawString("==================================", prFont, Brushes.Black, x, pp1)
-
-                prFont = New Font("Arial", tfuente, FontStyle.Bold)
-                e.Graphics.DrawString("--PROBLEM--", prFont, Brushes.Black, x, p2)
-
-                prFont = New Font("Arial", tfuente, FontStyle.Bold)
-                e.Graphics.DrawString(problema, prFont, Brushes.Black, x, p3)
-
-                'prFont = New Font("Arial", tfuente3, FontStyle.Bold)
-                'e.Graphics.DrawString("ID------PRECIO------CANTIDAD----TOTAL", prFont, Brushes.Black, x, yy(15))
-
-
-
-
-
-                prFont = New Font("Arial", tfuente, FontStyle.Bold)
-                e.Graphics.DrawString("==================================", prFont, Brushes.Black, x, p4)
-
-
-                prFont = New Font("Arial", tfuente, FontStyle.Bold)
-                e.Graphics.DrawString("--Device--", prFont, Brushes.Black, x, p5)
-                prFont = New Font("Arial", tfuente, FontStyle.Bold)
-                e.Graphics.DrawString("Item name:" & equipo, prFont, Brushes.Black, x, p6)
-
-                prFont = New Font("Arial", tfuente, FontStyle.Bold)
-                e.Graphics.DrawString("Model:" & modelo, prFont, Brushes.Black, x, p7)
-
-
-                prFont = New Font("Arial", tfuente, FontStyle.Bold)
-                e.Graphics.DrawString("Pass Code: " & pass, prFont, Brushes.Black, x, p8)
-
-
-                prFont = New Font("Arial", tfuente, FontStyle.Bold)
-                e.Graphics.DrawString("Notes:" & notes, prFont, Brushes.Black, x, p9)
-                '----------------------------------------------------------------------------------------------------------------------
-
-                pp1 = pp1 + (incremento * 9)
-                p2 = p2 + (incremento * 9)
-                p3 = p3 + (incremento * 9)
-                p4 = p4 + (incremento * 9)
-                p5 = p5 + (incremento * 9)
-                p6 = p6 + (incremento * 9)
-                p7 = p7 + (incremento * 9)
-                p8 = p8 + (incremento * 9)
-                p9 = p9 + (incremento * 9)
-                'p10 = p10 + (incremento * 7)
-                'p11 = p11 + (incremento * 7)
-                'p12 = p12 + (incremento * 7)
-                'p13 = p13 + (incremento * 7)
-                'p14 = p14 + (incremento * 7)
-                '                yy = yy + (incremento * 3.2)
-                '               yy = yy + (incremento * 3.2)
-
-
-
-
-            Next
-            conexionMysql.Close()
-            cerrarconexion()
-
-            prFont = New Font("Arial", tfuente, FontStyle.Bold)
-            e.Graphics.DrawString("==================================", prFont, Brushes.Black, 0, pp1)
-
-
-
-            Dim fechacalendarioentrega As String
-            fechacalendarioentrega = rcalendario.Value.ToString("MM/dd/yyyy")
-
-
-            prFont = New Font("Arial", tfuente, FontStyle.Bold)
-            e.Graphics.DrawString("Delivery date:" & fechacalendarioentrega, prFont, Brushes.Black, x, p2)
-
-
-            'aqui es donde tenemos que leer todos los datos de la grilla llamada "grilla"
-
-            Dim i As Integer = sgrilla.RowCount
-            'MsgBox(i)
-            Dim t1, t2, t3, t4, t5 As Integer
-            Dim actividad As String
-            Dim cantidad, costo, idventa As Double
-            Dim idproducto As String
-            Dim jj As Integer
-            ' t1 = yy(16)
-            ' t2 = yy(17)
-            ' t3 = yy(18)
-            ' t4 = 40
-            'MsgBox(jj)
-            'MsgBox()
-            'suma de valores
-            '''''''For jj = 0 To i - 1
-
-
-
-            '   MsgBox("valosr de j:" & jj)
-            'a = venta.grillaventa.Item(j, 3).Value.ToString()
-            '''''''actividad = sgrilla.Rows(jj).Cells(1).Value 'descripcion
-            '''''''cantidad = sgrilla.Rows(jj).Cells(2).Value 'cantidad
-            '''''''costo = sgrilla.Rows(jj).Cells(3).Value 'costo
-            '''''''idproducto = sgrilla.Rows(jj).Cells(0).Value
-            '''''''comentario = sgrilla.Rows(jj).Cells(4).Value
+            'Dim cantidaddispositivos, vueltas As Integer
             'cerrarconexion()
             'conexionMysql.Open()
-
-            ' MsgBox("el producto es:" & actividad)
-
-            'Dim Sql2 As String
-            'Sql2 = "INSERT INTO ventaind (actividad, cantidad, costo, idventa,idproducto) VALUES ('" & actividad & "'," & cantidad & "," & costo & "," & lbfolio.Text & ",'" & idproducto & "');"
-            'Dim cmd2 As New MySqlCommand(Sql2, conexionMysql)
-            'cmd2.ExecuteNonQuery()
+            'Dim Sql12 As String
+            ''temporalmente slbfolio.text por rtxtbusquedatemporal
+            'Sql12 = "select count(*) from equipo where idventa='" & folio & "';"
+            'Dim cmd12 As New MySqlCommand(Sql12, conexionMysql)
+            'reader = cmd12.ExecuteReader()
+            'reader.Read()
+            'cantidaddispositivos = reader.GetString(0).ToString()
+            ''callenumero = reader.GetString(2).ToString()
+            ''ticketcoloniaciudad = reader.GetString(3).ToString()
+            ''cp = reader.GetString(4).ToString()
             'conexionMysql.Close()
+            'cerrarconexion()
+
+            'conexionMysql.Open()
+            'Dim Sql123, problema, equipo, modelo, imei, estadox, pass, notes As String
+            'Sql123 = "select * from equipo where idventa='" & folio & "';"
+            'Dim cmd123 As New MySqlCommand(Sql123, conexionMysql)
+            'reader = cmd123.ExecuteReader()
+
+            'Dim pp1, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14 As Integer
+
+            'pp1 = yy(7)
+
+            'p2 = yy(8)
+            'p3 = yy(9)
+            'p4 = yy(10)
+            'p5 = yy(11)
+            'p6 = yy(12)
+            'p7 = yy(13)
+            'p8 = yy(14)
+            'p9 = yy(15)
+            'p10 = yy(16)
+            'p11 = yy(17)
+            'p12 = yy(18)
+            'p13 = yy(19)
+            'p14 = yy(20)
 
 
-            'prFont = New Font("Arial", tfuente3, FontStyle.Bold)
-            '    e.Graphics.DrawString(idproducto, prFont, Brushes.Black, x, t2)
 
+
+            'For vueltas = 1 To cantidaddispositivos
+
+
+            '    reader.Read()
+            '    equipo = reader.GetString(1).ToString()
+            '    modelo = reader.GetString(2).ToString()
+            '    pass = reader.GetString(4).ToString()
+            '    notes = reader.GetString(7).ToString()
+            '    problema = reader.GetString(6).ToString()
+
+
+            '    'imprimir el titutlo del ticket
+            '    '----------------------------------------------------------------------------------------------------------------------------
+
+            '    prFont = New Font("Arial", tfuente, FontStyle.Bold)
+            '    e.Graphics.DrawString("==================================", prFont, Brushes.Black, x, pp1)
+
+            '    prFont = New Font("Arial", tfuente, FontStyle.Bold)
+            '    e.Graphics.DrawString("--PROBLEM--", prFont, Brushes.Black, x, p2)
+
+            '    prFont = New Font("Arial", tfuente, FontStyle.Bold)
+            '    e.Graphics.DrawString(problema, prFont, Brushes.Black, x, p3)
 
             '    'prFont = New Font("Arial", tfuente3, FontStyle.Bold)
-            '    'e.Graphics.DrawString(idproducto, prFont, Brushes.Black, x, t3)
-            '    '----------
-            '    prFont = New Font("Arial", tfuente3, FontStyle.Bold)
-            '    e.Graphics.DrawString("$" & costo, prFont, Brushes.Black, x, t3)
-            '    '----------
-            '    prFont = New Font("Arial", tfuente3, FontStyle.Bold)
-            '    e.Graphics.DrawString(cantidad, prFont, Brushes.Black, x + 80, t3)
-            '    '-----------
-
-            '    prFont = New Font("Arial", tfuente3, FontStyle.Bold)
-            '    e.Graphics.DrawString("$" & (CDbl(costo) * CDbl(cantidad)), prFont, Brushes.Black, x + 160, t3)
-            ''-----------
+            '    'e.Graphics.DrawString("ID------PRECIO------CANTIDAD----TOTAL", prFont, Brushes.Black, x, yy(15))
 
 
 
-            'prFont = New Font("Arial", 10, FontStyle.Bold)
-            'e.Graphics.DrawString(cantidad & "-- $" & (CDbl(costo) * CDbl(cantidad)), prFont, Brushes.Black, 0, t3)
-
-            '''''''   t1 = t1 + (incremento * 3.2)
-            '''''''t2 = t2 + (incremento * 3.2)
-            '''''''t3 = t3 + (incremento * 3.2)
-
-            ''''''' Next
-
-            t1 = t1 - (incremento * 2)
-            t2 = t2 - (incremento * 2)
-            t3 = t3 - (incremento * 2)
 
 
-
-            '----------------AQUI SE IMPRIME EL TOTAL A PAGAR
-            cerrarconexion()
-            conexionMysql.Open()
-            Dim Sql14, total, deposito, resto As String
-            Sql14 = "select total,deposito,resto from venta where idventa='" & folio & "';"
-            Dim cmd14 As New MySqlCommand(Sql14, conexionMysql)
-            reader = cmd14.ExecuteReader()
-            reader.Read()
-            total = reader.GetString(0).ToString()
-            deposito = reader.GetString(1).ToString()
-            resto = reader.GetString(2).ToString()
-
-            conexionMysql.Close()
-
-            cerrarconexion()
+            '    prFont = New Font("Arial", tfuente, FontStyle.Bold)
+            '    e.Graphics.DrawString("==================================", prFont, Brushes.Black, x, p4)
 
 
-            prFont = New Font("Arial", tfuente, FontStyle.Bold)
-            e.Graphics.DrawString("Total:", prFont, Brushes.Black, x, p3)
-            prFont = New Font("Arial", tfuente, FontStyle.Bold)
-            e.Graphics.DrawString("$ " & total, prFont, Brushes.Black, x + 150, p4)
+            '    prFont = New Font("Arial", tfuente, FontStyle.Bold)
+            '    e.Graphics.DrawString("--Device--", prFont, Brushes.Black, x, p5)
+            '    prFont = New Font("Arial", tfuente, FontStyle.Bold)
+            '    e.Graphics.DrawString("Item name:" & equipo, prFont, Brushes.Black, x, p6)
+
+            '    prFont = New Font("Arial", tfuente, FontStyle.Bold)
+            '    e.Graphics.DrawString("Model:" & modelo, prFont, Brushes.Black, x, p7)
+
+
+            '    prFont = New Font("Arial", tfuente, FontStyle.Bold)
+            '    e.Graphics.DrawString("Pass Code: " & pass, prFont, Brushes.Black, x, p8)
+
+
+            '    prFont = New Font("Arial", tfuente, FontStyle.Bold)
+            '    e.Graphics.DrawString("Notes:" & notes, prFont, Brushes.Black, x, p9)
+            '    '----------------------------------------------------------------------------------------------------------------------
+
+            '    pp1 = pp1 + (incremento * 9)
+            '    p2 = p2 + (incremento * 9)
+            '    p3 = p3 + (incremento * 9)
+            '    p4 = p4 + (incremento * 9)
+            '    p5 = p5 + (incremento * 9)
+            '    p6 = p6 + (incremento * 9)
+            '    p7 = p7 + (incremento * 9)
+            '    p8 = p8 + (incremento * 9)
+            '    p9 = p9 + (incremento * 9)
+            '    'p10 = p10 + (incremento * 7)
+            '    'p11 = p11 + (incremento * 7)
+            '    'p12 = p12 + (incremento * 7)
+            '    'p13 = p13 + (incremento * 7)
+            '    'p14 = p14 + (incremento * 7)
+            '    '                yy = yy + (incremento * 3.2)
+            '    '               yy = yy + (incremento * 3.2)
+
+
+
+
+            'Next
+            'conexionMysql.Close()
+            'cerrarconexion()
 
             'prFont = New Font("Arial", tfuente, FontStyle.Bold)
-            'e.Graphics.DrawString("Price:", prFont, Brushes.Black, x, p5)
+            'e.Graphics.DrawString("==================================", prFont, Brushes.Black, 0, pp1)
+
+
+
+            'Dim fechacalendarioentrega As String
+            'fechacalendarioentrega = rcalendario.Value.ToString("MM/dd/yyyy")
+
+
             'prFont = New Font("Arial", tfuente, FontStyle.Bold)
-            'e.Graphics.DrawString("$ " & rtxtcostoreparacion.Text, prFont, Brushes.Black, x + 150, p6)
+            'e.Graphics.DrawString("Delivery date:" & fechacalendarioentrega, prFont, Brushes.Black, x, p2)
 
 
-            prFont = New Font("Arial", tfuente, FontStyle.Bold)
-            e.Graphics.DrawString("Down payment:", prFont, Brushes.Black, x, p5)
-            prFont = New Font("Arial", tfuente, FontStyle.Bold)
-            e.Graphics.DrawString("$ " & deposito, prFont, Brushes.Black, x + 150, p6)
+            ''aqui es donde tenemos que leer todos los datos de la grilla llamada "grilla"
+
+            'Dim i As Integer = sgrilla.RowCount
+            ''MsgBox(i)
+            'Dim t1, t2, t3, t4, t5 As Integer
+            'Dim actividad As String
+            'Dim cantidad, costo, idventa As Double
+            'Dim idproducto As String
+            'Dim jj As Integer
+            '' t1 = yy(16)
+            '' t2 = yy(17)
+            '' t3 = yy(18)
+            '' t4 = 40
+            ''MsgBox(jj)
+            ''MsgBox()
+            ''suma de valores
+            ''''''''For jj = 0 To i - 1
 
 
-            prFont = New Font("Arial", tfuente, FontStyle.Bold)
-            e.Graphics.DrawString("Balance:", prFont, Brushes.Black, x, p7)
-            prFont = New Font("Arial", tfuente, FontStyle.Bold)
-            e.Graphics.DrawString("$ " & resto, prFont, Brushes.Black, x + 150, p8)
+
+            ''   MsgBox("valosr de j:" & jj)
+            ''a = venta.grillaventa.Item(j, 3).Value.ToString()
+            ''''''''actividad = sgrilla.Rows(jj).Cells(1).Value 'descripcion
+            ''''''''cantidad = sgrilla.Rows(jj).Cells(2).Value 'cantidad
+            ''''''''costo = sgrilla.Rows(jj).Cells(3).Value 'costo
+            ''''''''idproducto = sgrilla.Rows(jj).Cells(0).Value
+            ''''''''comentario = sgrilla.Rows(jj).Cells(4).Value
+            ''cerrarconexion()
+            ''conexionMysql.Open()
+
+            '' MsgBox("el producto es:" & actividad)
+
+            ''Dim Sql2 As String
+            ''Sql2 = "INSERT INTO ventaind (actividad, cantidad, costo, idventa,idproducto) VALUES ('" & actividad & "'," & cantidad & "," & costo & "," & lbfolio.Text & ",'" & idproducto & "');"
+            ''Dim cmd2 As New MySqlCommand(Sql2, conexionMysql)
+            ''cmd2.ExecuteNonQuery()
+            ''conexionMysql.Close()
+
+
+            ''prFont = New Font("Arial", tfuente3, FontStyle.Bold)
+            ''    e.Graphics.DrawString(idproducto, prFont, Brushes.Black, x, t2)
+
+
+            ''    'prFont = New Font("Arial", tfuente3, FontStyle.Bold)
+            ''    'e.Graphics.DrawString(idproducto, prFont, Brushes.Black, x, t3)
+            ''    '----------
+            ''    prFont = New Font("Arial", tfuente3, FontStyle.Bold)
+            ''    e.Graphics.DrawString("$" & costo, prFont, Brushes.Black, x, t3)
+            ''    '----------
+            ''    prFont = New Font("Arial", tfuente3, FontStyle.Bold)
+            ''    e.Graphics.DrawString(cantidad, prFont, Brushes.Black, x + 80, t3)
+            ''    '-----------
+
+            ''    prFont = New Font("Arial", tfuente3, FontStyle.Bold)
+            ''    e.Graphics.DrawString("$" & (CDbl(costo) * CDbl(cantidad)), prFont, Brushes.Black, x + 160, t3)
+            '''-----------
 
 
 
-            prFont = New Font("Arial", tfuente, FontStyle.Bold)
-            e.Graphics.DrawString("==================================", prFont, Brushes.Black, x, p9)
+            ''prFont = New Font("Arial", 10, FontStyle.Bold)
+            ''e.Graphics.DrawString(cantidad & "-- $" & (CDbl(costo) * CDbl(cantidad)), prFont, Brushes.Black, 0, t3)
+
+            ''''''''   t1 = t1 + (incremento * 3.2)
+            ''''''''t2 = t2 + (incremento * 3.2)
+            ''''''''t3 = t3 + (incremento * 3.2)
+
+            '''''''' Next
+
+            't1 = t1 - (incremento * 2)
+            't2 = t2 - (incremento * 2)
+            't3 = t3 - (incremento * 2)
+
+
+
+            ''----------------AQUI SE IMPRIME EL TOTAL A PAGAR
+            'cerrarconexion()
+            'conexionMysql.Open()
+            'Dim Sql14, total, deposito, resto As String
+            'Sql14 = "select total,deposito,resto from venta where idventa='" & folio & "';"
+            'Dim cmd14 As New MySqlCommand(Sql14, conexionMysql)
+            'reader = cmd14.ExecuteReader()
+            'reader.Read()
+            'total = reader.GetString(0).ToString()
+            'deposito = reader.GetString(1).ToString()
+            'resto = reader.GetString(2).ToString()
+
+            'conexionMysql.Close()
+
+            'cerrarconexion()
+
+
+            'prFont = New Font("Arial", tfuente, FontStyle.Bold)
+            'e.Graphics.DrawString("Total:", prFont, Brushes.Black, x, p3)
+            'prFont = New Font("Arial", tfuente, FontStyle.Bold)
+            'e.Graphics.DrawString("$ " & total, prFont, Brushes.Black, x + 150, p4)
+
+            ''prFont = New Font("Arial", tfuente, FontStyle.Bold)
+            ''e.Graphics.DrawString("Price:", prFont, Brushes.Black, x, p5)
+            ''prFont = New Font("Arial", tfuente, FontStyle.Bold)
+            ''e.Graphics.DrawString("$ " & rtxtcostoreparacion.Text, prFont, Brushes.Black, x + 150, p6)
+
+
+            'prFont = New Font("Arial", tfuente, FontStyle.Bold)
+            'e.Graphics.DrawString("Down payment:", prFont, Brushes.Black, x, p5)
+            'prFont = New Font("Arial", tfuente, FontStyle.Bold)
+            'e.Graphics.DrawString("$ " & deposito, prFont, Brushes.Black, x + 150, p6)
+
+
+            'prFont = New Font("Arial", tfuente, FontStyle.Bold)
+            'e.Graphics.DrawString("Balance:", prFont, Brushes.Black, x, p7)
+            'prFont = New Font("Arial", tfuente, FontStyle.Bold)
+            'e.Graphics.DrawString("$ " & resto, prFont, Brushes.Black, x + 150, p8)
+
+
+
+            ' prFont = New Font("Arial", tfuente, FontStyle.Bold)
+            ' e.Graphics.DrawString("==================================", prFont, Brushes.Black, x, p9)
             'prFont = New Font("Arial", tfuente, FontStyle.Bold)
             'e.Graphics.DrawString(saludo, prFont, Brushes.Black, x, p10)
             'prFont = New Font("Arial", tfuente, FontStyle.Bold)

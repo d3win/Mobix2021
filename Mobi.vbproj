@@ -78,7 +78,7 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>LOGO CTRL+Y.ico</ApplicationIcon>
+    <ApplicationIcon>logo ctrl png.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
@@ -271,6 +271,7 @@
     <EmbeddedResource Include="RPCustomer.rdlc" />
     <EmbeddedResource Include="RPinventario.rdlc" />
     <EmbeddedResource Include="RPstatus.rdlc" />
+    <EmbeddedResource Include="RPstatus2.rdlc" />
   </ItemGroup>
   <ItemGroup>
     <None Include="data.xsc">
@@ -311,6 +312,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="compurepair.ico" />
+    <Content Include="logo ctrl png.ico" />
     <Content Include="LOGO CTRL+Y.ico" />
     <Content Include="SqlServerTypes\Loader.cs" />
     <Content Include="SqlServerTypes\readme.htm" />

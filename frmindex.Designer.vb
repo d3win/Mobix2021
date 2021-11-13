@@ -209,6 +209,9 @@ Partial Class frmindex
         Me.rtxtstate = New System.Windows.Forms.TextBox()
         Me.Label21 = New System.Windows.Forms.Label()
         Me.TabPage4 = New System.Windows.Forms.TabPage()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.Column1 = New System.Windows.Forms.DataGridViewComboBoxColumn()
+        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.FlowLayoutPanel6 = New System.Windows.Forms.FlowLayoutPanel()
         Me.Button32 = New System.Windows.Forms.Button()
         Me.Button26 = New System.Windows.Forms.Button()
@@ -233,9 +236,27 @@ Partial Class frmindex
         Me.scbstate = New System.Windows.Forms.ComboBox()
         Me.Label53 = New System.Windows.Forms.Label()
         Me.GroupBox18 = New System.Windows.Forms.GroupBox()
+        Me.segrilla = New System.Windows.Forms.DataGridView()
+        Me.idventa = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.equipoID = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Equipo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Modelo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.fechaentrega = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Fventa = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.status = New System.Windows.Forms.DataGridViewComboBoxColumn()
+        Me.namexcust = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.telephone = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.problem = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.nota = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.reparacion = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.parte = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.deposito = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.resto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.totall = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ssgrilla = New System.Windows.Forms.DataGridView()
         Me.TabPage5 = New System.Windows.Forms.TabPage()
         Me.GroupBox25 = New System.Windows.Forms.GroupBox()
+        Me.Button46 = New System.Windows.Forms.Button()
         Me.Button27 = New System.Windows.Forms.Button()
         Me.txtrutaimagen = New System.Windows.Forms.TextBox()
         Me.GroupBox11 = New System.Windows.Forms.GroupBox()
@@ -356,60 +377,64 @@ Partial Class frmindex
         Me.PrintDocument3 = New System.Drawing.Printing.PrintDocument()
         Me.PrintDocument4 = New System.Drawing.Printing.PrintDocument()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.FlowLayoutPanel2.SuspendLayout
-        Me.FlowLayoutPanel1.SuspendLayout
+        Me.Data1 = New Ctrly.data()
+        Me.FlowLayoutPanel2.SuspendLayout()
+        Me.FlowLayoutPanel1.SuspendLayout()
         CType(Me.btventas, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.TabControl1.SuspendLayout
-        Me.TabPage1.SuspendLayout
-        Me.GroupBox22.SuspendLayout
-        Me.GroupBox15.SuspendLayout
+        Me.TabControl1.SuspendLayout()
+        Me.TabPage1.SuspendLayout()
+        Me.GroupBox22.SuspendLayout()
+        Me.GroupBox15.SuspendLayout()
         CType(Me.sgrilla, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.FlowLayoutPanel3.SuspendLayout
-        Me.GroupBox26.SuspendLayout
+        Me.FlowLayoutPanel3.SuspendLayout()
+        Me.GroupBox26.SuspendLayout()
         CType(Me.pblogoticket, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox5.SuspendLayout
-        Me.GroupBox4.SuspendLayout
-        Me.GroupBox2.SuspendLayout
-        Me.GroupBox3.SuspendLayout
-        Me.GroupBox1.SuspendLayout
-        Me.TabPage3.SuspendLayout
-        Me.GroupBox12.SuspendLayout
+        Me.GroupBox5.SuspendLayout()
+        Me.GroupBox4.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
+        Me.GroupBox3.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
+        Me.TabPage3.SuspendLayout()
+        Me.GroupBox12.SuspendLayout()
         CType(Me.rgrilla, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox17.SuspendLayout
+        Me.GroupBox17.SuspendLayout()
         CType(Me.rgrilla2, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox16.SuspendLayout
-        Me.FlowLayoutPanel4.SuspendLayout
-        Me.GroupBox10.SuspendLayout
-        Me.GroupBox9.SuspendLayout
-        Me.GroupBox8.SuspendLayout
-        Me.GroupBox21.SuspendLayout
-        Me.GroupBox7.SuspendLayout
-        Me.TabPage4.SuspendLayout
-        Me.FlowLayoutPanel6.SuspendLayout
-        Me.GroupBox20.SuspendLayout
-        Me.GroupBox19.SuspendLayout
-        Me.GroupBox18.SuspendLayout
+        Me.GroupBox16.SuspendLayout()
+        Me.FlowLayoutPanel4.SuspendLayout()
+        Me.GroupBox10.SuspendLayout()
+        Me.GroupBox9.SuspendLayout()
+        Me.GroupBox8.SuspendLayout()
+        Me.GroupBox21.SuspendLayout()
+        Me.GroupBox7.SuspendLayout()
+        Me.TabPage4.SuspendLayout()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.FlowLayoutPanel6.SuspendLayout()
+        Me.GroupBox20.SuspendLayout()
+        Me.GroupBox19.SuspendLayout()
+        Me.GroupBox18.SuspendLayout()
+        CType(Me.segrilla, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ssgrilla, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.TabPage5.SuspendLayout
-        Me.GroupBox25.SuspendLayout
-        Me.GroupBox11.SuspendLayout
-        Me.GroupBox6.SuspendLayout
-        Me.GroupBox38.SuspendLayout
-        Me.GroupBox33.SuspendLayout
-        Me.GroupBox34.SuspendLayout
+        Me.TabPage5.SuspendLayout()
+        Me.GroupBox25.SuspendLayout()
+        Me.GroupBox11.SuspendLayout()
+        Me.GroupBox6.SuspendLayout()
+        Me.GroupBox38.SuspendLayout()
+        Me.GroupBox33.SuspendLayout()
+        Me.GroupBox34.SuspendLayout()
         CType(Me.pblogo, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox31.SuspendLayout
-        Me.TabPage6.SuspendLayout
-        Me.FlowLayoutPanel5.SuspendLayout
-        Me.GroupBox14.SuspendLayout
+        Me.GroupBox31.SuspendLayout()
+        Me.TabPage6.SuspendLayout()
+        Me.FlowLayoutPanel5.SuspendLayout()
+        Me.GroupBox14.SuspendLayout()
         CType(Me.pgrilla, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox13.SuspendLayout
-        Me.TabPage7.SuspendLayout
-        Me.FlowLayoutPanel7.SuspendLayout
-        Me.GroupBox23.SuspendLayout
+        Me.GroupBox13.SuspendLayout()
+        Me.TabPage7.SuspendLayout()
+        Me.FlowLayoutPanel7.SuspendLayout()
+        Me.GroupBox23.SuspendLayout()
         CType(Me.cgrilla, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox24.SuspendLayout
-        Me.SuspendLayout
+        Me.GroupBox24.SuspendLayout()
+        CType(Me.Data1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SuspendLayout()
         '
         'FlowLayoutPanel2
         '
@@ -757,7 +782,7 @@ Partial Class frmindex
         Me.TabControl1.Controls.Add(Me.TabPage5)
         Me.TabControl1.Controls.Add(Me.TabPage6)
         Me.TabControl1.Controls.Add(Me.TabPage7)
-        Me.TabControl1.Location = New System.Drawing.Point(132, 64)
+        Me.TabControl1.Location = New System.Drawing.Point(132, 40)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
         Me.TabControl1.Size = New System.Drawing.Size(1468, 803)
@@ -1123,7 +1148,7 @@ Partial Class frmindex
         Me.lblistaproducto.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblistaproducto.FormattingEnabled = True
         Me.lblistaproducto.ItemHeight = 20
-        Me.lblistaproducto.Location = New System.Drawing.Point(19, 101)
+        Me.lblistaproducto.Location = New System.Drawing.Point(20, 101)
         Me.lblistaproducto.Name = "lblistaproducto"
         Me.lblistaproducto.Size = New System.Drawing.Size(246, 24)
         Me.lblistaproducto.TabIndex = 1116
@@ -2309,6 +2334,7 @@ Partial Class frmindex
         Me.Label39.Size = New System.Drawing.Size(84, 17)
         Me.Label39.TabIndex = 0
         Me.Label39.Text = "Deliver date"
+        Me.Label39.Visible = False
         '
         'Label23
         '
@@ -2327,6 +2353,7 @@ Partial Class frmindex
         Me.rcalendario.Name = "rcalendario"
         Me.rcalendario.Size = New System.Drawing.Size(308, 26)
         Me.rcalendario.TabIndex = 14
+        Me.rcalendario.Visible = False
         '
         'Label24
         '
@@ -2524,6 +2551,7 @@ Partial Class frmindex
         '
         'TabPage4
         '
+        Me.TabPage4.Controls.Add(Me.DataGridView1)
         Me.TabPage4.Controls.Add(Me.FlowLayoutPanel6)
         Me.TabPage4.Controls.Add(Me.GroupBox20)
         Me.TabPage4.Controls.Add(Me.GroupBox19)
@@ -2535,6 +2563,29 @@ Partial Class frmindex
         Me.TabPage4.TabIndex = 3
         Me.TabPage4.Text = "TabPage4"
         Me.TabPage4.UseVisualStyleBackColor = True
+        '
+        'DataGridView1
+        '
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2})
+        Me.DataGridView1.Location = New System.Drawing.Point(1054, 22)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.Size = New System.Drawing.Size(160, 123)
+        Me.DataGridView1.TabIndex = 106
+        Me.DataGridView1.Visible = False
+        '
+        'Column1
+        '
+        Me.Column1.HeaderText = "Column1"
+        Me.Column1.Items.AddRange(New Object() {"valor1", "valor2", "valor32"})
+        Me.Column1.Name = "Column1"
+        Me.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.Column1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        '
+        'Column2
+        '
+        Me.Column2.HeaderText = "Column2"
+        Me.Column2.Name = "Column2"
         '
         'FlowLayoutPanel6
         '
@@ -2796,6 +2847,7 @@ Partial Class frmindex
         Me.GroupBox18.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox18.Controls.Add(Me.segrilla)
         Me.GroupBox18.Controls.Add(Me.ssgrilla)
         Me.GroupBox18.Location = New System.Drawing.Point(6, 190)
         Me.GroupBox18.Name = "GroupBox18"
@@ -2803,16 +2855,126 @@ Partial Class frmindex
         Me.GroupBox18.TabIndex = 103
         Me.GroupBox18.TabStop = False
         '
+        'segrilla
+        '
+        Me.segrilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.segrilla.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.idventa, Me.equipoID, Me.Equipo, Me.Modelo, Me.fechaentrega, Me.Fventa, Me.status, Me.namexcust, Me.telephone, Me.problem, Me.nota, Me.reparacion, Me.parte, Me.deposito, Me.resto, Me.totall})
+        Me.segrilla.Location = New System.Drawing.Point(7, 19)
+        Me.segrilla.Name = "segrilla"
+        Me.segrilla.Size = New System.Drawing.Size(1306, 556)
+        Me.segrilla.TabIndex = 2
+        '
+        'idventa
+        '
+        Me.idventa.HeaderText = "IDVENTA"
+        Me.idventa.Name = "idventa"
+        '
+        'equipoID
+        '
+        Me.equipoID.HeaderText = "IDequipo"
+        Me.equipoID.Name = "equipoID"
+        '
+        'Equipo
+        '
+        Me.Equipo.HeaderText = "Equipo"
+        Me.Equipo.Name = "Equipo"
+        '
+        'Modelo
+        '
+        Me.Modelo.HeaderText = "Modelo"
+        Me.Modelo.Name = "Modelo"
+        '
+        'fechaentrega
+        '
+        Me.fechaentrega.HeaderText = "Entrega/Update"
+        Me.fechaentrega.Name = "fechaentrega"
+        '
+        'Fventa
+        '
+        Me.Fventa.HeaderText = "Fecha Venta"
+        Me.Fventa.Name = "Fventa"
+        '
+        'status
+        '
+        Me.status.HeaderText = "Status"
+        Me.status.Items.AddRange(New Object() {"In Progress", "Ready", "Delivered"})
+        Me.status.Name = "status"
+        '
+        'namexcust
+        '
+        Me.namexcust.HeaderText = "Customer"
+        Me.namexcust.Name = "namexcust"
+        Me.namexcust.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.namexcust.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        '
+        'telephone
+        '
+        Me.telephone.HeaderText = "Telephone"
+        Me.telephone.Name = "telephone"
+        Me.telephone.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.telephone.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        '
+        'problem
+        '
+        Me.problem.HeaderText = "Problem"
+        Me.problem.Name = "problem"
+        Me.problem.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.problem.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        '
+        'nota
+        '
+        Me.nota.HeaderText = "Nota"
+        Me.nota.Name = "nota"
+        Me.nota.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.nota.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        '
+        'reparacion
+        '
+        Me.reparacion.HeaderText = "Reparacion"
+        Me.reparacion.Name = "reparacion"
+        Me.reparacion.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.reparacion.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        '
+        'parte
+        '
+        Me.parte.HeaderText = "parte"
+        Me.parte.Name = "parte"
+        Me.parte.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.parte.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        '
+        'deposito
+        '
+        Me.deposito.HeaderText = "deposito"
+        Me.deposito.Name = "deposito"
+        Me.deposito.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.deposito.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        '
+        'resto
+        '
+        Me.resto.HeaderText = "resto"
+        Me.resto.Name = "resto"
+        Me.resto.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.resto.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        '
+        'totall
+        '
+        Me.totall.HeaderText = "total"
+        Me.totall.Name = "totall"
+        Me.totall.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.totall.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        '
         'ssgrilla
         '
         Me.ssgrilla.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ssgrilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.ssgrilla.Location = New System.Drawing.Point(6, 15)
+        Me.ssgrilla.Location = New System.Drawing.Point(6, 408)
         Me.ssgrilla.Name = "ssgrilla"
-        Me.ssgrilla.Size = New System.Drawing.Size(1306, 560)
+        Me.ssgrilla.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
+        Me.ssgrilla.Size = New System.Drawing.Size(1306, 167)
         Me.ssgrilla.TabIndex = 1
+        Me.ssgrilla.Visible = False
         '
         'TabPage5
         '
@@ -2834,14 +2996,30 @@ Partial Class frmindex
         '
         'GroupBox25
         '
+        Me.GroupBox25.Controls.Add(Me.Button46)
         Me.GroupBox25.Controls.Add(Me.Button27)
         Me.GroupBox25.Font = New System.Drawing.Font("Arial", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox25.Location = New System.Drawing.Point(713, 315)
         Me.GroupBox25.Name = "GroupBox25"
-        Me.GroupBox25.Size = New System.Drawing.Size(390, 149)
+        Me.GroupBox25.Size = New System.Drawing.Size(390, 307)
         Me.GroupBox25.TabIndex = 94
         Me.GroupBox25.TabStop = False
         Me.GroupBox25.Text = "Configure device status"
+        '
+        'Button46
+        '
+        Me.Button46.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button46.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.Button46.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button46.ForeColor = System.Drawing.Color.White
+        Me.Button46.Location = New System.Drawing.Point(27, 129)
+        Me.Button46.Name = "Button46"
+        Me.Button46.Size = New System.Drawing.Size(330, 79)
+        Me.Button46.TabIndex = 94
+        Me.Button46.Text = "Español/Ingles"
+        Me.Button46.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.Button46.UseVisualStyleBackColor = False
         '
         'Button27
         '
@@ -4375,6 +4553,11 @@ Partial Class frmindex
         'PrintDocument4
         '
         '
+        'Data1
+        '
+        Me.Data1.DataSetName = "data"
+        Me.Data1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
         'frmindex
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -4389,80 +4572,83 @@ Partial Class frmindex
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "main"
         Me.FlowLayoutPanel2.ResumeLayout(False)
-        Me.FlowLayoutPanel2.PerformLayout
+        Me.FlowLayoutPanel2.PerformLayout()
         Me.FlowLayoutPanel1.ResumeLayout(False)
         CType(Me.btventas, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
         Me.GroupBox22.ResumeLayout(False)
-        Me.GroupBox22.PerformLayout
+        Me.GroupBox22.PerformLayout()
         Me.GroupBox15.ResumeLayout(False)
         CType(Me.sgrilla, System.ComponentModel.ISupportInitialize).EndInit()
         Me.FlowLayoutPanel3.ResumeLayout(False)
         Me.GroupBox26.ResumeLayout(False)
-        Me.GroupBox26.PerformLayout
+        Me.GroupBox26.PerformLayout()
         CType(Me.pblogoticket, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox5.ResumeLayout(False)
-        Me.GroupBox5.PerformLayout
+        Me.GroupBox5.PerformLayout()
         Me.GroupBox4.ResumeLayout(False)
-        Me.GroupBox4.PerformLayout
+        Me.GroupBox4.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
-        Me.GroupBox2.PerformLayout
+        Me.GroupBox2.PerformLayout()
         Me.GroupBox3.ResumeLayout(False)
-        Me.GroupBox3.PerformLayout
+        Me.GroupBox3.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout
+        Me.GroupBox1.PerformLayout()
         Me.TabPage3.ResumeLayout(False)
         Me.GroupBox12.ResumeLayout(False)
         CType(Me.rgrilla, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox17.ResumeLayout(False)
         CType(Me.rgrilla2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox16.ResumeLayout(False)
-        Me.GroupBox16.PerformLayout
+        Me.GroupBox16.PerformLayout()
         Me.FlowLayoutPanel4.ResumeLayout(False)
         Me.GroupBox10.ResumeLayout(False)
-        Me.GroupBox10.PerformLayout
+        Me.GroupBox10.PerformLayout()
         Me.GroupBox9.ResumeLayout(False)
-        Me.GroupBox9.PerformLayout
+        Me.GroupBox9.PerformLayout()
         Me.GroupBox8.ResumeLayout(False)
-        Me.GroupBox8.PerformLayout
+        Me.GroupBox8.PerformLayout()
         Me.GroupBox21.ResumeLayout(False)
         Me.GroupBox7.ResumeLayout(False)
-        Me.GroupBox7.PerformLayout
+        Me.GroupBox7.PerformLayout()
         Me.TabPage4.ResumeLayout(False)
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.FlowLayoutPanel6.ResumeLayout(False)
         Me.GroupBox20.ResumeLayout(False)
-        Me.GroupBox20.PerformLayout
+        Me.GroupBox20.PerformLayout()
         Me.GroupBox19.ResumeLayout(False)
-        Me.GroupBox19.PerformLayout
+        Me.GroupBox19.PerformLayout()
         Me.GroupBox18.ResumeLayout(False)
+        CType(Me.segrilla, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ssgrilla, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage5.ResumeLayout(False)
-        Me.TabPage5.PerformLayout
+        Me.TabPage5.PerformLayout()
         Me.GroupBox25.ResumeLayout(False)
         Me.GroupBox11.ResumeLayout(False)
-        Me.GroupBox11.PerformLayout
+        Me.GroupBox11.PerformLayout()
         Me.GroupBox6.ResumeLayout(False)
-        Me.GroupBox6.PerformLayout
+        Me.GroupBox6.PerformLayout()
         Me.GroupBox38.ResumeLayout(False)
         Me.GroupBox33.ResumeLayout(False)
-        Me.GroupBox33.PerformLayout
+        Me.GroupBox33.PerformLayout()
         Me.GroupBox34.ResumeLayout(False)
         CType(Me.pblogo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox31.ResumeLayout(False)
-        Me.GroupBox31.PerformLayout
+        Me.GroupBox31.PerformLayout()
         Me.TabPage6.ResumeLayout(False)
         Me.FlowLayoutPanel5.ResumeLayout(False)
         Me.GroupBox14.ResumeLayout(False)
         CType(Me.pgrilla, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox13.ResumeLayout(False)
-        Me.GroupBox13.PerformLayout
+        Me.GroupBox13.PerformLayout()
         Me.TabPage7.ResumeLayout(False)
         Me.FlowLayoutPanel7.ResumeLayout(False)
         Me.GroupBox23.ResumeLayout(False)
         CType(Me.cgrilla, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox24.ResumeLayout(False)
-        Me.GroupBox24.PerformLayout
+        Me.GroupBox24.PerformLayout()
+        CType(Me.Data1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -4799,4 +4985,26 @@ Partial Class frmindex
     Friend WithEvents Label59 As Label
     Friend WithEvents Button44 As Button
     Friend WithEvents Button45 As Button
+    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents Column1 As DataGridViewComboBoxColumn
+    Friend WithEvents Column2 As DataGridViewTextBoxColumn
+    Friend WithEvents Data1 As data
+    Friend WithEvents segrilla As DataGridView
+    Friend WithEvents Button46 As Button
+    Friend WithEvents idventa As DataGridViewTextBoxColumn
+    Friend WithEvents equipoID As DataGridViewTextBoxColumn
+    Friend WithEvents Equipo As DataGridViewTextBoxColumn
+    Friend WithEvents Modelo As DataGridViewTextBoxColumn
+    Friend WithEvents fechaentrega As DataGridViewTextBoxColumn
+    Friend WithEvents Fventa As DataGridViewTextBoxColumn
+    Friend WithEvents status As DataGridViewComboBoxColumn
+    Friend WithEvents namexcust As DataGridViewTextBoxColumn
+    Friend WithEvents telephone As DataGridViewTextBoxColumn
+    Friend WithEvents problem As DataGridViewTextBoxColumn
+    Friend WithEvents nota As DataGridViewTextBoxColumn
+    Friend WithEvents reparacion As DataGridViewTextBoxColumn
+    Friend WithEvents parte As DataGridViewTextBoxColumn
+    Friend WithEvents deposito As DataGridViewTextBoxColumn
+    Friend WithEvents resto As DataGridViewTextBoxColumn
+    Friend WithEvents totall As DataGridViewTextBoxColumn
 End Class

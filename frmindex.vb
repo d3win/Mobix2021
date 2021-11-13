@@ -921,6 +921,8 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
         Button14.BackColor = Color.FromArgb(27, 38, 44)
         Button38.BackColor = Color.FromArgb(27, 38, 44)
         ssgrilla.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+        segrilla.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+        segrilla.Rows.Clear()
 
     End Sub
 
@@ -1686,21 +1688,22 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
         Else
 
 
+            'comentamos la caja,
 
-            Dim estadocaja As Integer
+            'Dim estadocaja As Integer
 
 
-            estadocaja = comprobarcaja()
+            'estadocaja = comprobarcaja()
 
-            If estadocaja = 0 Then
+            'If estadocaja = 0 Then
 
-                'obtenerfolio()
-                ' venta()
-                ' RPT1.Show()
-                sventa()
-            Else
-                MsgBox("No existe ninguna caja abierta", MsgBoxStyle.Information, "CTRL+y")
-            End If
+            'obtenerfolio()
+            ' venta()
+            ' RPT1.Show()
+            sventa()
+            'Else
+            '    MsgBox("No existe ninguna caja abierta", MsgBoxStyle.Information, "CTRL+y")
+            'End If
 
 
 
@@ -3944,24 +3947,24 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
             Dim estadocaja As Integer
 
 
-            estadocaja = comprobarcaja()
+            'estadocaja = comprobarcaja()
 
 
 
-            'MsgBox(estadocaja)
-            If estadocaja = 0 Then
+            ''MsgBox(estadocaja)
+            'If estadocaja = 0 Then
 
-                'obtenerfolio()
-                ' venta()
-                ' RPT1.Show()
-                'sventa()
+            'obtenerfolio()
+            ' venta()
+            ' RPT1.Show()
+            'sventa()
 
-                venta()
+            venta()
 
                 activarreparacion = False
-            Else
-                MsgBox("No existe ninguna caja abierta", MsgBoxStyle.Information, "CTRL+y")
-            End If
+            'Else
+            '    MsgBox("No existe ninguna caja abierta", MsgBoxStyle.Information, "CTRL+y")
+            'End If
 
 
 
@@ -4213,7 +4216,8 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
                 conexionMysql.Open()
                 Dim Sql As String
                 '                Sql = "INSERT INTO `mobi`.`venta` (`idventa`, `idcustomer`,  `idseller`, `total`, `fechaventa`, `fechaentrega`, `deposito`, `resto`,`tipoventa`) VALUES ('" & slbfolio.Text & "', '" & idcliente & "', '" & idseller & "', '" & rtxttotal.Text & "', '" & fecha & "', '" & fechacalendarioentrega & "', '" & sumdeposito & "', '" & sumresto & "',2);"
-                Sql = "INSERT INTO `venta` (`idventa`, `idcustomer`,  `idseller`, `total`, `fechaventa`, `fechaentrega`, `deposito`,`resto`,`tipoventa`,`hora`) VALUES ('" & slbfolio.Text & "', '" & idcliente & "', '" & idseller & "', '" & rtxttotal.Text & "', '" & fecha & "', '" & fechacalendarioentrega & "','" & rtxtdeposito.Text & "','" & rtxtresto.Text & "',2,'" & hora & "');"
+                Sql = "INSERT INTO `venta` (`idventa`, `idcustomer`,  `idseller`, `total`, `fechaventa`, `fechaentrega`, `deposito`,`resto`,`tipoventa`,`hora`) VALUES ('" & slbfolio.Text & "', '" & idcliente & "', '" & idseller & "', '" & rtxttotal.Text & "', '" & fecha & "', '" & fecha & "','" & rtxtdeposito.Text & "','" & rtxtresto.Text & "',2,'" & hora & "');"
+                'Sql = "INSERT INTO `venta` (`idventa`, `idcustomer`,  `idseller`, `total`, `fechaventa`,'', `deposito`,`resto`,`tipoventa`,`hora`) VALUES ('" & slbfolio.Text & "', '" & idcliente & "', '" & idseller & "', '" & rtxttotal.Text & "', '" & fecha & "', '" & rtxtdeposito.Text & "','" & rtxtresto.Text & "',2,'" & hora & "');"
 
                 Dim cmd As New MySqlCommand(Sql, conexionMysql)
                 cmd.ExecuteNonQuery()
@@ -5007,8 +5011,51 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
                 '----------------------------------
                 cerrarconexion()
 
-
+                ' MsgBox(idcus)
                 '----------------------------------------------------------------------------------------------------------------------
+
+                conexionMysql.Open()
+                'Dim idcustomer, idequipo, idseller As Integer
+                Dim Sql22x As String
+                Sql22x = "SELECT * FROM customer where idcustomer=" & idcus & ";"
+                Dim cmd22x As New MySqlCommand(Sql22x, conexionMysql)
+                reader = cmd22x.ExecuteReader()
+                reader.Read()
+
+
+                Try
+
+                    rtxtemail.Text = reader.GetString(6).ToString()
+                Catch ex As Exception
+
+                End Try
+                Try
+
+                    rtxtstate.Text = reader.GetString(3).ToString()
+                Catch ex As Exception
+
+                End Try
+                Try
+
+                    rtxtcity.Text = reader.GetString(4).ToString()
+                Catch ex As Exception
+
+                End Try
+                Try
+
+                    rtxttelephone.Text = reader.GetString(5).ToString()
+                Catch ex As Exception
+
+                End Try
+                Try
+
+                    rtxtcustomername.Text = reader.GetString(1).ToString()
+                Catch ex As Exception
+
+                End Try
+
+                cerrarconexion()
+
                 ' Try
                 ' MsgBox(rtxttotal.Text)
                 'cargamos los datos necesarios
@@ -5052,13 +5099,6 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
                 End Try
 
 
-
-                Try
-
-                    rtxtemail.Text = reader.GetString(6).ToString()
-                Catch ex As Exception
-
-                End Try
                 '----------------------------------------------------------------------------------------------------
                 'reader.Close()
                 cerrarconexion()
@@ -5067,9 +5107,9 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
 
                 rlbcustomer.Visible = False
                 Dim seller As String
-
-                '-------------------------
-                conexionMysql.Open()
+                Try
+                    '-------------------------
+                    conexionMysql.Open()
                 ' Dim idcustomer, idequipo, idseller As Integer
                 Dim Sqlx2 As String
                 Sqlx2 = "select name_seller from seller where idseller='" & idsellerbus & "';"
@@ -5079,8 +5119,15 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
                 seller = reader.GetString(0).ToString()
                 'reader.Close()
                 cerrarconexion()
-                'MsgBox("2")
-                'MsgBox(seller)
+                    'MsgBox("2")
+                    'MsgBox(seller)
+
+
+                Catch ex As Exception
+                    seller = "seller"
+                    cerrarconexion()
+
+                End Try
 
                 rcbseller.Text = seller
 
@@ -5872,8 +5919,8 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
             fechacalendarioentrega = rcalendario.Value.ToString("MM/dd/yyyy")
 
 
-            prFont = New Font("Arial", tfuente, FontStyle.Bold)
-            e.Graphics.DrawString("Delivery date:" & fechacalendarioentrega, prFont, Brushes.Black, x, p2)
+            'prFont = New Font("Arial", tfuente, FontStyle.Bold)
+            'e.Graphics.DrawString("Delivery date:" & fechacalendarioentrega, prFont, Brushes.Black, x, p2)
 
 
             'aqui es donde tenemos que leer todos los datos de la grilla llamada "grilla"
@@ -6101,6 +6148,7 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
             'rtxtbalancetotal.Text = ""
             rchpay.Checked = False
             rtxtdatestatus.Text = ""
+            lblistarespuestos.Visible = False
 
         End If
 
@@ -6329,6 +6377,8 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
     End Function
 
     Private Sub Scbstate_SelectedIndexChanged(sender As Object, e As EventArgs) Handles scbstate.SelectedIndexChanged
+        segrilla.Rows.Clear()
+
         reportestatus()
         restatus = True
         redeliverdate = False
@@ -6338,9 +6388,14 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
         remodelo = False
         reorder = False
 
+        'limpiamos la grilla
+
+
+
     End Sub
     Function reportestatus()
         ssgrilla.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+        segrilla.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
 
         modificargrilla()
         'ssgrilla.DefaultCellStyle.Font = New Font("Arial", 12)
@@ -6401,6 +6456,72 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
         Catch ex As Exception
             MsgBox("Error del sistema", MsgBoxStyle.Exclamation, "Sistema")
         End Try
+
+        Try
+            '-----------------------------------------------------------------------------------
+            '----------------------------- se hace actualización a la tabla de productos--------------
+            cerrarconexion()
+            Dim idseller As Integer
+            conexionMysql.Open()
+            Dim Sql3 As String
+            Sql3 = "select count(*) from venta,equipo,customer  where venta.idventa=equipo.idventa and venta.idcustomer=customer.idcustomer and equipo.status='" & scbstate.Text & "';"
+            Dim cmd3 As New MySqlCommand(Sql3, conexionMysql)
+            reader = cmd3.ExecuteReader()
+            reader.Read()
+            Dim contador As Integer = reader.GetString(0).ToString()
+            reader.Close()
+
+            'MsgBox(contador)
+            '------------------------------------------------------------------
+
+            cerrarconexion()
+
+            Dim i As Integer
+            conexionMysql.Open()
+            Dim sql4 As String
+            Dim a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17 As String
+            sql4 = "select venta.idventa,equipo.idequipo,equipo.equipo,equipo.modelo,equipo.datedelivery,venta.fechaventa,equipo.status,customer.name,customer.telephone,equipo.problema,equipo.nota,equipo.reparacion,equipo.partes, venta.deposito,venta.resto,venta.total from venta,equipo,customer  where venta.idventa=equipo.idventa and venta.idcustomer=customer.idcustomer and equipo.status='" & scbstate.Text & "';"
+            Dim cmd4 As New MySqlCommand(sql4, conexionMysql)
+            reader = cmd4.ExecuteReader()
+            For i = 0 To contador - 1
+                reader.Read()
+                '  MsgBox(i)
+                a1 = reader.GetString(0).ToString()
+                a2 = reader.GetString(1).ToString()
+                a3 = reader.GetString(2).ToString()
+                a4 = reader.GetString(3).ToString()
+                Try
+
+                    a5 = reader.GetString(4).ToString()
+                Catch ex As Exception
+
+                End Try
+
+                a6 = reader.GetString(5).ToString()
+                a7 = reader.GetString(6).ToString()
+                a8 = reader.GetString(7).ToString()
+                a9 = reader.GetString(8).ToString()
+                a10 = reader.GetString(9).ToString()
+                a11 = reader.GetString(10).ToString()
+                a12 = reader.GetString(11).ToString()
+                a13 = reader.GetString(12).ToString()
+                a14 = reader.GetString(13).ToString()
+                a15 = reader.GetString(14).ToString()
+                a16 = reader.GetString(15).ToString()
+                'a17 = reader.GetString(16).ToString()
+
+
+                segrilla.Rows.Add(a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16)
+
+
+            Next
+        Catch ex As Exception
+            'MsgBox("Existen problemas con la consulta", MsgBoxStyle.Information, "MOBI")
+            cerrarconexion()
+        End Try
+
+
+
     End Function
     Function reportetechnical()
         'ssgrilla.DefaultCellStyle.Font = New Font("Arial", 16)
@@ -6456,6 +6577,71 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
         Catch ex As Exception
             MsgBox("Error del sistema", MsgBoxStyle.Exclamation, "Sistema")
         End Try
+
+
+
+
+
+
+        '-----------------------------------------------------------------------------------
+        '----------------------------- se hace actualización a la tabla de productos--------------
+        cerrarconexion()
+        ' Dim idseller As Integer
+        conexionMysql.Open()
+        Dim Sql3 As String
+        Sql3 = "select count(*) from venta where idseller=" & idseller & ";"
+        Dim cmd3 As New MySqlCommand(Sql3, conexionMysql)
+        reader = cmd3.ExecuteReader()
+        reader.Read()
+        Dim contador As Integer = reader.GetString(0).ToString()
+        reader.Close()
+
+        'MsgBox(contador)
+        '------------------------------------------------------------------
+        '--------agregamos los datos a la grilla 2
+        If conexionMysql.State = ConnectionState.Open Then
+            conexionMysql.Close()
+
+        End If
+        cerrarconexion()
+
+        conexionMysql.Open()
+        Dim sql4 As String
+        Dim a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17 As String
+        sql4 = "select venta.idventa,equipo.idequipo,equipo.equipo,equipo.modelo,venta.fechaentrega,venta.fechaventa,equipo.status,customer.name,customer.telephone,equipo.problema,equipo.nota,equipo.reparacion,equipo.partes, venta.deposito,venta.resto,venta.total from venta,equipo,customer  where venta.idventa=equipo.idventa and venta.idcustomer=customer.idcustomer and venta.idcustomer=" & idseller & ";"
+        Dim cmd4 As New MySqlCommand(sql4, conexionMysql)
+        reader = cmd4.ExecuteReader()
+        For i = 0 To contador - 1
+            reader.Read()
+            'MsgBox(i)
+            a1 = reader.GetString(0).ToString()
+            a2 = reader.GetString(1).ToString()
+            a3 = reader.GetString(2).ToString()
+            a4 = reader.GetString(3).ToString()
+            a5 = reader.GetString(4).ToString()
+            a6 = reader.GetString(5).ToString()
+            a7 = reader.GetString(6).ToString()
+            a8 = reader.GetString(7).ToString()
+            a9 = reader.GetString(8).ToString()
+            a10 = reader.GetString(9).ToString()
+            a11 = reader.GetString(10).ToString()
+            a12 = reader.GetString(11).ToString()
+            a13 = reader.GetString(12).ToString()
+            a14 = reader.GetString(13).ToString()
+            a15 = reader.GetString(14).ToString()
+            a16 = reader.GetString(15).ToString()
+            'a17 = reader.GetString(16).ToString()
+
+
+            segrilla.Rows.Add(a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16)
+
+
+        Next
+
+
+
+
+
     End Function
 
     Private Sub Scbseller_SelectedIndexChanged(sender As Object, e As EventArgs) Handles scbseller.SelectedIndexChanged
@@ -6475,28 +6661,14 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
     End Sub
     Function reportedeliverdate()
         modificargrilla()
-        'ssgrilla.DefaultCellStyle.Font = New Font("Arial", 16)
-        'ssgrilla.RowHeadersVisible = False
-        ''ampliar columna 
-        ''grillap.Columns(2).Width = 120
-
-
-        'ssgrilla.AlternatingRowsDefaultCellStyle.BackColor = Color.SkyBlue
         Dim fechacalendarioentrega As String
         fechacalendarioentrega = ssdeliverdate.Value.ToString("yyyy/MM/dd")
-        '
-
-
-
         Try
-
-
             If conexionMysql.State = ConnectionState.Open Then
                 conexionMysql.Close()
 
             End If
             cerrarconexion()
-
             conexionMysql.Open()
             Dim sql2 As String
             sql2 = "select venta.idventa,equipo.equipo,equipo.modelo,venta.fechaentrega,venta.fechaventa,equipo.status,customer.name,customer.telephone,equipo.problema,equipo.nota,equipo.reparacion,equipo.partes, venta.deposito,venta.resto,venta.total from venta,equipo,customer  where venta.idventa=equipo.idventa and venta.idcustomer=customer.idcustomer and venta.fechaentrega='" & fechacalendarioentrega & "';"
@@ -6538,6 +6710,81 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
             conexionMysql.Close()
         Catch ex As Exception
             MsgBox("Error del sistema", MsgBoxStyle.Exclamation, "Sistema")
+        End Try
+
+
+
+
+
+        Try
+
+
+
+
+            '-----------------------------------------------------------------------------------
+            '----------------------------- se hace actualización a la tabla de productos--------------
+            cerrarconexion()
+            Dim idseller As Integer
+            conexionMysql.Open()
+            Dim Sql3 As String
+            Sql3 = "select count(*) from venta,equipo,customer  where venta.idventa=equipo.idventa and venta.idcustomer=customer.idcustomer and equipo.datedelivery='" & fechacalendarioentrega & "' and equipo.status='Delivered';"
+            Dim cmd3 As New MySqlCommand(Sql3, conexionMysql)
+            reader = cmd3.ExecuteReader()
+            reader.Read()
+            Dim contador As Integer = reader.GetString(0).ToString()
+            reader.Close()
+
+            'MsgBox(contador)
+            '------------------------------------------------------------------
+            '--------agregamos los datos a la grilla 2
+            If conexionMysql.State = ConnectionState.Open Then
+                conexionMysql.Close()
+
+            End If
+            cerrarconexion()
+            '  MsgBox("fechacalendario")
+            conexionMysql.Open()
+            Dim sql4 As String
+            Dim a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17 As String
+            sql4 = "select venta.idventa,equipo.idequipo,equipo.equipo,equipo.modelo,equipo.datedelivery,venta.fechaventa,equipo.status,customer.name,customer.telephone,equipo.problema,equipo.nota,equipo.reparacion,equipo.partes, venta.deposito,venta.resto,venta.total from venta,equipo,customer  where venta.idventa=equipo.idventa and venta.idcustomer=customer.idcustomer and equipo.datedelivery='" & fechacalendarioentrega & "' and equipo.status='Delivered';"
+            Dim cmd4 As New MySqlCommand(sql4, conexionMysql)
+            reader = cmd4.ExecuteReader()
+            For i = 0 To contador - 1
+                reader.Read()
+                'MsgBox(i)
+                a1 = reader.GetString(0).ToString()
+                a2 = reader.GetString(1).ToString()
+                a3 = reader.GetString(2).ToString()
+                a4 = reader.GetString(3).ToString()
+                Try
+
+                    a5 = reader.GetString(4).ToString()
+                Catch ex As Exception
+
+                End Try
+                a6 = reader.GetString(5).ToString()
+                a7 = reader.GetString(6).ToString()
+                a8 = reader.GetString(7).ToString()
+                a9 = reader.GetString(8).ToString()
+                a10 = reader.GetString(9).ToString()
+                a11 = reader.GetString(10).ToString()
+                a12 = reader.GetString(11).ToString()
+                a13 = reader.GetString(12).ToString()
+                a14 = reader.GetString(13).ToString()
+                a15 = reader.GetString(14).ToString()
+                a16 = reader.GetString(15).ToString()
+                'a17 = reader.GetString(16).ToString()
+
+
+                segrilla.Rows.Add(a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16)
+
+
+            Next
+
+
+        Catch ex As Exception
+            ' MsgBox("Existen problemas con la consulta", MsgBoxStyle.Information, "MOBI")
+            cerrarconexion()
         End Try
     End Function
     Function reportedatecheckout()
@@ -6607,11 +6854,88 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
         Catch ex As Exception
             MsgBox("Error del sistema", MsgBoxStyle.Exclamation, "Sistema")
         End Try
+
+
+
+
+
+
+        Try
+
+            '-----------------------------------------------------------------------------------
+            '----------------------------- se hace actualización a la tabla de productos--------------
+            cerrarconexion()
+            Dim idseller As Integer
+            conexionMysql.Open()
+            Dim Sql3 As String
+            Sql3 = "select count(*) from venta,equipo,customer  where venta.idventa=equipo.idventa and venta.idcustomer=customer.idcustomer and venta.fechaventa='" & fechacalendarioentrega & "'"
+            Dim cmd3 As New MySqlCommand(Sql3, conexionMysql)
+            reader = cmd3.ExecuteReader()
+            reader.Read()
+            Dim contador As Integer = reader.GetString(0).ToString()
+            reader.Close()
+
+            'MsgBox(contador)
+            '------------------------------------------------------------------
+            '--------agregamos los datos a la grilla 2
+            If conexionMysql.State = ConnectionState.Open Then
+                conexionMysql.Close()
+
+            End If
+            cerrarconexion()
+
+            conexionMysql.Open()
+            Dim sql4 As String
+            Dim a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17 As String
+            sql4 = "select venta.idventa,equipo.idequipo,equipo.equipo,equipo.modelo,equipo.datedelivery,venta.fechaventa,equipo.status,customer.name,customer.telephone,equipo.problema,equipo.nota,equipo.reparacion,equipo.partes, venta.deposito,venta.resto,venta.total from venta,equipo,customer  where venta.idventa=equipo.idventa and venta.idcustomer=customer.idcustomer and venta.fechaventa='" & fechacalendarioentrega & "';"
+            Dim cmd4 As New MySqlCommand(sql4, conexionMysql)
+            reader = cmd4.ExecuteReader()
+            For i = 0 To contador - 1
+                reader.Read()
+                'MsgBox(i)
+                a1 = reader.GetString(0).ToString()
+                a2 = reader.GetString(1).ToString()
+                a3 = reader.GetString(2).ToString()
+                a4 = reader.GetString(3).ToString()
+                Try
+
+                    a5 = reader.GetString(4).ToString()
+                Catch ex As Exception
+
+                End Try
+                a6 = reader.GetString(5).ToString()
+                a7 = reader.GetString(6).ToString()
+                a8 = reader.GetString(7).ToString()
+                a9 = reader.GetString(8).ToString()
+                a10 = reader.GetString(9).ToString()
+                a11 = reader.GetString(10).ToString()
+                a12 = reader.GetString(11).ToString()
+                a13 = reader.GetString(12).ToString()
+                a14 = reader.GetString(13).ToString()
+                a15 = reader.GetString(14).ToString()
+                a16 = reader.GetString(15).ToString()
+                'a17 = reader.GetString(16).ToString()
+
+
+                segrilla.Rows.Add(a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16)
+
+
+            Next
+
+
+
+        Catch ex As Exception
+            '   MsgBox("Existen problemas con la consulta", MsgBoxStyle.Information, "MOBI")
+            cerrarconexion()
+        End Try
+
     End Function
     Function modificargrilla()
         'ssgrilla.Rows.Clear()
         ssgrilla.DefaultCellStyle.Font = New Font("Arial", 12)
         ssgrilla.RowHeadersVisible = False
+        segrilla.DefaultCellStyle.Font = New Font("Arial", 12)
+        segrilla.RowHeadersVisible = False
         'ampliar columna 
         'ssgrilla.Columns(0).Width = 20
         'ssgrilla.Columns(2).Width = 50
@@ -6631,6 +6955,9 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
 
 
         ssgrilla.AlternatingRowsDefaultCellStyle.BackColor = Color.SkyBlue
+        segrilla.AlternatingRowsDefaultCellStyle.BackColor = Color.SkyBlue
+        segrilla.Rows.Clear()
+
     End Function
     Function reportecustomername()
         modificargrilla()
@@ -6719,6 +7046,79 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
         Catch ex As Exception
             MsgBox("Error del sistema", MsgBoxStyle.Exclamation, "Sistema")
         End Try
+
+
+
+        Try
+
+            '-----------------------------------------------------------------------------------
+            '----------------------------- se hace actualización a la tabla de productos--------------
+            cerrarconexion()
+            Dim idseller As Integer
+            conexionMysql.Open()
+            Dim Sql3 As String
+            Sql3 = "select count(*) from venta,equipo,customer  where venta.idventa=equipo.idventa and venta.idcustomer=customer.idcustomer and customer.name like '%" & sscustomername.Text & "%';"
+            Dim cmd3 As New MySqlCommand(Sql3, conexionMysql)
+            reader = cmd3.ExecuteReader()
+            reader.Read()
+            Dim contador As Integer = reader.GetString(0).ToString()
+            reader.Close()
+
+            'MsgBox(contador)
+            '------------------------------------------------------------------
+            '--------agregamos los datos a la grilla 2
+            If conexionMysql.State = ConnectionState.Open Then
+                conexionMysql.Close()
+
+            End If
+            cerrarconexion()
+            '  MsgBox("fechacalendario")
+            conexionMysql.Open()
+            Dim sql4 As String
+            Dim a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17 As String
+            sql4 = "select venta.idventa,equipo.idequipo,equipo.equipo,equipo.modelo,equipo.datedelivery,venta.fechaventa,equipo.status,customer.name,customer.telephone,equipo.problema,equipo.nota,equipo.reparacion,equipo.partes, venta.deposito,venta.resto,venta.total from venta,equipo,customer  where venta.idventa=equipo.idventa and venta.idcustomer=customer.idcustomer and customer.name like '%" & sscustomername.Text & "%';"
+            Dim cmd4 As New MySqlCommand(sql4, conexionMysql)
+            reader = cmd4.ExecuteReader()
+            For i = 0 To contador - 1
+                reader.Read()
+                'MsgBox(i)
+                a1 = reader.GetString(0).ToString()
+                a2 = reader.GetString(1).ToString()
+                a3 = reader.GetString(2).ToString()
+                a4 = reader.GetString(3).ToString()
+                Try
+
+                    a5 = reader.GetString(4).ToString()
+                Catch ex As Exception
+
+                End Try
+                a6 = reader.GetString(5).ToString()
+                a7 = reader.GetString(6).ToString()
+                a8 = reader.GetString(7).ToString()
+                a9 = reader.GetString(8).ToString()
+                a10 = reader.GetString(9).ToString()
+                a11 = reader.GetString(10).ToString()
+                a12 = reader.GetString(11).ToString()
+                a13 = reader.GetString(12).ToString()
+                a14 = reader.GetString(13).ToString()
+                a15 = reader.GetString(14).ToString()
+                a16 = reader.GetString(15).ToString()
+                'a17 = reader.GetString(16).ToString()
+
+
+                segrilla.Rows.Add(a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16)
+
+
+            Next
+
+
+        Catch ex As Exception
+            cerrarconexion()
+        End Try
+
+
+
+
     End Function
     Private Sub Ssdatecheckout_ValueChanged(sender As Object, e As EventArgs) Handles ssdatecheckout.ValueChanged
         reportedatecheckout()
@@ -6861,6 +7261,82 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
         Catch ex As Exception
             MsgBox("Error del sistema", MsgBoxStyle.Exclamation, "Sistema")
         End Try
+
+
+        Try
+
+
+            '-----------------------------------------------------------------------------------
+            '----------------------------- se hace actualización a la tabla de productos--------------
+            cerrarconexion()
+            Dim idseller As Integer
+            conexionMysql.Open()
+            Dim Sql3 As String
+            Sql3 = "select count(*) from venta,equipo,customer  where venta.idventa=equipo.idventa and venta.idcustomer=customer.idcustomer and customer.telephone like '%" & stxtphonenumber.Text & "%';"
+            Dim cmd3 As New MySqlCommand(Sql3, conexionMysql)
+            reader = cmd3.ExecuteReader()
+            reader.Read()
+            Dim contador As Integer = reader.GetString(0).ToString()
+            reader.Close()
+
+            'MsgBox(contador)
+            '------------------------------------------------------------------
+            '--------agregamos los datos a la grilla 2
+            If conexionMysql.State = ConnectionState.Open Then
+                conexionMysql.Close()
+
+            End If
+            cerrarconexion()
+            '  MsgBox("fechacalendario")
+            conexionMysql.Open()
+            Dim sql4 As String
+            Dim a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17 As String
+            sql4 = "select venta.idventa,equipo.idequipo,equipo.equipo,equipo.modelo,equipo.datedelivery,venta.fechaventa,equipo.status,customer.name,customer.telephone,equipo.problema,equipo.nota,equipo.reparacion,equipo.partes, venta.deposito,venta.resto,venta.total from venta,equipo,customer  where venta.idventa=equipo.idventa and venta.idcustomer=customer.idcustomer and customer.telephone like '%" & stxtphonenumber.Text & "%';"
+            Dim cmd4 As New MySqlCommand(sql4, conexionMysql)
+            reader = cmd4.ExecuteReader()
+            For i = 0 To contador - 1
+                reader.Read()
+                'MsgBox(i)
+                a1 = reader.GetString(0).ToString()
+                a2 = reader.GetString(1).ToString()
+                a3 = reader.GetString(2).ToString()
+                a4 = reader.GetString(3).ToString()
+                Try
+
+                    a5 = reader.GetString(4).ToString()
+                Catch ex As Exception
+
+                End Try
+                a6 = reader.GetString(5).ToString()
+                a7 = reader.GetString(6).ToString()
+                a8 = reader.GetString(7).ToString()
+                a9 = reader.GetString(8).ToString()
+                a10 = reader.GetString(9).ToString()
+                a11 = reader.GetString(10).ToString()
+                a12 = reader.GetString(11).ToString()
+                a13 = reader.GetString(12).ToString()
+                a14 = reader.GetString(13).ToString()
+                a15 = reader.GetString(14).ToString()
+                a16 = reader.GetString(15).ToString()
+                'a17 = reader.GetString(16).ToString()
+
+
+                segrilla.Rows.Add(a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16)
+
+
+            Next
+
+
+
+
+
+
+        Catch ex As Exception
+            ' MsgBox("Existen problemas con la consulta", MsgBoxStyle.Information, "MOBI")
+            cerrarconexion()
+        End Try
+
+
     End Function
 
     Private Sub rtxtbusquedafolio_KeyPress(sender As Object, e As KeyPressEventArgs) Handles rtxtbusquedafolio.KeyPress
@@ -6943,6 +7419,77 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
         Catch ex As Exception
             MsgBox("Error del sistema", MsgBoxStyle.Exclamation, "Sistema")
         End Try
+
+
+
+        Try
+
+            '-----------------------------------------------------------------------------------
+            '----------------------------- se hace actualización a la tabla de productos--------------
+            cerrarconexion()
+            Dim idseller As Integer
+            conexionMysql.Open()
+            Dim Sql3 As String
+            Sql3 = "select count(*) from venta,equipo,customer  where venta.idventa=equipo.idventa and venta.idcustomer=customer.idcustomer and equipo.modelo like '%" & stxtmodel.Text & "%';"
+            Dim cmd3 As New MySqlCommand(Sql3, conexionMysql)
+            reader = cmd3.ExecuteReader()
+            reader.Read()
+            Dim contador As Integer = reader.GetString(0).ToString()
+            reader.Close()
+
+            'MsgBox(contador)
+            '------------------------------------------------------------------
+            '--------agregamos los datos a la grilla 2
+            If conexionMysql.State = ConnectionState.Open Then
+                conexionMysql.Close()
+
+            End If
+            cerrarconexion()
+            '  MsgBox("fechacalendario")
+            conexionMysql.Open()
+            Dim sql4 As String
+            Dim a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17 As String
+            sql4 = "select venta.idventa,equipo.idequipo,equipo.equipo,equipo.modelo,equipo.datedelivery,venta.fechaventa,equipo.status,customer.name,customer.telephone,equipo.problema,equipo.nota,equipo.reparacion,equipo.partes, venta.deposito,venta.resto,venta.total from venta,equipo,customer  where venta.idventa=equipo.idventa and venta.idcustomer=customer.idcustomer and equipo.modelo like '%" & stxtmodel.Text & "%';"
+            Dim cmd4 As New MySqlCommand(sql4, conexionMysql)
+            reader = cmd4.ExecuteReader()
+            For i = 0 To contador - 1
+                reader.Read()
+                'MsgBox(i)
+                a1 = reader.GetString(0).ToString()
+                a2 = reader.GetString(1).ToString()
+                a3 = reader.GetString(2).ToString()
+                a4 = reader.GetString(3).ToString()
+                Try
+
+                    a5 = reader.GetString(4).ToString()
+                Catch ex As Exception
+
+                End Try
+                a6 = reader.GetString(5).ToString()
+                a7 = reader.GetString(6).ToString()
+                a8 = reader.GetString(7).ToString()
+                a9 = reader.GetString(8).ToString()
+                a10 = reader.GetString(9).ToString()
+                a11 = reader.GetString(10).ToString()
+                a12 = reader.GetString(11).ToString()
+                a13 = reader.GetString(12).ToString()
+                a14 = reader.GetString(13).ToString()
+                a15 = reader.GetString(14).ToString()
+                a16 = reader.GetString(15).ToString()
+                'a17 = reader.GetString(16).ToString()
+
+
+                segrilla.Rows.Add(a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16)
+
+
+            Next
+
+        Catch ex As Exception
+            'MsgBox("Existen problemas con la consulta", MsgBoxStyle.Information, "MOBI")
+            cerrarconexion()
+        End Try
+
+
     End Function
     Private Sub rtxtbusquedafolio_KeyDown(sender As Object, e As KeyEventArgs) Handles rtxtbusquedafolio.KeyDown
         If e.KeyCode = Keys.Escape Then
@@ -7035,6 +7582,83 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
         Catch ex As Exception
             MsgBox("Error del sistema", MsgBoxStyle.Exclamation, "Sistema")
         End Try
+
+
+
+
+
+        Try
+
+
+            '-----------------------------------------------------------------------------------
+            '----------------------------- se hace actualización a la tabla de productos--------------
+            cerrarconexion()
+            Dim idseller As Integer
+            conexionMysql.Open()
+            Dim Sql3 As String
+            Sql3 = "select count(*) from venta,equipo,customer  where venta.idventa=equipo.idventa and venta.idcustomer=customer.idcustomer and venta.idventa='" & stxtorder.Text & "';"
+            Dim cmd3 As New MySqlCommand(Sql3, conexionMysql)
+            reader = cmd3.ExecuteReader()
+            reader.Read()
+            Dim contador As Integer = reader.GetString(0).ToString()
+            reader.Close()
+
+            'MsgBox(contador)
+            '------------------------------------------------------------------
+            '--------agregamos los datos a la grilla 2
+            If conexionMysql.State = ConnectionState.Open Then
+                conexionMysql.Close()
+
+            End If
+            cerrarconexion()
+            '  MsgBox("fechacalendario")
+            conexionMysql.Open()
+            Dim sql4 As String
+            Dim a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17 As String
+            sql4 = "select venta.idventa,equipo.idequipo,equipo.equipo,equipo.modelo,equipo.datedelivery,venta.fechaventa,equipo.status,customer.name,customer.telephone,equipo.problema,equipo.nota,equipo.reparacion,equipo.partes, venta.deposito,venta.resto,venta.total from venta,equipo,customer  where venta.idventa=equipo.idventa and venta.idcustomer=customer.idcustomer and venta.idventa='" & stxtorder.Text & "';"
+            Dim cmd4 As New MySqlCommand(sql4, conexionMysql)
+            reader = cmd4.ExecuteReader()
+            For i = 0 To contador - 1
+                reader.Read()
+                'MsgBox(i)
+                a1 = reader.GetString(0).ToString()
+                a2 = reader.GetString(1).ToString()
+                a3 = reader.GetString(2).ToString()
+                a4 = reader.GetString(3).ToString()
+                Try
+
+                    a5 = reader.GetString(4).ToString()
+                Catch ex As Exception
+
+                End Try
+                a6 = reader.GetString(5).ToString()
+                a7 = reader.GetString(6).ToString()
+                a8 = reader.GetString(7).ToString()
+                a9 = reader.GetString(8).ToString()
+                a10 = reader.GetString(9).ToString()
+                a11 = reader.GetString(10).ToString()
+                a12 = reader.GetString(11).ToString()
+                a13 = reader.GetString(12).ToString()
+                a14 = reader.GetString(13).ToString()
+                a15 = reader.GetString(14).ToString()
+                a16 = reader.GetString(15).ToString()
+                'a17 = reader.GetString(16).ToString()
+
+
+                segrilla.Rows.Add(a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16)
+
+
+            Next
+
+
+
+
+        Catch ex As Exception
+            '  MsgBox("Existen problemas con la consulta", MsgBoxStyle.Information, "MOBI")
+            cerrarconexion()
+        End Try
+
+
     End Function
     Function reporteorderinicial()
 
@@ -7280,36 +7904,42 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
         Catch ex As Exception
             ' idcliente = 1
             cerrarconexion()
+            'Try
 
+            ' MsgBox(rtxtemail.Text)
             'en caso de que no este el cliente, lo guardamos
             conexionMysql.Open()
-            Dim Sqlx1 As String
-            Sqlx1 = "INSERT INTO `customer` (`name`, `address`, `state`, `city`, `telephone`,`email`) VALUES ( '" & rtxtcustomername.Text & "', '" & rtxtaddress.Text & "', '" & rtxtstate.Text & "', '" & rtxtcity.Text & "', '" & rtxttelephone.Text & "','" & rtxtemail.Text & "');"
-            Dim cmdx1 As New MySqlCommand(Sqlx1, conexionMysql)
-            cmdx1.ExecuteNonQuery()
-            conexionMysql.Close()
-            'txttotalpagar.Text = ""
-            conexionMysql.Close()
+                Dim Sqlx1 As String
+                Sqlx1 = "INSERT INTO `customer` (`name`, `address`, `state`, `city`, `telephone`,`email`) VALUES ( '" & rtxtcustomername.Text & "', '" & rtxtaddress.Text & "', '" & rtxtstate.Text & "', '" & rtxtcity.Text & "', '" & rtxttelephone.Text & "','" & rtxtemail.Text & "');"
+                Dim cmdx1 As New MySqlCommand(Sqlx1, conexionMysql)
+                cmdx1.ExecuteNonQuery()
+                conexionMysql.Close()
+                'txttotalpagar.Text = ""
+                conexionMysql.Close()
 
-            '------------------------obtenemos el id del cliente
-            cerrarconexion()
-            conexionMysql.Open()
-            Dim Sqlx2 As String
-            'consultamos el id del cliente para obtener un registro de quien es al que se le esta vendiendo
-            Sqlx2 = "select idcustomer from customer where name like '%" & rtxtcustomername.Text & "%';"
-            Dim cmdx2 As New MySqlCommand(Sqlx2, conexionMysql)
-            reader = cmdx2.ExecuteReader()
-            reader.Read()
-            idcliente = reader.GetString(0).ToString()
-            conexionMysql.Close()
+                '------------------------obtenemos el id del cliente
+                cerrarconexion()
+                conexionMysql.Open()
+                Dim Sqlx2 As String
+                'consultamos el id del cliente para obtener un registro de quien es al que se le esta vendiendo
+                Sqlx2 = "select idcustomer from customer where name like '%" & rtxtcustomername.Text & "%';"
+                Dim cmdx2 As New MySqlCommand(Sqlx2, conexionMysql)
+                reader = cmdx2.ExecuteReader()
+                reader.Read()
+                idcliente = reader.GetString(0).ToString()
+                conexionMysql.Close()
 
-            MsgBox("Customer insertado", MsgBoxStyle.Information, "MOBI")
+                MsgBox("Customer insertado", MsgBoxStyle.Information, "MOBI")
 
+                'Catch ex As Exception
+                'cerrarconexion()
 
-            '-MsgBox(idcliente)
-        End Try
+                'End Try
 
-        Dim folio As Integer
+                '-MsgBox(idcliente)
+            End Try
+
+            Dim folio As Integer
         If activarbusqueda = True Then
             folio = rtxtbusquedafolio.Text
         Else
@@ -10841,6 +11471,13 @@ ADD COLUMN `posicion` INT NULL AFTER `idventa`;"
         reimprimirreparacion()
     End Sub
 
+
+    Function statuscambio()
+
+        ' Dim value As String = Convert.ToString(segrilla.CurrentRow.Cells("Status").Value)
+        ' MsgBox(value)
+
+    End Function
     Private Sub pgrilla_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles pgrilla.CellDoubleClick
         Dim Variable As String = pgrilla.Item(0, pgrilla.CurrentRow.Index).Value
         'MsgBox(Variable)
@@ -10861,6 +11498,11 @@ ADD COLUMN `posicion` INT NULL AFTER `idventa`;"
         txtpiece.Focus()
 
     End Sub
+
+    Private Sub Segrilla_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles segrilla.CellContentClick
+
+    End Sub
+
     Function cargardatosproductoventa()
         conexionMysql.Open()
         Dim Sql As String
@@ -10960,6 +11602,11 @@ ADD COLUMN `posicion` INT NULL AFTER `idventa`;"
             '---------------------------------------------------------------------
         End If
     End Function
+
+    Private Sub Btninconsistencia_Click(sender As Object, e As EventArgs) Handles btninconsistencia.Click
+
+    End Sub
+
     Private Sub cbstate_SelectedValueChanged(sender As Object, e As EventArgs) Handles cbstate.SelectedValueChanged
         '    If activarbusqueda = True Then
         'si hay una busqueda en curso entonces se actualiza la fecha, en caso contrario no actualiza nada
@@ -11006,6 +11653,92 @@ ADD COLUMN `posicion` INT NULL AFTER `idventa`;"
         If e.KeyCode = Keys.Enter Then
             realizarbusquedaventa()
         End If
+
+    End Sub
+
+
+
+
+
+
+    Private Sub segrilla_CellEndEdit(sender As Object, e As DataGridViewCellEventArgs) Handles segrilla.CellEndEdit
+        Dim value As String = Convert.ToString(segrilla.CurrentRow.Cells("Status").Value)
+        Dim idvalue As String = Convert.ToString(segrilla.CurrentRow.Cells("equipoID").Value)
+        'MsgBox(value)
+        'MsgBox(idvalue)
+        'obtener fecha y hora
+
+        Dim dia, mes, año, fecha, fechaclave As String
+        hora2 = Now.Hour()
+        minuto = Now.Minute()
+        segundo = Now.Second()
+
+        hora = hora2 & ":" & minuto & ":" & segundo
+
+        dia = Date.Now.Day
+        mes = Date.Now.Month
+        año = Date.Now.Year
+        fecha = año & "-" & mes & "-" & dia
+
+        fechaclave = año & mes & dia & hora2 & minuto & segundo
+
+        'despues de obtener los valores, los actualizamos.
+
+        cerrarconexion()
+        conexionMysql.Open()
+        Try
+
+            Dim Sql36 As String
+            Sql36 = "update equipo set status='" & value & "',datedelivery='" & fecha & "' where idequipo=" & idvalue & ";"
+            Dim cmd36 As New MySqlCommand(Sql36, conexionMysql)
+            cmd36.ExecuteNonQuery()
+            conexionMysql.Close()
+            MsgBox("Update status", MsgBoxStyle.Information, "MOBI")
+        Catch ex As Exception
+
+        End Try
+        cerrarconexion()
+
+
+
+
+
+    End Sub
+
+    Private Sub segrilla_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles segrilla.CellDoubleClick
+
+        Dim Variable As String = segrilla.Item(0, segrilla.CurrentRow.Index).Value
+        'MsgBox(Variable)
+        TabControl1.SelectedIndex = 2
+        rtxtbusquedafolio.Text = Variable
+        cargarseller()
+        realizarbusqueda()
+        realizarbusqueda()
+        'rtxtbusquedafolio.Visible = False
+        rgrilla.AlternatingRowsDefaultCellStyle.BackColor = Color.SkyBlue
+        'rcbitems.Visible = False
+        'rcbitemtemporal.Visible = True
+
+        cargarlogoticket()
+        'cbstate.SelectedIndex = 0
+        'rcbseller.SelectedIndex = 0
+
+        'obtenerfolio()
+        'rlbcustomer.Visible = False
+        'lblistarespuestos.Visible = False
+
+        'TabControl1.SelectedIndex = 2
+        Button1.BackColor = Color.FromArgb(27, 38, 44)
+        Button2.BackColor = Color.FromArgb(27, 38, 44)
+        Button8.BackColor = Color.FromArgb(27, 38, 44)
+        Button12.BackColor = Color.FromArgb(27, 38, 44)
+        Button67.BackColor = Color.DimGray
+        Button14.BackColor = Color.FromArgb(27, 38, 44)
+
+        'lblistarespuestos.Visible = False
+        'comprobarintegridadreparacion()
+
+
 
     End Sub
 End Class

@@ -144,9 +144,9 @@ Partial Class login
         Me.Label3.ForeColor = System.Drawing.Color.Silver
         Me.Label3.Location = New System.Drawing.Point(274, 9)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(47, 14)
+        Me.Label3.Size = New System.Drawing.Size(49, 14)
         Me.Label3.TabIndex = 89
-        Me.Label3.Text = "v311120"
+        Me.Label3.Text = "v210629"
         '
         'login
         '

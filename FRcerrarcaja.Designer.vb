@@ -26,6 +26,18 @@ Partial Class FRcerrarcaja
         Me.Button45 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.GroupBox7 = New System.Windows.Forms.GroupBox()
+        Me.Label28 = New System.Windows.Forms.Label()
+        Me.txtventavales = New System.Windows.Forms.TextBox()
+        Me.Label29 = New System.Windows.Forms.Label()
+        Me.Label26 = New System.Windows.Forms.Label()
+        Me.txtventastarjeta = New System.Windows.Forms.TextBox()
+        Me.Label27 = New System.Windows.Forms.Label()
+        Me.Label24 = New System.Windows.Forms.Label()
+        Me.txtventastransferencias = New System.Windows.Forms.TextBox()
+        Me.Label25 = New System.Windows.Forms.Label()
+        Me.Label22 = New System.Windows.Forms.Label()
+        Me.txtventasefectivo = New System.Windows.Forms.TextBox()
+        Me.Label23 = New System.Windows.Forms.Label()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
@@ -39,12 +51,12 @@ Partial Class FRcerrarcaja
         Me.GroupBox6 = New System.Windows.Forms.GroupBox()
         Me.txtid = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label18 = New System.Windows.Forms.Label()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.txtsaldocaja = New System.Windows.Forms.TextBox()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.Label18 = New System.Windows.Forms.Label()
         Me.Label21 = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
         Me.Label20 = New System.Windows.Forms.Label()
+        Me.txtsaldocaja = New System.Windows.Forms.TextBox()
         Me.Label19 = New System.Windows.Forms.Label()
         Me.lbmensaje = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -69,19 +81,15 @@ Partial Class FRcerrarcaja
         Me.txtcompras = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Button17 = New System.Windows.Forms.Button()
-        Me.Label23 = New System.Windows.Forms.Label()
-        Me.txtventasefectivo = New System.Windows.Forms.TextBox()
-        Me.Label22 = New System.Windows.Forms.Label()
-        Me.Label25 = New System.Windows.Forms.Label()
-        Me.txtventastransferencias = New System.Windows.Forms.TextBox()
-        Me.Label24 = New System.Windows.Forms.Label()
-        Me.Label27 = New System.Windows.Forms.Label()
-        Me.txtventastarjeta = New System.Windows.Forms.TextBox()
-        Me.Label26 = New System.Windows.Forms.Label()
-        Me.Label29 = New System.Windows.Forms.Label()
-        Me.txtventavales = New System.Windows.Forms.TextBox()
-        Me.Label28 = New System.Windows.Forms.Label()
         Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
+        Me.GroupBox5 = New System.Windows.Forms.GroupBox()
+        Me.Label32 = New System.Windows.Forms.Label()
+        Me.Label33 = New System.Windows.Forms.Label()
+        Me.lbfechainicial = New System.Windows.Forms.Label()
+        Me.lbhorainicial = New System.Windows.Forms.Label()
+        Me.lbhorafinal = New System.Windows.Forms.Label()
+        Me.lbfechafinal = New System.Windows.Forms.Label()
+        Me.pblogoticket = New System.Windows.Forms.PictureBox()
         Me.FlowLayoutPanel3.SuspendLayout()
         Me.GroupBox7.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -89,6 +97,8 @@ Partial Class FRcerrarcaja
         Me.GroupBox4.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
+        Me.GroupBox5.SuspendLayout()
+        CType(Me.pblogoticket, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'FlowLayoutPanel3
@@ -96,8 +106,9 @@ Partial Class FRcerrarcaja
         Me.FlowLayoutPanel3.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.FlowLayoutPanel3.Controls.Add(Me.Button45)
         Me.FlowLayoutPanel3.Controls.Add(Me.Button1)
+        Me.FlowLayoutPanel3.Controls.Add(Me.pblogoticket)
         Me.FlowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Right
-        Me.FlowLayoutPanel3.Location = New System.Drawing.Point(608, 0)
+        Me.FlowLayoutPanel3.Location = New System.Drawing.Point(564, 0)
         Me.FlowLayoutPanel3.Name = "FlowLayoutPanel3"
         Me.FlowLayoutPanel3.Size = New System.Drawing.Size(134, 573)
         Me.FlowLayoutPanel3.TabIndex = 68
@@ -132,7 +143,7 @@ Partial Class FRcerrarcaja
         '
         'GroupBox7
         '
-        Me.GroupBox7.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.GroupBox7.BackColor = System.Drawing.Color.White
         Me.GroupBox7.Controls.Add(Me.Label28)
         Me.GroupBox7.Controls.Add(Me.txtventavales)
         Me.GroupBox7.Controls.Add(Me.Label29)
@@ -154,12 +165,192 @@ Partial Class FRcerrarcaja
         Me.GroupBox7.Controls.Add(Me.Label1)
         Me.GroupBox7.Controls.Add(Me.txtanticipos)
         Me.GroupBox7.Controls.Add(Me.Label10)
-        Me.GroupBox7.Location = New System.Drawing.Point(308, 12)
+        Me.GroupBox7.Location = New System.Drawing.Point(308, 297)
         Me.GroupBox7.Name = "GroupBox7"
-        Me.GroupBox7.Size = New System.Drawing.Size(251, 550)
+        Me.GroupBox7.Size = New System.Drawing.Size(251, 271)
         Me.GroupBox7.TabIndex = 69
         Me.GroupBox7.TabStop = False
         Me.GroupBox7.Text = "Ventas"
+        '
+        'Label28
+        '
+        Me.Label28.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label28.AutoSize = True
+        Me.Label28.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label28.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.Label28.Location = New System.Drawing.Point(37, 550)
+        Me.Label28.Name = "Label28"
+        Me.Label28.Size = New System.Drawing.Size(20, 24)
+        Me.Label28.TabIndex = 62
+        Me.Label28.Text = "$"
+        Me.Label28.Visible = False
+        '
+        'txtventavales
+        '
+        Me.txtventavales.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtventavales.BackColor = System.Drawing.Color.White
+        Me.txtventavales.Enabled = False
+        Me.txtventavales.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtventavales.Location = New System.Drawing.Point(60, 543)
+        Me.txtventavales.Name = "txtventavales"
+        Me.txtventavales.Size = New System.Drawing.Size(140, 35)
+        Me.txtventavales.TabIndex = 60
+        Me.txtventavales.Text = "0"
+        Me.txtventavales.Visible = False
+        '
+        'Label29
+        '
+        Me.Label29.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label29.AutoSize = True
+        Me.Label29.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label29.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.Label29.Location = New System.Drawing.Point(56, 516)
+        Me.Label29.Name = "Label29"
+        Me.Label29.Size = New System.Drawing.Size(120, 24)
+        Me.Label29.TabIndex = 61
+        Me.Label29.Text = "Ventas Vales"
+        Me.Label29.Visible = False
+        '
+        'Label26
+        '
+        Me.Label26.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label26.AutoSize = True
+        Me.Label26.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label26.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.Label26.Location = New System.Drawing.Point(37, 478)
+        Me.Label26.Name = "Label26"
+        Me.Label26.Size = New System.Drawing.Size(20, 24)
+        Me.Label26.TabIndex = 59
+        Me.Label26.Text = "$"
+        Me.Label26.Visible = False
+        '
+        'txtventastarjeta
+        '
+        Me.txtventastarjeta.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtventastarjeta.BackColor = System.Drawing.Color.White
+        Me.txtventastarjeta.Enabled = False
+        Me.txtventastarjeta.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtventastarjeta.Location = New System.Drawing.Point(60, 471)
+        Me.txtventastarjeta.Name = "txtventastarjeta"
+        Me.txtventastarjeta.Size = New System.Drawing.Size(140, 35)
+        Me.txtventastarjeta.TabIndex = 57
+        Me.txtventastarjeta.Text = "0"
+        Me.txtventastarjeta.Visible = False
+        '
+        'Label27
+        '
+        Me.Label27.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label27.AutoSize = True
+        Me.Label27.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label27.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.Label27.Location = New System.Drawing.Point(56, 444)
+        Me.Label27.Name = "Label27"
+        Me.Label27.Size = New System.Drawing.Size(199, 24)
+        Me.Label27.TabIndex = 58
+        Me.Label27.Text = "Ventas Debido/Credito"
+        Me.Label27.Visible = False
+        '
+        'Label24
+        '
+        Me.Label24.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label24.AutoSize = True
+        Me.Label24.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label24.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.Label24.Location = New System.Drawing.Point(37, 409)
+        Me.Label24.Name = "Label24"
+        Me.Label24.Size = New System.Drawing.Size(20, 24)
+        Me.Label24.TabIndex = 56
+        Me.Label24.Text = "$"
+        Me.Label24.Visible = False
+        '
+        'txtventastransferencias
+        '
+        Me.txtventastransferencias.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtventastransferencias.BackColor = System.Drawing.Color.White
+        Me.txtventastransferencias.Enabled = False
+        Me.txtventastransferencias.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtventastransferencias.Location = New System.Drawing.Point(60, 402)
+        Me.txtventastransferencias.Name = "txtventastransferencias"
+        Me.txtventastransferencias.Size = New System.Drawing.Size(140, 35)
+        Me.txtventastransferencias.TabIndex = 54
+        Me.txtventastransferencias.Text = "0"
+        Me.txtventastransferencias.Visible = False
+        '
+        'Label25
+        '
+        Me.Label25.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label25.AutoSize = True
+        Me.Label25.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label25.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.Label25.Location = New System.Drawing.Point(56, 375)
+        Me.Label25.Name = "Label25"
+        Me.Label25.Size = New System.Drawing.Size(197, 24)
+        Me.Label25.TabIndex = 55
+        Me.Label25.Text = "Ventas Transferencias"
+        Me.Label25.Visible = False
+        '
+        'Label22
+        '
+        Me.Label22.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label22.AutoSize = True
+        Me.Label22.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label22.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.Label22.Location = New System.Drawing.Point(37, 338)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(20, 24)
+        Me.Label22.TabIndex = 53
+        Me.Label22.Text = "$"
+        Me.Label22.Visible = False
+        '
+        'txtventasefectivo
+        '
+        Me.txtventasefectivo.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtventasefectivo.BackColor = System.Drawing.Color.White
+        Me.txtventasefectivo.Enabled = False
+        Me.txtventasefectivo.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtventasefectivo.Location = New System.Drawing.Point(60, 331)
+        Me.txtventasefectivo.Name = "txtventasefectivo"
+        Me.txtventasefectivo.Size = New System.Drawing.Size(140, 35)
+        Me.txtventasefectivo.TabIndex = 51
+        Me.txtventasefectivo.Text = "0"
+        Me.txtventasefectivo.Visible = False
+        '
+        'Label23
+        '
+        Me.Label23.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label23.AutoSize = True
+        Me.Label23.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label23.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.Label23.Location = New System.Drawing.Point(56, 304)
+        Me.Label23.Name = "Label23"
+        Me.Label23.Size = New System.Drawing.Size(139, 24)
+        Me.Label23.TabIndex = 52
+        Me.Label23.Text = "Ventas Efectivo"
+        Me.Label23.Visible = False
         '
         'Label13
         '
@@ -339,46 +530,6 @@ Partial Class FRcerrarcaja
         Me.Label5.TabIndex = 33
         Me.Label5.Text = "Id"
         '
-        'Label18
-        '
-        Me.Label18.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label18.AutoSize = True
-        Me.Label18.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label18.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.Label18.Location = New System.Drawing.Point(2, 46)
-        Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(20, 24)
-        Me.Label18.TabIndex = 49
-        Me.Label18.Text = "$"
-        '
-        'Label11
-        '
-        Me.Label11.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label11.AutoSize = True
-        Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.Label11.Location = New System.Drawing.Point(18, 14)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(191, 24)
-        Me.Label11.TabIndex = 41
-        Me.Label11.Text = "¿Cuantó hay en caja?"
-        '
-        'txtsaldocaja
-        '
-        Me.txtsaldocaja.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtsaldocaja.BackColor = System.Drawing.Color.White
-        Me.txtsaldocaja.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtsaldocaja.Location = New System.Drawing.Point(22, 40)
-        Me.txtsaldocaja.Name = "txtsaldocaja"
-        Me.txtsaldocaja.Size = New System.Drawing.Size(198, 35)
-        Me.txtsaldocaja.TabIndex = 24
-        '
         'GroupBox4
         '
         Me.GroupBox4.Controls.Add(Me.Label18)
@@ -405,6 +556,20 @@ Partial Class FRcerrarcaja
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Resumen"
         '
+        'Label18
+        '
+        Me.Label18.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label18.AutoSize = True
+        Me.Label18.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label18.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.Label18.Location = New System.Drawing.Point(2, 46)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(20, 24)
+        Me.Label18.TabIndex = 49
+        Me.Label18.Text = "$"
+        '
         'Label21
         '
         Me.Label21.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
@@ -419,6 +584,20 @@ Partial Class FRcerrarcaja
         Me.Label21.TabIndex = 51
         Me.Label21.Text = "$"
         '
+        'Label11
+        '
+        Me.Label11.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label11.AutoSize = True
+        Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.Label11.Location = New System.Drawing.Point(18, 14)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(191, 24)
+        Me.Label11.TabIndex = 41
+        Me.Label11.Text = "¿Cuantó hay en caja?"
+        '
         'Label20
         '
         Me.Label20.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
@@ -432,6 +611,18 @@ Partial Class FRcerrarcaja
         Me.Label20.Size = New System.Drawing.Size(20, 24)
         Me.Label20.TabIndex = 50
         Me.Label20.Text = "$"
+        '
+        'txtsaldocaja
+        '
+        Me.txtsaldocaja.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtsaldocaja.BackColor = System.Drawing.Color.White
+        Me.txtsaldocaja.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtsaldocaja.Location = New System.Drawing.Point(22, 40)
+        Me.txtsaldocaja.Name = "txtsaldocaja"
+        Me.txtsaldocaja.Size = New System.Drawing.Size(198, 35)
+        Me.txtsaldocaja.TabIndex = 24
         '
         'Label19
         '
@@ -765,194 +956,124 @@ Partial Class FRcerrarcaja
         Me.Button17.Text = "AGREGAR"
         Me.Button17.UseVisualStyleBackColor = False
         '
-        'Label23
-        '
-        Me.Label23.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label23.AutoSize = True
-        Me.Label23.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label23.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.Label23.Location = New System.Drawing.Point(56, 304)
-        Me.Label23.Name = "Label23"
-        Me.Label23.Size = New System.Drawing.Size(139, 24)
-        Me.Label23.TabIndex = 52
-        Me.Label23.Text = "Ventas Efectivo"
-        Me.Label23.Visible = False
-        '
-        'txtventasefectivo
-        '
-        Me.txtventasefectivo.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtventasefectivo.BackColor = System.Drawing.Color.White
-        Me.txtventasefectivo.Enabled = False
-        Me.txtventasefectivo.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtventasefectivo.Location = New System.Drawing.Point(60, 331)
-        Me.txtventasefectivo.Name = "txtventasefectivo"
-        Me.txtventasefectivo.Size = New System.Drawing.Size(140, 35)
-        Me.txtventasefectivo.TabIndex = 51
-        Me.txtventasefectivo.Text = "0"
-        Me.txtventasefectivo.Visible = False
-        '
-        'Label22
-        '
-        Me.Label22.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label22.AutoSize = True
-        Me.Label22.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label22.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.Label22.Location = New System.Drawing.Point(37, 338)
-        Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(20, 24)
-        Me.Label22.TabIndex = 53
-        Me.Label22.Text = "$"
-        Me.Label22.Visible = False
-        '
-        'Label25
-        '
-        Me.Label25.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label25.AutoSize = True
-        Me.Label25.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label25.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.Label25.Location = New System.Drawing.Point(56, 375)
-        Me.Label25.Name = "Label25"
-        Me.Label25.Size = New System.Drawing.Size(197, 24)
-        Me.Label25.TabIndex = 55
-        Me.Label25.Text = "Ventas Transferencias"
-        Me.Label25.Visible = False
-        '
-        'txtventastransferencias
-        '
-        Me.txtventastransferencias.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtventastransferencias.BackColor = System.Drawing.Color.White
-        Me.txtventastransferencias.Enabled = False
-        Me.txtventastransferencias.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtventastransferencias.Location = New System.Drawing.Point(60, 402)
-        Me.txtventastransferencias.Name = "txtventastransferencias"
-        Me.txtventastransferencias.Size = New System.Drawing.Size(140, 35)
-        Me.txtventastransferencias.TabIndex = 54
-        Me.txtventastransferencias.Text = "0"
-        Me.txtventastransferencias.Visible = False
-        '
-        'Label24
-        '
-        Me.Label24.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label24.AutoSize = True
-        Me.Label24.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label24.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.Label24.Location = New System.Drawing.Point(37, 409)
-        Me.Label24.Name = "Label24"
-        Me.Label24.Size = New System.Drawing.Size(20, 24)
-        Me.Label24.TabIndex = 56
-        Me.Label24.Text = "$"
-        Me.Label24.Visible = False
-        '
-        'Label27
-        '
-        Me.Label27.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label27.AutoSize = True
-        Me.Label27.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label27.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.Label27.Location = New System.Drawing.Point(56, 444)
-        Me.Label27.Name = "Label27"
-        Me.Label27.Size = New System.Drawing.Size(199, 24)
-        Me.Label27.TabIndex = 58
-        Me.Label27.Text = "Ventas Debido/Credito"
-        Me.Label27.Visible = False
-        '
-        'txtventastarjeta
-        '
-        Me.txtventastarjeta.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtventastarjeta.BackColor = System.Drawing.Color.White
-        Me.txtventastarjeta.Enabled = False
-        Me.txtventastarjeta.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtventastarjeta.Location = New System.Drawing.Point(60, 471)
-        Me.txtventastarjeta.Name = "txtventastarjeta"
-        Me.txtventastarjeta.Size = New System.Drawing.Size(140, 35)
-        Me.txtventastarjeta.TabIndex = 57
-        Me.txtventastarjeta.Text = "0"
-        Me.txtventastarjeta.Visible = False
-        '
-        'Label26
-        '
-        Me.Label26.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label26.AutoSize = True
-        Me.Label26.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label26.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.Label26.Location = New System.Drawing.Point(37, 478)
-        Me.Label26.Name = "Label26"
-        Me.Label26.Size = New System.Drawing.Size(20, 24)
-        Me.Label26.TabIndex = 59
-        Me.Label26.Text = "$"
-        Me.Label26.Visible = False
-        '
-        'Label29
-        '
-        Me.Label29.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label29.AutoSize = True
-        Me.Label29.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label29.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.Label29.Location = New System.Drawing.Point(56, 516)
-        Me.Label29.Name = "Label29"
-        Me.Label29.Size = New System.Drawing.Size(120, 24)
-        Me.Label29.TabIndex = 61
-        Me.Label29.Text = "Ventas Vales"
-        Me.Label29.Visible = False
-        '
-        'txtventavales
-        '
-        Me.txtventavales.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtventavales.BackColor = System.Drawing.Color.White
-        Me.txtventavales.Enabled = False
-        Me.txtventavales.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtventavales.Location = New System.Drawing.Point(60, 543)
-        Me.txtventavales.Name = "txtventavales"
-        Me.txtventavales.Size = New System.Drawing.Size(140, 35)
-        Me.txtventavales.TabIndex = 60
-        Me.txtventavales.Text = "0"
-        Me.txtventavales.Visible = False
-        '
-        'Label28
-        '
-        Me.Label28.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label28.AutoSize = True
-        Me.Label28.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label28.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.Label28.Location = New System.Drawing.Point(37, 550)
-        Me.Label28.Name = "Label28"
-        Me.Label28.Size = New System.Drawing.Size(20, 24)
-        Me.Label28.TabIndex = 62
-        Me.Label28.Text = "$"
-        Me.Label28.Visible = False
-        '
         'PrintDocument1
         '
+        '
+        'GroupBox5
+        '
+        Me.GroupBox5.BackColor = System.Drawing.Color.White
+        Me.GroupBox5.Controls.Add(Me.lbhorafinal)
+        Me.GroupBox5.Controls.Add(Me.lbfechafinal)
+        Me.GroupBox5.Controls.Add(Me.lbhorainicial)
+        Me.GroupBox5.Controls.Add(Me.lbfechainicial)
+        Me.GroupBox5.Controls.Add(Me.Label33)
+        Me.GroupBox5.Controls.Add(Me.Label32)
+        Me.GroupBox5.Location = New System.Drawing.Point(308, 14)
+        Me.GroupBox5.Name = "GroupBox5"
+        Me.GroupBox5.Size = New System.Drawing.Size(250, 275)
+        Me.GroupBox5.TabIndex = 71
+        Me.GroupBox5.TabStop = False
+        '
+        'Label32
+        '
+        Me.Label32.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label32.AutoSize = True
+        Me.Label32.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label32.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.Label32.Location = New System.Drawing.Point(9, 33)
+        Me.Label32.Name = "Label32"
+        Me.Label32.Size = New System.Drawing.Size(121, 24)
+        Me.Label32.TabIndex = 42
+        Me.Label32.Text = "Fecha inicial:"
+        '
+        'Label33
+        '
+        Me.Label33.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label33.AutoSize = True
+        Me.Label33.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label33.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.Label33.Location = New System.Drawing.Point(9, 113)
+        Me.Label33.Name = "Label33"
+        Me.Label33.Size = New System.Drawing.Size(108, 24)
+        Me.Label33.TabIndex = 43
+        Me.Label33.Text = "Hora inicial:"
+        '
+        'lbfechainicial
+        '
+        Me.lbfechainicial.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lbfechainicial.AutoSize = True
+        Me.lbfechainicial.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbfechainicial.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.lbfechainicial.Location = New System.Drawing.Point(9, 66)
+        Me.lbfechainicial.Name = "lbfechainicial"
+        Me.lbfechainicial.Size = New System.Drawing.Size(16, 24)
+        Me.lbfechainicial.TabIndex = 44
+        Me.lbfechainicial.Text = "-"
+        '
+        'lbhorainicial
+        '
+        Me.lbhorainicial.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lbhorainicial.AutoSize = True
+        Me.lbhorainicial.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbhorainicial.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.lbhorainicial.Location = New System.Drawing.Point(9, 142)
+        Me.lbhorainicial.Name = "lbhorainicial"
+        Me.lbhorainicial.Size = New System.Drawing.Size(16, 24)
+        Me.lbhorainicial.TabIndex = 45
+        Me.lbhorainicial.Text = "-"
+        '
+        'lbhorafinal
+        '
+        Me.lbhorafinal.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lbhorafinal.AutoSize = True
+        Me.lbhorafinal.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbhorafinal.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.lbhorafinal.Location = New System.Drawing.Point(7, 221)
+        Me.lbhorafinal.Name = "lbhorafinal"
+        Me.lbhorafinal.Size = New System.Drawing.Size(16, 24)
+        Me.lbhorafinal.TabIndex = 47
+        Me.lbhorafinal.Text = "-"
+        '
+        'lbfechafinal
+        '
+        Me.lbfechafinal.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lbfechafinal.AutoSize = True
+        Me.lbfechafinal.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbfechafinal.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.lbfechafinal.Location = New System.Drawing.Point(9, 180)
+        Me.lbfechafinal.Name = "lbfechafinal"
+        Me.lbfechafinal.Size = New System.Drawing.Size(16, 24)
+        Me.lbfechafinal.TabIndex = 46
+        Me.lbfechafinal.Text = "-"
+        '
+        'pblogoticket
+        '
+        Me.pblogoticket.Location = New System.Drawing.Point(3, 207)
+        Me.pblogoticket.Name = "pblogoticket"
+        Me.pblogoticket.Size = New System.Drawing.Size(30, 79)
+        Me.pblogoticket.TabIndex = 97
+        Me.pblogoticket.TabStop = False
+        Me.pblogoticket.Visible = False
         '
         'FRcerrarcaja
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(742, 573)
+        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(130, Byte), Integer), CType(CType(184, Byte), Integer))
+        Me.ClientSize = New System.Drawing.Size(698, 573)
+        Me.Controls.Add(Me.GroupBox5)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.GroupBox7)
         Me.Controls.Add(Me.FlowLayoutPanel3)
@@ -972,6 +1093,9 @@ Partial Class FRcerrarcaja
         Me.GroupBox3.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
+        Me.GroupBox5.ResumeLayout(False)
+        Me.GroupBox5.PerformLayout()
+        CType(Me.pblogoticket, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1036,4 +1160,12 @@ Partial Class FRcerrarcaja
     Friend WithEvents txtventasefectivo As TextBox
     Friend WithEvents Label23 As Label
     Friend WithEvents PrintDocument1 As Printing.PrintDocument
+    Friend WithEvents GroupBox5 As GroupBox
+    Friend WithEvents lbhorainicial As Label
+    Friend WithEvents lbfechainicial As Label
+    Friend WithEvents Label33 As Label
+    Friend WithEvents Label32 As Label
+    Friend WithEvents lbhorafinal As Label
+    Friend WithEvents lbfechafinal As Label
+    Friend WithEvents pblogoticket As PictureBox
 End Class
