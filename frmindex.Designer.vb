@@ -782,7 +782,7 @@ Partial Class frmindex
         Me.TabControl1.Controls.Add(Me.TabPage5)
         Me.TabControl1.Controls.Add(Me.TabPage6)
         Me.TabControl1.Controls.Add(Me.TabPage7)
-        Me.TabControl1.Location = New System.Drawing.Point(132, 40)
+        Me.TabControl1.Location = New System.Drawing.Point(132, 63)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
         Me.TabControl1.Size = New System.Drawing.Size(1468, 803)
@@ -1148,7 +1148,7 @@ Partial Class frmindex
         Me.lblistaproducto.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblistaproducto.FormattingEnabled = True
         Me.lblistaproducto.ItemHeight = 20
-        Me.lblistaproducto.Location = New System.Drawing.Point(20, 101)
+        Me.lblistaproducto.Location = New System.Drawing.Point(27, 131)
         Me.lblistaproducto.Name = "lblistaproducto"
         Me.lblistaproducto.Size = New System.Drawing.Size(246, 24)
         Me.lblistaproducto.TabIndex = 1116
@@ -1816,9 +1816,9 @@ Partial Class frmindex
         Me.lblistarespuestos.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblistarespuestos.FormattingEnabled = True
         Me.lblistarespuestos.ItemHeight = 20
-        Me.lblistarespuestos.Location = New System.Drawing.Point(13, 97)
+        Me.lblistarespuestos.Location = New System.Drawing.Point(182, 97)
         Me.lblistarespuestos.Name = "lblistarespuestos"
-        Me.lblistarespuestos.Size = New System.Drawing.Size(224, 124)
+        Me.lblistarespuestos.Size = New System.Drawing.Size(55, 124)
         Me.lblistarespuestos.TabIndex = 9
         '
         'Button31
@@ -2449,9 +2449,9 @@ Partial Class frmindex
         Me.rlbcustomer.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.rlbcustomer.FormattingEnabled = True
         Me.rlbcustomer.ItemHeight = 20
-        Me.rlbcustomer.Location = New System.Drawing.Point(21, 64)
+        Me.rlbcustomer.Location = New System.Drawing.Point(102, 64)
         Me.rlbcustomer.Name = "rlbcustomer"
-        Me.rlbcustomer.Size = New System.Drawing.Size(246, 164)
+        Me.rlbcustomer.Size = New System.Drawing.Size(165, 164)
         Me.rlbcustomer.TabIndex = 11
         '
         'rtxttelephone
@@ -3439,7 +3439,7 @@ Partial Class frmindex
         Me.Button83.Name = "Button83"
         Me.Button83.Size = New System.Drawing.Size(114, 54)
         Me.Button83.TabIndex = 73
-        Me.Button83.Text = "doc"
+        Me.Button83.Text = "Save image"
         Me.Button83.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         Me.Button83.UseVisualStyleBackColor = False
         '
@@ -4012,7 +4012,7 @@ Partial Class frmindex
         Me.Label102.AutoSize = True
         Me.Label102.Font = New System.Drawing.Font("Arial", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label102.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.Label102.Location = New System.Drawing.Point(6, 114)
+        Me.Label102.Location = New System.Drawing.Point(34, 114)
         Me.Label102.Name = "Label102"
         Me.Label102.Size = New System.Drawing.Size(47, 17)
         Me.Label102.TabIndex = 58
