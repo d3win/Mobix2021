@@ -11609,6 +11609,7 @@ ADD COLUMN `posicion` INT NULL AFTER `idventa`;"
         Button26.Text = "Limpiar"
 
         '---
+
         Button11.Text = "Salir"
         '---
         GroupBox31.Text = "Datos de la empresa"
