@@ -400,6 +400,48 @@ Public Class frmindex
     End Sub
 
     Private Sub Frmindex_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        actualizar2021()
+
+
+        Dim id, valor As Integer
+        Try
+            conexionMysql.Open()
+            Dim Sql111 As String
+            Sql111 = "select traduccion from datos_empresa;"
+            Dim cmd111 As New MySqlCommand(Sql111, conexionMysql)
+            reader = cmd111.ExecuteReader()
+            reader.Read()
+
+            id = reader.GetString(0).ToString
+            conexionMysql.Close()
+
+        Catch ex As Exception
+            cerrarconexion()
+            id = 0
+        End Try
+
+        cerrarconexion()
+
+        If id = 1 Then
+            traduccion()
+            conexionMysql.Open()
+            Dim Sql22 As String
+            Sql22 = "UPDATE  datos_empresa SET traduccion = '" & id & "';"
+            Dim cmd22 As New MySqlCommand(Sql22, conexionMysql)
+            cmd22.ExecuteNonQuery()
+            conexionMysql.Close()
+            ' MsgBox("Cambio realizado, se cerrara el sistema", MsgBoxStyle.Information, "MOBI")
+            conexionMysql.Close()
+            'End
+            cerrarconexion()
+        End If
+
+
+
+
+
+
         Button1.BackColor = Color.FromArgb(27, 38, 44)
         Button2.BackColor = Color.FromArgb(27, 38, 44)
         Button8.BackColor = Color.FromArgb(27, 38, 44)
@@ -1690,20 +1732,20 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
 
             'comentamos la caja,
 
-            'Dim estadocaja As Integer
+            Dim estadocaja As Integer
 
 
-            'estadocaja = comprobarcaja()
+            estadocaja = comprobarcaja()
 
-            'If estadocaja = 0 Then
+            If estadocaja = 0 Then
 
-            'obtenerfolio()
-            ' venta()
-            ' RPT1.Show()
-            sventa()
-            'Else
-            '    MsgBox("No existe ninguna caja abierta", MsgBoxStyle.Information, "CTRL+y")
-            'End If
+                'obtenerfolio()
+                ' venta()
+                ' RPT1.Show()
+                sventa()
+            Else
+                MsgBox("No existe ninguna caja abierta", MsgBoxStyle.Information, "CTRL+y")
+            End If
 
 
 
@@ -3007,14 +3049,14 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
 
 
             If rtxtnombre.Text = "" Then
-                rtxtnombre.BackColor = Color.Red
+                rtxtnombre.BackColor = Color.FromArgb(247, 220, 111)
             End If
             If rtxtcantidad.Text = "" Then
-                rtxtcantidad.BackColor = Color.Red
+                rtxtcantidad.BackColor = Color.FromArgb(247, 220, 111)
             End If
 
             If rtxtprecio.Text = "" Then
-                rtxtprecio.BackColor = Color.Red
+                rtxtprecio.BackColor = Color.FromArgb(247, 220, 111)
             End If
 
 
@@ -3947,24 +3989,24 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
             Dim estadocaja As Integer
 
 
-            'estadocaja = comprobarcaja()
+            estadocaja = comprobarcaja()
 
 
 
             ''MsgBox(estadocaja)
-            'If estadocaja = 0 Then
+            If estadocaja = 0 Then
 
-            'obtenerfolio()
-            ' venta()
-            ' RPT1.Show()
-            'sventa()
+                'obtenerfolio()
+                ' venta()
+                ' RPT1.Show()
+                'sventa()
 
-            venta()
+                venta()
 
                 activarreparacion = False
-            'Else
-            '    MsgBox("No existe ninguna caja abierta", MsgBoxStyle.Information, "CTRL+y")
-            'End If
+            Else
+                '    MsgBox("No existe ninguna caja abierta", MsgBoxStyle.Information, "CTRL+y")
+            End If
 
 
 
@@ -3972,7 +4014,7 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
 
 
         Else
-            MsgBox("Hay una busqueda en curso", MsgBoxStyle.Information, "MOBI")
+                MsgBox("Hay una busqueda en curso", MsgBoxStyle.Information, "MOBI")
         End If
         '  rcbitemtemporal.Items.Clear()
     End Sub
@@ -4058,24 +4100,39 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
             If rtxttotal.Text = "0" Or rtxttotal.Text = "" Or rtxtresto.Text = "" Or rtxtdeposito.Text = "" Or rtxtcustomername.Text = "" Then
                 MsgBox("No hay ventas que realizar", MsgBoxStyle.Information, "Sistema")
 
+
+
+
+
                 'comprobar que caja esta vacia
+                If rtxttotal.Text = "" Then
+                    rtxttotal.BackColor = Color.FromArgb(247, 220, 111)
+                    rtxttotal.Focus()
+                End If
+
+                If rtxtresto.Text = "" Then
+                    rtxtresto.BackColor = Color.FromArgb(247, 220, 111)
+                    rtxtresto.Focus()
+                End If
+
+
 
                 If rtxtdeposito.Text = "" Then
-                    rtxtdeposito.BackColor = Color.Red
-                    rtxtdeposito.Focus()
+                        rtxtdeposito.BackColor = Color.FromArgb(247, 220, 111)
+                        rtxtdeposito.Focus()
 
-                End If
+                    End If
 
-                If rtxtcustomername.Text = "" Then
-                    rtxtcustomername.BackColor = Color.Red
-                    rtxtcustomername.Focus()
-                End If
+                    If rtxtcustomername.Text = "" Then
+                        rtxtcustomername.BackColor = Color.FromArgb(247, 220, 111)
+                        rtxtcustomername.Focus()
+                    End If
 
 
-                'rtxttotal.Text = ""
-            Else
-                'obtener fecha y hora
-                Dim hora, minuto, segundo, hora2 As String
+                    'rtxttotal.Text = ""
+                Else
+                    'obtener fecha y hora
+                    Dim hora, minuto, segundo, hora2 As String
                 Dim dia, mes, año, fecha As String
                 hora2 = Now.Hour()
                 minuto = Now.Minute()
@@ -7760,6 +7817,18 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
 
         If rtxtequipo.Text = "" Or rtxtmodelo.Text = "" Or rtxtcostoreparacion.Text = "" Then
             MsgBox("Falta información por agregar", MsgBoxStyle.Information, "MOBI")
+
+            If rtxtequipo.Text = "" Then
+                rtxtequipo.BackColor = Color.FromArgb(247, 220, 111)
+            End If
+            If rtxtmodelo.Text = "" Then
+                rtxtmodelo.BackColor = Color.FromArgb(247, 220, 111)
+            End If
+
+            If rtxtcostoreparacion.Text = "" Then
+                rtxtcostoreparacion.BackColor = Color.FromArgb(247, 220, 111)
+            End If
+
         Else
             rchpay.Checked = False
             '----------------------------------------------------------------------------------------------------------------------
@@ -8930,112 +8999,120 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
 
         indicefolio = indicefolio + 1
         ' MsgBox(rcbitemtemporal.SelectedIndex)
-
-
         Dim idequipo As Integer
-
-        Dim Sql31 As String
-        'consultamos el id del cliente para obtener un registro de quien es al que se le esta vendiendo
-        Sql31 = "SELECT idequipo FROM equipo where equipo='" & rcbitemtemporal.Text & "' and idventa='" & folio & "' and idequipo='" & cb1.Text & "';"
-        Dim cmd31 As New MySqlCommand(Sql31, conexionMysql)
-        reader = cmd31.ExecuteReader()
-        reader.Read()
-        idequipo = reader.GetString(0).ToString()
-        'rtxtpriceparts.Text = reader.GetString(10).ToString()
-        conexionMysql.Close()
-
-        cerrarconexion()
-
-
-
-
         Try
 
-            conexionMysql.Open()
-            Dim Sql26 As String
-            Sql26 = "delete from equipo where idequipo=" & idequipo & ";"
-            Dim cmd26 As New MySqlCommand(Sql26, conexionMysql)
-            cmd26.ExecuteNonQuery()
-            conexionMysql.Close()
-        Catch ex As Exception
 
+
+            Dim Sql31 As String
+            'consultamos el id del cliente para obtener un registro de quien es al que se le esta vendiendo
+            Sql31 = "SELECT idequipo FROM equipo where equipo='" & rcbitemtemporal.Text & "' and idventa='" & folio & "' and idequipo='" & cb1.Text & "';"
+            Dim cmd31 As New MySqlCommand(Sql31, conexionMysql)
+            reader = cmd31.ExecuteReader()
+            reader.Read()
+            idequipo = reader.GetString(0).ToString()
+            'rtxtpriceparts.Text = reader.GetString(10).ToString()
+            conexionMysql.Close()
+
+            cerrarconexion()
+
+            MsgBox(idequipo)
+        Catch ex As Exception
+            idequipo = 0
+            cerrarconexion()
         End Try
 
-        'removemos del comboimteremportal el valor seleccionado y limpiamos las cajas de texto
+        If idequipo = 0 Then
+
+        Else
+
+            Try
+
+                conexionMysql.Open()
+                Dim Sql26 As String
+                Sql26 = "delete from equipo where idequipo=" & idequipo & ";"
+                Dim cmd26 As New MySqlCommand(Sql26, conexionMysql)
+                cmd26.ExecuteNonQuery()
+                conexionMysql.Close()
+            Catch ex As Exception
+                cerrarconexion()
+            End Try
+
+            'removemos del comboimteremportal el valor seleccionado y limpiamos las cajas de texto
 
 
-        rcbitemtemporal.Items.Remove(rcbitemtemporal.Text)
-        'cb1.Items.Remove(cb1.Text)
+            rcbitemtemporal.Items.Remove(rcbitemtemporal.Text)
+            'cb1.Items.Remove(cb1.Text)
 
 
-        Dim nuevoindice = cb1.Text
+            Dim nuevoindice = cb1.Text
 
-        cb1.Items.RemoveAt(indicefolio - 1)
-        'indicefolio = indicefolio + 1
-        'rtxtcustomername.Text = ""
-        'rtxtstate.Text = ""
-        rtxtnombre.Text = ""
-        rtxtequipo.Text = ""
-        rtxtdeposito.Text = ""
-        rtxtdeposito.Text = ""
-        rtxtimei.Text = ""
-        rtxtnote.Text = ""
-        rtxtprecio.Text = ""
-        rtxtproblem.Text = ""
-        'rtxtcity.Text = ""
-        'rtxttelephone.Text = ""
-        'rtxtaddress.Text = ""
-        rtxtmodelo.Text = ""
-        rtxtpassword.Text = ""
-        'rtxttotal.Text = ""
-        rtxtcostoreparacion.Text = ""
-        'rtxtresto.Text = ""
-        'cbstate.SelectedIndex = 0
-        'rcbseller.SelectedIndex = 0
-        'rtxtemail.Text = ""
-        'rgrilla.Rows.Clear()
-        'rgrilla2.Rows.Clear()
-        rtxttotaltemporal.Text = ""
-        rtxtpriceparts.Text = ""
-        'limpiamos las cajas
-        'activarbusqueda = False
-        'rtxtbusquedafolio.Visible = False
-        'rlimpiartodo()
-        'habilitarcajasdevice()
-        'comprobarventarealizada()
-        'rcbitems.Visible = False
-        'rcbitemtemporal.Visible = True
-        'rcbitemtemporal.Items.Clear()
-        'rcbitems.Items.Clear()
-        'activarreparacion = False
-        'activarbusqueda = False
-        rtxtclaveproducto.Text = ""
-        'actualizarcalculototal()
+            cb1.Items.RemoveAt(indicefolio - 1)
+            'indicefolio = indicefolio + 1
+            'rtxtcustomername.Text = ""
+            'rtxtstate.Text = ""
+            rtxtnombre.Text = ""
+            rtxtequipo.Text = ""
+            rtxtdeposito.Text = ""
+            rtxtdeposito.Text = ""
+            rtxtimei.Text = ""
+            rtxtnote.Text = ""
+            rtxtprecio.Text = ""
+            rtxtproblem.Text = ""
+            'rtxtcity.Text = ""
+            'rtxttelephone.Text = ""
+            'rtxtaddress.Text = ""
+            rtxtmodelo.Text = ""
+            rtxtpassword.Text = ""
+            'rtxttotal.Text = ""
+            rtxtcostoreparacion.Text = ""
+            'rtxtresto.Text = ""
+            'cbstate.SelectedIndex = 0
+            'rcbseller.SelectedIndex = 0
+            'rtxtemail.Text = ""
+            'rgrilla.Rows.Clear()
+            'rgrilla2.Rows.Clear()
+            rtxttotaltemporal.Text = ""
+            rtxtpriceparts.Text = ""
+            'limpiamos las cajas
+            'activarbusqueda = False
+            'rtxtbusquedafolio.Visible = False
+            'rlimpiartodo()
+            'habilitarcajasdevice()
+            'comprobarventarealizada()
+            'rcbitems.Visible = False
+            'rcbitemtemporal.Visible = True
+            'rcbitemtemporal.Items.Clear()
+            'rcbitems.Items.Clear()
+            'activarreparacion = False
+            'activarbusqueda = False
+            rtxtclaveproducto.Text = ""
+            'actualizarcalculototal()
 
-        'rsumatorioactualizar()
-        '----------------------------------------------------elminamos de la grilla temporal
-        For i As Integer = 0 To rgrilla2.Rows.Count - 1
-            'Si el valor de la primera celda ubicada, por ejemplo, en la fila 1 es igual a 3
-            ' MsgBox("grilla:" & i)
+            'rsumatorioactualizar()
+            '----------------------------------------------------elminamos de la grilla temporal
+            For i As Integer = 0 To rgrilla2.Rows.Count - 1
+                'Si el valor de la primera celda ubicada, por ejemplo, en la fila 1 es igual a 3
+                ' MsgBox("grilla:" & i)
 
-            If rgrilla2.Rows(i).Cells(0).Value = nuevoindice Then
-                'Mueve el cursor a dicha fila
-                '  MsgBox("se elimina")
-                rgrilla2.Rows.RemoveAt(i)
-                'rgrilla2.Rows.RemoveAt(i)
-                ' DataGridView1.Rows.RemoveAt(0)
-                Exit For
-            End If
-        Next
+                If rgrilla2.Rows(i).Cells(0).Value = nuevoindice Then
+                    'Mueve el cursor a dicha fila
+                    '  MsgBox("se elimina")
+                    rgrilla2.Rows.RemoveAt(i)
+                    'rgrilla2.Rows.RemoveAt(i)
+                    ' DataGridView1.Rows.RemoveAt(0)
+                    Exit For
+                End If
+            Next
 
-        rrsumatorio()
-        '------------------------------------------------------------
-        ' actualizarcalculototal()
+            rrsumatorio()
+            '------------------------------------------------------------
+            ' actualizarcalculototal()
 
-        '------------------------------
-        'realizamos la busqueda nuevamente de la actual folio
-        realizarbusqueda()
-
+            '------------------------------
+            'realizamos la busqueda nuevamente de la actual folio
+            realizarbusqueda()
+        End If
 
 
     End Sub
@@ -11521,7 +11598,76 @@ ADD COLUMN `posicion` INT NULL AFTER `idventa`;"
         reader.Close()
     End Function
 
+    Function actualizar2021()
+
+        Try
+
+            cerrarconexion()
+            conexionMysql.Open()
+            Dim Sql22 As String
+            Sql22 = "ALTER TABLE `mobi`.`datos_empresa` 
+ADD COLUMN `traduccion` INT NULL AFTER `saludo5`;"
+            Dim cmd22 As New MySqlCommand(Sql22, conexionMysql)
+            cmd22.ExecuteNonQuery()
+            conexionMysql.Close()
+            cerrarconexion()
+            'actualizar la fecha de entrega de la venta.
+            '---------------------------------------------------------------------
+        Catch ex As Exception
+            cerrarconexion()
+        End Try
+
+
+    End Function
+
     Private Sub Button46_Click(sender As Object, e As EventArgs) Handles Button46.Click
+        Dim id, valor As Integer
+        Try
+
+            conexionMysql.Open()
+            Dim Sql111 As String
+            Sql111 = "select traduccion from datos_empresa;"
+            Dim cmd111 As New MySqlCommand(Sql111, conexionMysql)
+            reader = cmd111.ExecuteReader()
+            reader.Read()
+
+            id = reader.GetString(0).ToString
+        Catch ex As Exception
+            cerrarconexion()
+            id = 0
+        End Try
+
+
+        If id = 0 Then
+            valor = 1
+        Else
+            valor = 0
+        End If
+        cerrarconexion()
+        'If id = 0 Then
+        conexionMysql.Open()
+            Dim Sql22 As String
+            Sql22 = "UPDATE  datos_empresa SET traduccion = '" & valor & "';"
+            Dim cmd22 As New MySqlCommand(Sql22, conexionMysql)
+            cmd22.ExecuteNonQuery()
+            conexionMysql.Close()
+        MsgBox("Cambio realizado, se cerrara el sistema", MsgBoxStyle.Information, "MOBI")
+        conexionMysql.Close()
+            cerrarconexion()
+        End
+
+
+
+
+
+        'actualizar la fecha de entrega de la venta.
+        '---------------------------------------------------------------------
+        ' End If
+
+
+    End Sub
+    Function traduccion()
+
         Button1.Text = "Inicio"
         Button2.Text = "Ventas"
         Button67.Text = "Reparaciones"
@@ -11554,7 +11700,7 @@ ADD COLUMN `posicion` INT NULL AFTER `idventa`;"
         GroupBox7.Text = "Cliente"
         Label21.Text = "Nombre"
         Label18.Text = "Dirección"
-        Label19.Text = "City"
+        Label19.Text = "Ciudad"
         Label20.Text = "Estado"
         Label17.Text = "Telefono"
         Label48.Text = "E-mail"
@@ -11632,6 +11778,50 @@ ADD COLUMN `posicion` INT NULL AFTER `idventa`;"
         Label4.Text = "Tecnicos"
         Button4.Text = "Eliminar"
         GroupBox25.Text = "Configuración General"
+        Button75.Text = "Actualizar Información"
+
+
+
+
+        'PRODUCTO
+        GroupBox13.Text = "Productos"
+        Label42.Text = "Id producto"
+        Label41.Text = "Nombre"
+        Label37.Text = "Cantidad"
+        Label40.Text = "Costo"
+        Label38.Text = "Precio"
+        Button15.Text = "Agregar"
+        Button16.Text = "Actualizar"
+        Button40.Text = "Eliminar"
+        Button24.Text = "Imprimir inventario"
+
+        'clientes
+        GroupBox24.Text = "Clientes"
+        Label62.Text = "Id cliente"
+        Label70.Text = "Nombre"
+        a.Text = "Dirección"
+        b.Text = "Estado"
+        c.Text = "Ciudad"
+        d.Text = "Teléfono"
+        f.Text = "E-mail"
+        Button33.Text = "Agregar"
+        Button34.Text = "Actualizar"
+        Button39.Text = "Eliminar"
+        Button36.Text = "Imprimir"
+        'adicionales
+        btncerrarcajamenu.Text = "Cerrar Caja"
+        btnabrircajamenu.Text = "Abril Caja"
+
+
+
+    End Function
+
+    Private Sub GroupBox8_Enter(sender As Object, e As EventArgs) Handles GroupBox8.Enter
+
+    End Sub
+
+    Private Sub rtxtequipo_TextChanged(sender As Object, e As EventArgs) Handles rtxtequipo.TextChanged
+
     End Sub
 
     Private Sub rtxtcustomername_KeyDown(sender As Object, e As KeyEventArgs) Handles rtxtcustomername.KeyDown
@@ -11853,5 +12043,17 @@ ADD COLUMN `posicion` INT NULL AFTER `idventa`;"
 
 
 
+    End Sub
+
+    Private Sub rtxtequipo_GotFocus(sender As Object, e As EventArgs) Handles rtxtequipo.GotFocus
+        rtxtequipo.BackColor = Color.White
+    End Sub
+
+    Private Sub rtxtmodelo_GotFocus(sender As Object, e As EventArgs) Handles rtxtmodelo.GotFocus
+        rtxtmodelo.BackColor = Color.White
+    End Sub
+
+    Private Sub rtxtcostoreparacion_GotFocus(sender As Object, e As EventArgs) Handles rtxtcostoreparacion.GotFocus
+        rtxtcostoreparacion.BackColor = Color.White
     End Sub
 End Class

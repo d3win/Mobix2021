@@ -45,7 +45,7 @@ Partial Class login
         Me.Button3.Font = New System.Drawing.Font("Calibri", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button3.ForeColor = System.Drawing.Color.Black
         Me.Button3.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
-        Me.Button3.Location = New System.Drawing.Point(291, 603)
+        Me.Button3.Location = New System.Drawing.Point(14, 568)
         Me.Button3.Margin = New System.Windows.Forms.Padding(5)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(28, 25)
@@ -75,7 +75,7 @@ Partial Class login
         Me.Label2.BackColor = System.Drawing.Color.Transparent
         Me.Label2.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.Black
-        Me.Label2.Location = New System.Drawing.Point(58, 402)
+        Me.Label2.Location = New System.Drawing.Point(162, 378)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(86, 19)
         Me.Label2.TabIndex = 85
@@ -87,7 +87,7 @@ Partial Class login
         Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.Black
-        Me.Label1.Location = New System.Drawing.Point(61, 331)
+        Me.Label1.Location = New System.Drawing.Point(162, 307)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(87, 19)
         Me.Label1.TabIndex = 84
@@ -96,7 +96,7 @@ Partial Class login
         'txtpass
         '
         Me.txtpass.Font = New System.Drawing.Font("Calibri", 14.25!)
-        Me.txtpass.Location = New System.Drawing.Point(61, 425)
+        Me.txtpass.Location = New System.Drawing.Point(38, 402)
         Me.txtpass.Margin = New System.Windows.Forms.Padding(5)
         Me.txtpass.Name = "txtpass"
         Me.txtpass.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
@@ -106,7 +106,7 @@ Partial Class login
         'txtusuario
         '
         Me.txtusuario.Font = New System.Drawing.Font("Calibri", 14.25!)
-        Me.txtusuario.Location = New System.Drawing.Point(61, 354)
+        Me.txtusuario.Location = New System.Drawing.Point(38, 331)
         Me.txtusuario.Margin = New System.Windows.Forms.Padding(5)
         Me.txtusuario.Name = "txtusuario"
         Me.txtusuario.Size = New System.Drawing.Size(211, 31)
@@ -119,10 +119,10 @@ Partial Class login
         Me.Button1.Font = New System.Drawing.Font("Calibri", 15.75!)
         Me.Button1.ForeColor = System.Drawing.Color.White
         Me.Button1.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
-        Me.Button1.Location = New System.Drawing.Point(52, 506)
+        Me.Button1.Location = New System.Drawing.Point(42, 480)
         Me.Button1.Margin = New System.Windows.Forms.Padding(5)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(220, 52)
+        Me.Button1.Size = New System.Drawing.Size(220, 77)
         Me.Button1.TabIndex = 83
         Me.Button1.Text = "Ingresar"
         Me.Button1.UseVisualStyleBackColor = False
@@ -130,9 +130,9 @@ Partial Class login
         'PictureBox1
         '
         Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PictureBox1.Location = New System.Drawing.Point(65, 42)
+        Me.PictureBox1.Location = New System.Drawing.Point(61, 40)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(194, 192)
+        Me.PictureBox1.Size = New System.Drawing.Size(175, 156)
         Me.PictureBox1.TabIndex = 88
         Me.PictureBox1.TabStop = False
         '
@@ -154,8 +154,8 @@ Partial Class login
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
-        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.ClientSize = New System.Drawing.Size(333, 642)
+        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.ClientSize = New System.Drawing.Size(310, 642)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.Button3)
@@ -165,6 +165,7 @@ Partial Class login
         Me.Controls.Add(Me.txtpass)
         Me.Controls.Add(Me.txtusuario)
         Me.Controls.Add(Me.Button1)
+        Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "login"
