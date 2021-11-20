@@ -2955,15 +2955,15 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
 
         conexionMysql.Open()
 
-            rtxttotal.Text = sumatotal
-            ' rrsumatorio()
+        rtxttotal.Text = sumatotal
+        ' rrsumatorio()
 
-            Dim sql23 As String
-            sql23 = "update venta set total='" & rtxttotal.Text & "', resto='" & faltante & "' where idventa='" & folio & "';"
-            Dim cmd23 As New MySqlCommand(sql23, conexionMysql)
-            cmd23.ExecuteNonQuery()
+        Dim sql23 As String
+        sql23 = "update venta set total='" & rtxttotal.Text & "', resto='" & faltante & "' where idventa='" & folio & "';"
+        Dim cmd23 As New MySqlCommand(sql23, conexionMysql)
+        cmd23.ExecuteNonQuery()
 
-            conexionMysql.Close()
+        conexionMysql.Close()
 
         'Catch ex As Exception
         cerrarconexion()
@@ -2974,18 +2974,18 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
 
 
         cerrarconexion()
-            conexionMysql.Open()
-            Dim Sql22 As String
-            Sql22 = "select total,deposito from venta where idventa='" & folio & "';"
-            Dim cmd22 As New MySqlCommand(Sql22, conexionMysql)
-            reader = cmd22.ExecuteReader()
-            reader.Read()
-            totalx = reader.GetString(0).ToString()
-            depositox = reader.GetString(1).ToString()
+        conexionMysql.Open()
+        Dim Sql22 As String
+        Sql22 = "select total,deposito from venta where idventa='" & folio & "';"
+        Dim cmd22 As New MySqlCommand(Sql22, conexionMysql)
+        reader = cmd22.ExecuteReader()
+        reader.Read()
+        totalx = reader.GetString(0).ToString()
+        depositox = reader.GetString(1).ToString()
 
-            'cbformadepagoservicios.Items.Add(reader.GetString(1).ToString())
-            '---------------------------------
-            cerrarconexion()
+        'cbformadepagoservicios.Items.Add(reader.GetString(1).ToString())
+        '---------------------------------
+        cerrarconexion()
 
         'Catch ex As Exception
         cerrarconexion()
@@ -3873,13 +3873,13 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
             Try
 
 
-            rgrilla.Rows.RemoveAt(rgrilla.CurrentRow.Index)
-            'eliminado el registro, sumamos el total de valores. 
-            'rsumatorio()
-            'Catch ex As Exception
-        Catch ex As Exception
+                rgrilla.Rows.RemoveAt(rgrilla.CurrentRow.Index)
+                'eliminado el registro, sumamos el total de valores. 
+                'rsumatorio()
+                'Catch ex As Exception
+            Catch ex As Exception
 
-        End Try
+            End Try
 
 
         End If
@@ -4014,7 +4014,7 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
 
 
         Else
-                MsgBox("Hay una busqueda en curso", MsgBoxStyle.Information, "MOBI")
+            MsgBox("Hay una busqueda en curso", MsgBoxStyle.Information, "MOBI")
         End If
         '  rcbitemtemporal.Items.Clear()
     End Sub
@@ -4118,21 +4118,21 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
 
 
                 If rtxtdeposito.Text = "" Then
-                        rtxtdeposito.BackColor = Color.FromArgb(247, 220, 111)
-                        rtxtdeposito.Focus()
+                    rtxtdeposito.BackColor = Color.FromArgb(247, 220, 111)
+                    rtxtdeposito.Focus()
 
-                    End If
+                End If
 
-                    If rtxtcustomername.Text = "" Then
-                        rtxtcustomername.BackColor = Color.FromArgb(247, 220, 111)
-                        rtxtcustomername.Focus()
-                    End If
+                If rtxtcustomername.Text = "" Then
+                    rtxtcustomername.BackColor = Color.FromArgb(247, 220, 111)
+                    rtxtcustomername.Focus()
+                End If
 
 
-                    'rtxttotal.Text = ""
-                Else
-                    'obtener fecha y hora
-                    Dim hora, minuto, segundo, hora2 As String
+                'rtxttotal.Text = ""
+            Else
+                'obtener fecha y hora
+                Dim hora, minuto, segundo, hora2 As String
                 Dim dia, mes, año, fecha As String
                 hora2 = Now.Hour()
                 minuto = Now.Minute()
@@ -4954,12 +4954,8 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
 
                 cancelartodo()
 
-
+                'a
             Else
-
-
-
-
 
 
                 conexionMysql.Open()
@@ -4987,7 +4983,6 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
                 'MsgBox(idseller)
 
                 cerrarconexion()
-
 
 
                 '----------------------comprobar si no tienen fecha, actualizamos la fecha----------------
@@ -5167,15 +5162,15 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
                 Try
                     '-------------------------
                     conexionMysql.Open()
-                ' Dim idcustomer, idequipo, idseller As Integer
-                Dim Sqlx2 As String
-                Sqlx2 = "select name_seller from seller where idseller='" & idsellerbus & "';"
-                Dim cmdx2 As New MySqlCommand(Sqlx2, conexionMysql)
-                reader = cmdx2.ExecuteReader()
-                reader.Read()
-                seller = reader.GetString(0).ToString()
-                'reader.Close()
-                cerrarconexion()
+                    ' Dim idcustomer, idequipo, idseller As Integer
+                    Dim Sqlx2 As String
+                    Sqlx2 = "select name_seller from seller where idseller='" & idsellerbus & "';"
+                    Dim cmdx2 As New MySqlCommand(Sqlx2, conexionMysql)
+                    reader = cmdx2.ExecuteReader()
+                    reader.Read()
+                    seller = reader.GetString(0).ToString()
+                    'reader.Close()
+                    cerrarconexion()
                     'MsgBox("2")
                     'MsgBox(seller)
 
@@ -7978,37 +7973,37 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
             ' MsgBox(rtxtemail.Text)
             'en caso de que no este el cliente, lo guardamos
             conexionMysql.Open()
-                Dim Sqlx1 As String
-                Sqlx1 = "INSERT INTO `customer` (`name`, `address`, `state`, `city`, `telephone`,`email`) VALUES ( '" & rtxtcustomername.Text & "', '" & rtxtaddress.Text & "', '" & rtxtstate.Text & "', '" & rtxtcity.Text & "', '" & rtxttelephone.Text & "','" & rtxtemail.Text & "');"
-                Dim cmdx1 As New MySqlCommand(Sqlx1, conexionMysql)
-                cmdx1.ExecuteNonQuery()
-                conexionMysql.Close()
-                'txttotalpagar.Text = ""
-                conexionMysql.Close()
+            Dim Sqlx1 As String
+            Sqlx1 = "INSERT INTO `customer` (`name`, `address`, `state`, `city`, `telephone`,`email`) VALUES ( '" & rtxtcustomername.Text & "', '" & rtxtaddress.Text & "', '" & rtxtstate.Text & "', '" & rtxtcity.Text & "', '" & rtxttelephone.Text & "','" & rtxtemail.Text & "');"
+            Dim cmdx1 As New MySqlCommand(Sqlx1, conexionMysql)
+            cmdx1.ExecuteNonQuery()
+            conexionMysql.Close()
+            'txttotalpagar.Text = ""
+            conexionMysql.Close()
 
-                '------------------------obtenemos el id del cliente
-                cerrarconexion()
-                conexionMysql.Open()
-                Dim Sqlx2 As String
-                'consultamos el id del cliente para obtener un registro de quien es al que se le esta vendiendo
-                Sqlx2 = "select idcustomer from customer where name like '%" & rtxtcustomername.Text & "%';"
-                Dim cmdx2 As New MySqlCommand(Sqlx2, conexionMysql)
-                reader = cmdx2.ExecuteReader()
-                reader.Read()
-                idcliente = reader.GetString(0).ToString()
-                conexionMysql.Close()
+            '------------------------obtenemos el id del cliente
+            cerrarconexion()
+            conexionMysql.Open()
+            Dim Sqlx2 As String
+            'consultamos el id del cliente para obtener un registro de quien es al que se le esta vendiendo
+            Sqlx2 = "select idcustomer from customer where name like '%" & rtxtcustomername.Text & "%';"
+            Dim cmdx2 As New MySqlCommand(Sqlx2, conexionMysql)
+            reader = cmdx2.ExecuteReader()
+            reader.Read()
+            idcliente = reader.GetString(0).ToString()
+            conexionMysql.Close()
 
-                MsgBox("Customer insertado", MsgBoxStyle.Information, "MOBI")
+            MsgBox("Customer insertado", MsgBoxStyle.Information, "MOBI")
 
-                'Catch ex As Exception
-                'cerrarconexion()
+            'Catch ex As Exception
+            'cerrarconexion()
 
-                'End Try
+            'End Try
 
-                '-MsgBox(idcliente)
-            End Try
+            '-MsgBox(idcliente)
+        End Try
 
-            Dim folio As Integer
+        Dim folio As Integer
         If activarbusqueda = True Then
             folio = rtxtbusquedafolio.Text
         Else
@@ -9231,82 +9226,82 @@ ADD COLUMN `datedelivery` DATE NULL AFTER `posicion`;"
         Catch ex As Exception
 
             cerrarconexion()
-            End Try
+        End Try
 
 
-            Try
+        Try
 
-                conexionMysql.Open()
+            conexionMysql.Open()
 
-                Dim sql23 As String
+            Dim sql23 As String
             sql23 = "ALTER TABLE `venta_ind` 
 ADD COLUMN `idequipo` VARCHAR(45) NULL AFTER `name_item`;;"
             Dim cmd23 As New MySqlCommand(sql23, conexionMysql)
-                cmd23.ExecuteNonQuery()
+            cmd23.ExecuteNonQuery()
 
-                conexionMysql.Close()
-            Catch ex As Exception
-                cerrarconexion()
-            End Try
-
-
-
-
-            Try
-
-                conexionMysql.Open()
-
-                Dim sql23 As String
-            sql23 = "ALTER TABLE `venta_ind` 
-ADD COLUMN `idequipo` VARCHAR(45) NULL AFTER `name_item`;;"
-            Dim cmd23 As New MySqlCommand(sql23, conexionMysql)
-                cmd23.ExecuteNonQuery()
-
-                conexionMysql.Close()
-            Catch ex As Exception
-                cerrarconexion()
-            End Try
-
+            conexionMysql.Close()
+        Catch ex As Exception
             cerrarconexion()
+        End Try
 
 
 
 
-            Try
-                conexionMysql.Open()
+        Try
 
-                Dim sql2 As String
+            conexionMysql.Open()
+
+            Dim sql23 As String
+            sql23 = "ALTER TABLE `venta_ind` 
+ADD COLUMN `idequipo` VARCHAR(45) NULL AFTER `name_item`;;"
+            Dim cmd23 As New MySqlCommand(sql23, conexionMysql)
+            cmd23.ExecuteNonQuery()
+
+            conexionMysql.Close()
+        Catch ex As Exception
+            cerrarconexion()
+        End Try
+
+        cerrarconexion()
+
+
+
+
+        Try
+            conexionMysql.Open()
+
+            Dim sql2 As String
             sql2 = "ALTER TABLE `equipo` 
 ADD COLUMN `posicion` INT NULL AFTER `idventa`;"
             Dim cmd2 As New MySqlCommand(sql2, conexionMysql)
-                cmd2.ExecuteNonQuery()
+            cmd2.ExecuteNonQuery()
 
-                conexionMysql.Close()
-
-
-            Catch ex As Exception
-                cerrarconexion()
-            End Try
+            conexionMysql.Close()
 
 
+        Catch ex As Exception
             cerrarconexion()
-            Try
-
-                conexionMysql.Open()
-                Dim Sqlu1 As String
-                Sqlu1 = "GRANT ALL PRIVILEGES ON * . * TO 'root'@'%' WITH GRANT OPTION;"
-                Dim cmdu1 As New MySqlCommand(Sqlu1, conexionMysql)
-                cmdu1.ExecuteNonQuery()
-                conexionMysql.Close()
+        End Try
 
 
-            Catch ex As Exception
-                cerrarconexion()
-            End Try
+        cerrarconexion()
+        Try
 
+            conexionMysql.Open()
+            Dim Sqlu1 As String
+            Sqlu1 = "GRANT ALL PRIVILEGES ON * . * TO 'root'@'%' WITH GRANT OPTION;"
+            Dim cmdu1 As New MySqlCommand(Sqlu1, conexionMysql)
+            cmdu1.ExecuteNonQuery()
+            conexionMysql.Close()
+
+
+        Catch ex As Exception
             cerrarconexion()
+        End Try
 
-            MsgBox("Parche aplicado", MsgBoxStyle.Information, "MOBI")
+        cerrarconexion()
+
+        MsgBox("Parche aplicado", MsgBoxStyle.Information, "MOBI")
         cerrarconexion()
 
 
@@ -9986,19 +9981,19 @@ ADD COLUMN `posicion` INT NULL AFTER `idventa`;"
                 ' Try
                 'MsgBox(txtclavep.Text)
                 conexionMysql.Open()
-                    Dim Sql As String
-                    Sql = "select * from customer where idcustomer='" & ctxtidscustomer.Text & "';"
-                    Dim cmd As New MySqlCommand(Sql, conexionMysql)
-                    reader = cmd.ExecuteReader()
-                    reader.Read()
-                    ctxtcustomername.Text = reader.GetString(1).ToString()
-                    ctxtadress.Text = reader.GetString(2).ToString()
-                    ctxtstate.Text = reader.GetString(3).ToString()
-                    ctxtcity.Text = reader.GetString(4).ToString()
-                    ctxttelephone.Text = reader.GetString(5).ToString()
-                    ctxtemail.Text = reader.GetString(6).ToString()
+                Dim Sql As String
+                Sql = "select * from customer where idcustomer='" & ctxtidscustomer.Text & "';"
+                Dim cmd As New MySqlCommand(Sql, conexionMysql)
+                reader = cmd.ExecuteReader()
+                reader.Read()
+                ctxtcustomername.Text = reader.GetString(1).ToString()
+                ctxtadress.Text = reader.GetString(2).ToString()
+                ctxtstate.Text = reader.GetString(3).ToString()
+                ctxtcity.Text = reader.GetString(4).ToString()
+                ctxttelephone.Text = reader.GetString(5).ToString()
+                ctxtemail.Text = reader.GetString(6).ToString()
 
-                    reader.Close()
+                reader.Close()
 
 
 
@@ -10060,21 +10055,21 @@ ADD COLUMN `posicion` INT NULL AFTER `idventa`;"
             'Try
             cerrarconexion()
 
-                conexionMysql.Open()
+            conexionMysql.Open()
 
-                Dim sql2 As String
+            Dim sql2 As String
             sql2 = "UPDATE customer SET name='" & ctxtcustomername.Text & "', address='" & ctxtadress.Text & "', state='" & ctxtstate.Text & "', city='" & ctxtcity.Text & "',  telephone='" & ctxttelephone.Text & "', email='" & ctxtemail.Text & "'  WHERE idcustomer='" & ctxtidscustomer.Text & "';"
             Dim cmd2 As New MySqlCommand(sql2, conexionMysql)
-                cmd2.ExecuteNonQuery()
+            cmd2.ExecuteNonQuery()
 
-                conexionMysql.Close()
-                MsgBox("Registro actualizado", MsgBoxStyle.Information, "Sistema")
-
-
-                Call climpiar()
+            conexionMysql.Close()
+            MsgBox("Registro actualizado", MsgBoxStyle.Information, "Sistema")
 
 
-                Call cllenadogrilla()
+            Call climpiar()
+
+
+            Call cllenadogrilla()
 
             'Catch ex As Exception
             cerrarconexion()
@@ -11646,14 +11641,14 @@ ADD COLUMN `traduccion` INT NULL AFTER `saludo5`;"
         cerrarconexion()
         'If id = 0 Then
         conexionMysql.Open()
-            Dim Sql22 As String
-            Sql22 = "UPDATE  datos_empresa SET traduccion = '" & valor & "';"
-            Dim cmd22 As New MySqlCommand(Sql22, conexionMysql)
-            cmd22.ExecuteNonQuery()
-            conexionMysql.Close()
+        Dim Sql22 As String
+        Sql22 = "UPDATE  datos_empresa SET traduccion = '" & valor & "';"
+        Dim cmd22 As New MySqlCommand(Sql22, conexionMysql)
+        cmd22.ExecuteNonQuery()
+        conexionMysql.Close()
         MsgBox("Cambio realizado, se cerrara el sistema", MsgBoxStyle.Information, "MOBI")
         conexionMysql.Close()
-            cerrarconexion()
+        cerrarconexion()
         End
 
 
