@@ -107,6 +107,7 @@ Partial Class frmindex
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.GroupBox27 = New System.Windows.Forms.GroupBox()
+        Me.Label71 = New System.Windows.Forms.Label()
         Me.rtxtclaveproducto = New System.Windows.Forms.TextBox()
         Me.lblistarespuestos = New System.Windows.Forms.ListBox()
         Me.Label31 = New System.Windows.Forms.Label()
@@ -142,7 +143,6 @@ Partial Class frmindex
         Me.ctotal = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBox16 = New System.Windows.Forms.GroupBox()
         Me.rtxtbusquedafolio = New System.Windows.Forms.TextBox()
-        Me.cb1 = New System.Windows.Forms.ComboBox()
         Me.Button21 = New System.Windows.Forms.Button()
         Me.slbfolio = New System.Windows.Forms.Label()
         Me.Button28 = New System.Windows.Forms.Button()
@@ -157,6 +157,7 @@ Partial Class frmindex
         Me.Label34 = New System.Windows.Forms.Label()
         Me.GroupBox9 = New System.Windows.Forms.GroupBox()
         Me.rchpay = New System.Windows.Forms.CheckBox()
+        Me.cb1 = New System.Windows.Forms.ComboBox()
         Me.Button31 = New System.Windows.Forms.Button()
         Me.rtxttotaltemporal = New System.Windows.Forms.TextBox()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
@@ -170,6 +171,7 @@ Partial Class frmindex
         Me.Label30 = New System.Windows.Forms.Label()
         Me.rtxtdeposito = New System.Windows.Forms.TextBox()
         Me.GroupBox8 = New System.Windows.Forms.GroupBox()
+        Me.Label68 = New System.Windows.Forms.Label()
         Me.Button42 = New System.Windows.Forms.Button()
         Me.rtxtdatestatus = New System.Windows.Forms.TextBox()
         Me.Label64 = New System.Windows.Forms.Label()
@@ -274,6 +276,7 @@ Partial Class frmindex
         Me.Button3 = New System.Windows.Forms.Button()
         Me.conftxtseller = New System.Windows.Forms.TextBox()
         Me.Label13 = New System.Windows.Forms.Label()
+        Me.btnconfigticket = New System.Windows.Forms.Button()
         Me.GroupBox38 = New System.Windows.Forms.GroupBox()
         Me.Button88 = New System.Windows.Forms.Button()
         Me.Button65 = New System.Windows.Forms.Button()
@@ -283,7 +286,6 @@ Partial Class frmindex
         Me.chticket = New System.Windows.Forms.CheckBox()
         Me.Button77 = New System.Windows.Forms.Button()
         Me.txtnombreimpresora = New System.Windows.Forms.Label()
-        Me.btnconfigticket = New System.Windows.Forms.Button()
         Me.Label109 = New System.Windows.Forms.Label()
         Me.GroupBox34 = New System.Windows.Forms.GroupBox()
         Me.Button87 = New System.Windows.Forms.Button()
@@ -379,8 +381,7 @@ Partial Class frmindex
         Me.PrintDocument4 = New System.Drawing.Printing.PrintDocument()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.Data1 = New Ctrly.data()
-        Me.Label68 = New System.Windows.Forms.Label()
-        Me.Label71 = New System.Windows.Forms.Label()
+        Me.Label72 = New System.Windows.Forms.Label()
         Me.FlowLayoutPanel2.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
         CType(Me.btventas, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -785,10 +786,10 @@ Partial Class frmindex
         Me.TabControl1.Controls.Add(Me.TabPage5)
         Me.TabControl1.Controls.Add(Me.TabPage6)
         Me.TabControl1.Controls.Add(Me.TabPage7)
-        Me.TabControl1.Location = New System.Drawing.Point(132, 63)
+        Me.TabControl1.Location = New System.Drawing.Point(132, 58)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(1468, 803)
+        Me.TabControl1.Size = New System.Drawing.Size(1467, 792)
         Me.TabControl1.TabIndex = 37
         '
         'TabPage2
@@ -798,7 +799,7 @@ Partial Class frmindex
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(1460, 777)
+        Me.TabPage2.Size = New System.Drawing.Size(1459, 766)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "TabPage2"
         Me.TabPage2.UseVisualStyleBackColor = True
@@ -1072,7 +1073,7 @@ Partial Class frmindex
         Me.Label15.Font = New System.Drawing.Font("Arial", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label15.Location = New System.Drawing.Point(17, 17)
         Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(67, 16)
+        Me.Label15.Size = New System.Drawing.Size(66, 16)
         Me.Label15.TabIndex = 0
         Me.Label15.Text = "Technical"
         '
@@ -1172,7 +1173,7 @@ Partial Class frmindex
         Me.Label47.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label47.Location = New System.Drawing.Point(179, 106)
         Me.Label47.Name = "Label47"
-        Me.Label47.Size = New System.Drawing.Size(39, 16)
+        Me.Label47.Size = New System.Drawing.Size(38, 16)
         Me.Label47.TabIndex = 1117
         Me.Label47.Text = "Total"
         '
@@ -1223,7 +1224,7 @@ Partial Class frmindex
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.Location = New System.Drawing.Point(95, 107)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(36, 16)
+        Me.Label8.Size = New System.Drawing.Size(35, 16)
         Me.Label8.TabIndex = 2
         Me.Label8.Text = "QTY"
         '
@@ -1233,7 +1234,7 @@ Partial Class frmindex
         Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.Location = New System.Drawing.Point(22, 106)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(39, 16)
+        Me.Label9.Size = New System.Drawing.Size(38, 16)
         Me.Label9.TabIndex = 10
         Me.Label9.Text = "Price"
         '
@@ -1251,7 +1252,7 @@ Partial Class frmindex
         Me.Label10.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label10.Location = New System.Drawing.Point(16, 61)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(73, 16)
+        Me.Label10.Size = New System.Drawing.Size(72, 16)
         Me.Label10.TabIndex = 8
         Me.Label10.Text = "Description"
         '
@@ -1269,7 +1270,7 @@ Partial Class frmindex
         Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label11.Location = New System.Drawing.Point(14, 14)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(70, 16)
+        Me.Label11.Size = New System.Drawing.Size(69, 16)
         Me.Label11.TabIndex = 0
         Me.Label11.Text = "Product ID"
         '
@@ -1311,7 +1312,7 @@ Partial Class frmindex
         Me.Label49.Font = New System.Drawing.Font("Arial", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label49.Location = New System.Drawing.Point(15, 243)
         Me.Label49.Name = "Label49"
-        Me.Label49.Size = New System.Drawing.Size(47, 16)
+        Me.Label49.Size = New System.Drawing.Size(46, 16)
         Me.Label49.TabIndex = 14
         Me.Label49.Text = "E-mail"
         '
@@ -1357,7 +1358,7 @@ Partial Class frmindex
         Me.Label3.Font = New System.Drawing.Font("Arial", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(16, 198)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(74, 16)
+        Me.Label3.Size = New System.Drawing.Size(73, 16)
         Me.Label3.TabIndex = 4
         Me.Label3.Text = "Telephone"
         '
@@ -1385,7 +1386,7 @@ Partial Class frmindex
         Me.Label2.Font = New System.Drawing.Font("Arial", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(16, 64)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(60, 16)
+        Me.Label2.Size = New System.Drawing.Size(59, 16)
         Me.Label2.TabIndex = 2
         Me.Label2.Text = "Address"
         '
@@ -1395,7 +1396,7 @@ Partial Class frmindex
         Me.Label6.Font = New System.Drawing.Font("Arial", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.Location = New System.Drawing.Point(19, 108)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(32, 16)
+        Me.Label6.Size = New System.Drawing.Size(31, 16)
         Me.Label6.TabIndex = 10
         Me.Label6.Text = "City"
         '
@@ -1414,7 +1415,7 @@ Partial Class frmindex
         Me.Label5.Font = New System.Drawing.Font("Arial", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.Location = New System.Drawing.Point(19, 153)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(41, 16)
+        Me.Label5.Size = New System.Drawing.Size(40, 16)
         Me.Label5.TabIndex = 8
         Me.Label5.Text = "State"
         '
@@ -1433,7 +1434,7 @@ Partial Class frmindex
         Me.Label1.Font = New System.Drawing.Font("Arial", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(15, 13)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(108, 16)
+        Me.Label1.Size = New System.Drawing.Size(107, 16)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Customer name"
         '
@@ -1478,6 +1479,16 @@ Partial Class frmindex
         Me.GroupBox27.TabIndex = 107
         Me.GroupBox27.TabStop = False
         Me.GroupBox27.Text = "Parts"
+        '
+        'Label71
+        '
+        Me.Label71.AutoSize = True
+        Me.Label71.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label71.Location = New System.Drawing.Point(9, 277)
+        Me.Label71.Name = "Label71"
+        Me.Label71.Size = New System.Drawing.Size(26, 29)
+        Me.Label71.TabIndex = 1119
+        Me.Label71.Text = "$"
         '
         'rtxtclaveproducto
         '
@@ -1768,17 +1779,6 @@ Partial Class frmindex
         Me.rtxtbusquedafolio.Size = New System.Drawing.Size(171, 60)
         Me.rtxtbusquedafolio.TabIndex = 1116
         '
-        'cb1
-        '
-        Me.cb1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cb1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cb1.FormattingEnabled = True
-        Me.cb1.Location = New System.Drawing.Point(8, 78)
-        Me.cb1.Name = "cb1"
-        Me.cb1.Size = New System.Drawing.Size(184, 32)
-        Me.cb1.TabIndex = 1116
-        Me.cb1.Visible = False
-        '
         'Button21
         '
         Me.Button21.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(190, Byte), Integer), CType(CType(130, Byte), Integer))
@@ -1974,6 +1974,17 @@ Partial Class frmindex
         Me.rchpay.Text = "Pay"
         Me.rchpay.UseVisualStyleBackColor = True
         '
+        'cb1
+        '
+        Me.cb1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cb1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cb1.FormattingEnabled = True
+        Me.cb1.Location = New System.Drawing.Point(8, 78)
+        Me.cb1.Name = "cb1"
+        Me.cb1.Size = New System.Drawing.Size(184, 32)
+        Me.cb1.TabIndex = 1116
+        Me.cb1.Visible = False
+        '
         'Button31
         '
         Me.Button31.BackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(76, Byte), Integer), CType(CType(60, Byte), Integer))
@@ -2144,6 +2155,16 @@ Partial Class frmindex
         Me.GroupBox8.TabIndex = 99
         Me.GroupBox8.TabStop = False
         Me.GroupBox8.Text = "Device"
+        '
+        'Label68
+        '
+        Me.Label68.AutoSize = True
+        Me.Label68.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label68.Location = New System.Drawing.Point(232, 277)
+        Me.Label68.Name = "Label68"
+        Me.Label68.Size = New System.Drawing.Size(26, 29)
+        Me.Label68.TabIndex = 1118
+        Me.Label68.Text = "$"
         '
         'Button42
         '
@@ -2980,6 +3001,7 @@ Partial Class frmindex
         '
         'TabPage5
         '
+        Me.TabPage5.Controls.Add(Me.Label72)
         Me.TabPage5.Controls.Add(Me.GroupBox25)
         Me.TabPage5.Controls.Add(Me.Button27)
         Me.TabPage5.Controls.Add(Me.txtrutaimagen)
@@ -2993,7 +3015,7 @@ Partial Class frmindex
         Me.TabPage5.Location = New System.Drawing.Point(4, 22)
         Me.TabPage5.Name = "TabPage5"
         Me.TabPage5.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage5.Size = New System.Drawing.Size(1460, 777)
+        Me.TabPage5.Size = New System.Drawing.Size(1459, 766)
         Me.TabPage5.TabIndex = 4
         Me.TabPage5.Text = "TabPage5"
         Me.TabPage5.UseVisualStyleBackColor = True
@@ -3033,7 +3055,7 @@ Partial Class frmindex
         Me.Button27.ForeColor = System.Drawing.Color.White
         Me.Button27.Location = New System.Drawing.Point(1169, 231)
         Me.Button27.Name = "Button27"
-        Me.Button27.Size = New System.Drawing.Size(194, 79)
+        Me.Button27.Size = New System.Drawing.Size(193, 79)
         Me.Button27.TabIndex = 93
         Me.Button27.Text = "Parche 241220"
         Me.Button27.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
@@ -3240,6 +3262,21 @@ Partial Class frmindex
         Me.Label13.TabIndex = 55
         Me.Label13.Text = "add seller"
         '
+        'btnconfigticket
+        '
+        Me.btnconfigticket.BackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(76, Byte), Integer), CType(CType(117, Byte), Integer))
+        Me.btnconfigticket.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.btnconfigticket.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnconfigticket.ForeColor = System.Drawing.Color.White
+        Me.btnconfigticket.Location = New System.Drawing.Point(1196, 166)
+        Me.btnconfigticket.Name = "btnconfigticket"
+        Me.btnconfigticket.Size = New System.Drawing.Size(161, 57)
+        Me.btnconfigticket.TabIndex = 85
+        Me.btnconfigticket.Text = "Configurar posicion Ticket"
+        Me.btnconfigticket.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.btnconfigticket.UseVisualStyleBackColor = False
+        Me.btnconfigticket.Visible = False
+        '
         'GroupBox38
         '
         Me.GroupBox38.Controls.Add(Me.Button88)
@@ -3360,21 +3397,6 @@ Partial Class frmindex
         Me.txtnombreimpresora.Size = New System.Drawing.Size(19, 20)
         Me.txtnombreimpresora.TabIndex = 56
         Me.txtnombreimpresora.Text = "--"
-        '
-        'btnconfigticket
-        '
-        Me.btnconfigticket.BackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(76, Byte), Integer), CType(CType(117, Byte), Integer))
-        Me.btnconfigticket.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.btnconfigticket.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnconfigticket.ForeColor = System.Drawing.Color.White
-        Me.btnconfigticket.Location = New System.Drawing.Point(1196, 166)
-        Me.btnconfigticket.Name = "btnconfigticket"
-        Me.btnconfigticket.Size = New System.Drawing.Size(161, 57)
-        Me.btnconfigticket.TabIndex = 85
-        Me.btnconfigticket.Text = "Configurar posicion Ticket"
-        Me.btnconfigticket.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.btnconfigticket.UseVisualStyleBackColor = False
-        Me.btnconfigticket.Visible = False
         '
         'Label109
         '
@@ -4057,7 +4079,7 @@ Partial Class frmindex
         Me.TabPage6.Location = New System.Drawing.Point(4, 22)
         Me.TabPage6.Name = "TabPage6"
         Me.TabPage6.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage6.Size = New System.Drawing.Size(1460, 777)
+        Me.TabPage6.Size = New System.Drawing.Size(1459, 766)
         Me.TabPage6.TabIndex = 5
         Me.TabPage6.Text = "TabPage6"
         Me.TabPage6.UseVisualStyleBackColor = True
@@ -4070,9 +4092,9 @@ Partial Class frmindex
         Me.FlowLayoutPanel5.Controls.Add(Me.Button40)
         Me.FlowLayoutPanel5.Controls.Add(Me.Button24)
         Me.FlowLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Right
-        Me.FlowLayoutPanel5.Location = New System.Drawing.Point(1327, 3)
+        Me.FlowLayoutPanel5.Location = New System.Drawing.Point(1326, 3)
         Me.FlowLayoutPanel5.Name = "FlowLayoutPanel5"
-        Me.FlowLayoutPanel5.Size = New System.Drawing.Size(130, 771)
+        Me.FlowLayoutPanel5.Size = New System.Drawing.Size(130, 760)
         Me.FlowLayoutPanel5.TabIndex = 103
         '
         'Button15
@@ -4151,7 +4173,7 @@ Partial Class frmindex
         Me.GroupBox14.Controls.Add(Me.pgrilla)
         Me.GroupBox14.Location = New System.Drawing.Point(330, 15)
         Me.GroupBox14.Name = "GroupBox14"
-        Me.GroupBox14.Size = New System.Drawing.Size(973, 703)
+        Me.GroupBox14.Size = New System.Drawing.Size(972, 692)
         Me.GroupBox14.TabIndex = 100
         Me.GroupBox14.TabStop = False
         '
@@ -4163,7 +4185,7 @@ Partial Class frmindex
         Me.pgrilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.pgrilla.Location = New System.Drawing.Point(17, 19)
         Me.pgrilla.Name = "pgrilla"
-        Me.pgrilla.Size = New System.Drawing.Size(950, 672)
+        Me.pgrilla.Size = New System.Drawing.Size(949, 661)
         Me.pgrilla.TabIndex = 0
         '
         'GroupBox13
@@ -4561,25 +4583,19 @@ Partial Class frmindex
         Me.Data1.DataSetName = "data"
         Me.Data1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
-        'Label68
+        'Label72
         '
-        Me.Label68.AutoSize = True
-        Me.Label68.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label68.Location = New System.Drawing.Point(232, 277)
-        Me.Label68.Name = "Label68"
-        Me.Label68.Size = New System.Drawing.Size(26, 29)
-        Me.Label68.TabIndex = 1118
-        Me.Label68.Text = "$"
-        '
-        'Label71
-        '
-        Me.Label71.AutoSize = True
-        Me.Label71.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label71.Location = New System.Drawing.Point(9, 277)
-        Me.Label71.Name = "Label71"
-        Me.Label71.Size = New System.Drawing.Size(26, 29)
-        Me.Label71.TabIndex = 1119
-        Me.Label71.Text = "$"
+        Me.Label72.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label72.AutoSize = True
+        Me.Label72.Font = New System.Drawing.Font("Arial", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label72.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.Label72.Location = New System.Drawing.Point(413, 585)
+        Me.Label72.Name = "Label72"
+        Me.Label72.Size = New System.Drawing.Size(58, 17)
+        Me.Label72.TabIndex = 95
+        Me.Label72.Text = "Estado:"
         '
         'frmindex
         '
@@ -5034,4 +5050,5 @@ Partial Class frmindex
     Friend WithEvents GroupBox27 As GroupBox
     Friend WithEvents Label71 As Label
     Friend WithEvents Label68 As Label
+    Friend WithEvents Label72 As Label
 End Class

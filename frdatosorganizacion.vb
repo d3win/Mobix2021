@@ -160,6 +160,16 @@ Public Class frdatosorganizacion
         'If ctxtnombre.Text = "" Or ctxtcallenumero.Text = "" Or ctxtcoloniaciudad.Text = "" Or ctxtcp.Text = "" Or ctxtestado.Text = "" Or ctxttelefono.Text = "" Or ctxtwhatsapp.Text = "" Or ctxtcorreo.Text = "" Or ctxtfacebook.Text = "" Or ctxtsitio.Text = "" Or ctxtencargado.Text = "" Or ctxthorario.Text = "" Then
         'respuesta = MsgBox("¿Estas seguro de dejar algunos campos vacios?", MsgBoxStyle.YesNo, "Ctrl+y")
 
+        'Dim idioma As Integer
+
+        'If cbidioma.Text = "español" Then
+        '    idioma = 0
+        'Else
+        '    idioma = 1
+
+        'End If
+
+
         cerrarconexion()
 
         'Try

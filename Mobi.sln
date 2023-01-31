@@ -5,6 +5,8 @@ VisualStudioVersion = 17.3.32922.545
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Mobi", "Mobi.vbproj", "{C745BE8E-E9B4-4F45-9746-CE2BA2CB6097}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup3", "..\Setup3\Setup3.vdproj", "{EC20DB24-692E-4145-ABC8-0DC4557F685D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,8 @@ Global
 		{C745BE8E-E9B4-4F45-9746-CE2BA2CB6097}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C745BE8E-E9B4-4F45-9746-CE2BA2CB6097}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C745BE8E-E9B4-4F45-9746-CE2BA2CB6097}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC20DB24-692E-4145-ABC8-0DC4557F685D}.Debug|Any CPU.ActiveCfg = Debug
+		{EC20DB24-692E-4145-ABC8-0DC4557F685D}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

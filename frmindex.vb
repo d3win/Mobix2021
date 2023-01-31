@@ -4294,26 +4294,26 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
                 Dim producto, observaciones, clave As String
 
                 conexionMysql.Open()
-
+                '-------------------------------------------------------------
                 'suma de valores
-                For j = 0 To i - 2
-                    'MsgBox("valosr de j:" & j)
-                    'a = venta.grillaventa.Item(j, 3).Value.ToString()
-                    clave = rgrilla.Rows(j).Cells(0).Value 'descripcion
-                    producto = rgrilla.Rows(j).Cells(1).Value 'cantidad
-                    precio = rgrilla.Rows(j).Cells(2).Value 'costo
-                    cantidad = rgrilla.Rows(j).Cells(3).Value
-                    total = rgrilla.Rows(j).Cells(4).Value
-                    cerrarconexion()
+                'For j = 0 To i - 2
+                '    'MsgBox("valosr de j:" & j)
+                '    'a = venta.grillaventa.Item(j, 3).Value.ToString()
+                '    clave = rgrilla.Rows(j).Cells(0).Value 'descripcion
+                '    producto = rgrilla.Rows(j).Cells(1).Value 'cantidad
+                '    precio = rgrilla.Rows(j).Cells(2).Value 'costo
+                '    cantidad = rgrilla.Rows(j).Cells(3).Value
+                '    total = rgrilla.Rows(j).Cells(4).Value
+                '    cerrarconexion()
 
-                    'MsgBox("el producto es:" & producto)
-                    conexionMysql.Open()
-                    Dim Sql25 As String
-                    '   Sql25 = "INSERT INTO venta_ind (actividad, cantidad, costo, idventa,idproducto) VALUES ('" & producto & "'," & cantidad & "," & precio & "," & lbfolio.Text & ",'" & clave & "');"
-                    '  Dim cmd25 As New MySqlCommand(Sql25, conexionMysql)
-                    '    cmd25.ExecuteNonQuery()
-                    conexionMysql.Close()
-                Next
+                '    'MsgBox("el producto es:" & producto)
+                '    conexionMysql.Open()
+                '    Dim Sql25 As String
+                '    '   Sql25 = "INSERT INTO venta_ind (actividad, cantidad, costo, idventa,idproducto) VALUES ('" & producto & "'," & cantidad & "," & precio & "," & lbfolio.Text & ",'" & clave & "');"
+                '    '  Dim cmd25 As New MySqlCommand(Sql25, conexionMysql)
+                '    '    cmd25.ExecuteNonQuery()
+                '    conexionMysql.Close()
+                'Next
 
                 '----------------------------- se hace actualización a la tabla de productos--------------
                 Dim totalactualizar, m, n As Integer
@@ -11594,6 +11594,8 @@ ADD COLUMN `posicion` INT NULL AFTER `idventa`;"
     End Function
 
     Function actualizar2021()
+
+
 
         Try
 
