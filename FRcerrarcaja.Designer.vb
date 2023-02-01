@@ -25,6 +25,7 @@ Partial Class FRcerrarcaja
         Me.FlowLayoutPanel3 = New System.Windows.Forms.FlowLayoutPanel()
         Me.Button45 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.pblogoticket = New System.Windows.Forms.PictureBox()
         Me.GroupBox7 = New System.Windows.Forms.GroupBox()
         Me.Label28 = New System.Windows.Forms.Label()
         Me.txtventavales = New System.Windows.Forms.TextBox()
@@ -83,14 +84,14 @@ Partial Class FRcerrarcaja
         Me.Button17 = New System.Windows.Forms.Button()
         Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
-        Me.Label32 = New System.Windows.Forms.Label()
-        Me.Label33 = New System.Windows.Forms.Label()
-        Me.lbfechainicial = New System.Windows.Forms.Label()
-        Me.lbhorainicial = New System.Windows.Forms.Label()
         Me.lbhorafinal = New System.Windows.Forms.Label()
         Me.lbfechafinal = New System.Windows.Forms.Label()
-        Me.pblogoticket = New System.Windows.Forms.PictureBox()
+        Me.lbhorainicial = New System.Windows.Forms.Label()
+        Me.lbfechainicial = New System.Windows.Forms.Label()
+        Me.Label33 = New System.Windows.Forms.Label()
+        Me.Label32 = New System.Windows.Forms.Label()
         Me.FlowLayoutPanel3.SuspendLayout()
+        CType(Me.pblogoticket, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox7.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox6.SuspendLayout()
@@ -98,7 +99,6 @@ Partial Class FRcerrarcaja
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
-        CType(Me.pblogoticket, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'FlowLayoutPanel3
@@ -140,6 +140,15 @@ Partial Class FRcerrarcaja
         Me.Button1.TabIndex = 34
         Me.Button1.Text = "Cancelar"
         Me.Button1.UseVisualStyleBackColor = False
+        '
+        'pblogoticket
+        '
+        Me.pblogoticket.Location = New System.Drawing.Point(3, 207)
+        Me.pblogoticket.Name = "pblogoticket"
+        Me.pblogoticket.Size = New System.Drawing.Size(30, 79)
+        Me.pblogoticket.TabIndex = 97
+        Me.pblogoticket.TabStop = False
+        Me.pblogoticket.Visible = False
         '
         'GroupBox7
         '
@@ -974,62 +983,6 @@ Partial Class FRcerrarcaja
         Me.GroupBox5.TabIndex = 71
         Me.GroupBox5.TabStop = False
         '
-        'Label32
-        '
-        Me.Label32.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label32.AutoSize = True
-        Me.Label32.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label32.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.Label32.Location = New System.Drawing.Point(9, 33)
-        Me.Label32.Name = "Label32"
-        Me.Label32.Size = New System.Drawing.Size(121, 24)
-        Me.Label32.TabIndex = 42
-        Me.Label32.Text = "Fecha inicial:"
-        '
-        'Label33
-        '
-        Me.Label33.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label33.AutoSize = True
-        Me.Label33.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label33.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.Label33.Location = New System.Drawing.Point(9, 113)
-        Me.Label33.Name = "Label33"
-        Me.Label33.Size = New System.Drawing.Size(108, 24)
-        Me.Label33.TabIndex = 43
-        Me.Label33.Text = "Hora inicial:"
-        '
-        'lbfechainicial
-        '
-        Me.lbfechainicial.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lbfechainicial.AutoSize = True
-        Me.lbfechainicial.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbfechainicial.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.lbfechainicial.Location = New System.Drawing.Point(9, 66)
-        Me.lbfechainicial.Name = "lbfechainicial"
-        Me.lbfechainicial.Size = New System.Drawing.Size(16, 24)
-        Me.lbfechainicial.TabIndex = 44
-        Me.lbfechainicial.Text = "-"
-        '
-        'lbhorainicial
-        '
-        Me.lbhorainicial.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lbhorainicial.AutoSize = True
-        Me.lbhorainicial.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbhorainicial.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.lbhorainicial.Location = New System.Drawing.Point(9, 142)
-        Me.lbhorainicial.Name = "lbhorainicial"
-        Me.lbhorainicial.Size = New System.Drawing.Size(16, 24)
-        Me.lbhorainicial.TabIndex = 45
-        Me.lbhorainicial.Text = "-"
-        '
         'lbhorafinal
         '
         Me.lbhorafinal.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
@@ -1058,14 +1011,61 @@ Partial Class FRcerrarcaja
         Me.lbfechafinal.TabIndex = 46
         Me.lbfechafinal.Text = "-"
         '
-        'pblogoticket
+        'lbhorainicial
         '
-        Me.pblogoticket.Location = New System.Drawing.Point(3, 207)
-        Me.pblogoticket.Name = "pblogoticket"
-        Me.pblogoticket.Size = New System.Drawing.Size(30, 79)
-        Me.pblogoticket.TabIndex = 97
-        Me.pblogoticket.TabStop = False
-        Me.pblogoticket.Visible = False
+        Me.lbhorainicial.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lbhorainicial.AutoSize = True
+        Me.lbhorainicial.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbhorainicial.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.lbhorainicial.Location = New System.Drawing.Point(9, 142)
+        Me.lbhorainicial.Name = "lbhorainicial"
+        Me.lbhorainicial.Size = New System.Drawing.Size(16, 24)
+        Me.lbhorainicial.TabIndex = 45
+        Me.lbhorainicial.Text = "-"
+        '
+        'lbfechainicial
+        '
+        Me.lbfechainicial.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lbfechainicial.AutoSize = True
+        Me.lbfechainicial.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbfechainicial.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.lbfechainicial.Location = New System.Drawing.Point(9, 66)
+        Me.lbfechainicial.Name = "lbfechainicial"
+        Me.lbfechainicial.Size = New System.Drawing.Size(16, 24)
+        Me.lbfechainicial.TabIndex = 44
+        Me.lbfechainicial.Text = "-"
+        '
+        'Label33
+        '
+        Me.Label33.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label33.AutoSize = True
+        Me.Label33.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label33.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.Label33.Location = New System.Drawing.Point(9, 113)
+        Me.Label33.Name = "Label33"
+        Me.Label33.Size = New System.Drawing.Size(108, 24)
+        Me.Label33.TabIndex = 43
+        Me.Label33.Text = "Hora inicial:"
+        '
+        'Label32
+        '
+        Me.Label32.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label32.AutoSize = True
+        Me.Label32.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label32.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.Label32.Location = New System.Drawing.Point(9, 33)
+        Me.Label32.Name = "Label32"
+        Me.Label32.Size = New System.Drawing.Size(121, 24)
+        Me.Label32.TabIndex = 42
+        Me.Label32.Text = "Fecha inicial:"
         '
         'FRcerrarcaja
         '
@@ -1082,6 +1082,7 @@ Partial Class FRcerrarcaja
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Cerrar caja"
         Me.FlowLayoutPanel3.ResumeLayout(False)
+        CType(Me.pblogoticket, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox7.ResumeLayout(False)
         Me.GroupBox7.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
@@ -1095,7 +1096,6 @@ Partial Class FRcerrarcaja
         Me.GroupBox2.PerformLayout()
         Me.GroupBox5.ResumeLayout(False)
         Me.GroupBox5.PerformLayout()
-        CType(Me.pblogoticket, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

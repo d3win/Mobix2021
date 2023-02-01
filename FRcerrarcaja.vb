@@ -284,7 +284,7 @@ Public Class FRcerrarcaja
                 reader = cmda1.ExecuteReader()
                 reader.Read()
                 'Try
-                MsgBox("ventas")
+                'MsgBox("ventas")
                 txtventasproductos.Text = reader.GetString(0).ToString
                 'txtventasefectivo.Text = reader.GetString(0).ToString
 
@@ -1170,5 +1170,9 @@ Public Class FRcerrarcaja
             MessageBox.Show("ERROR: " & ex.Message, "Administrador",
                           MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
+    End Sub
+
+    Private Sub FlowLayoutPanel3_Paint(sender As Object, e As PaintEventArgs) Handles FlowLayoutPanel3.Paint
+
     End Sub
 End Class
