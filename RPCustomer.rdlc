@@ -73,7 +73,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>NAME</Value>
+                              <Value>Nombre</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -106,7 +106,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>ADDRESS</Value>
+                              <Value>Direcc.</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -139,7 +139,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>STATE</Value>
+                              <Value>Estado</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -172,7 +172,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>CITY</Value>
+                              <Value>Ciudad</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -205,7 +205,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>TELEPHONE</Value>
+                              <Value>Telefono</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -238,7 +238,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>EMAIL</Value>
+                              <Value>Correo</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -572,7 +572,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>REPORT</Value>
+                  <Value>REPORTE</Value>
                   <Style>
                     <FontSize>18pt</FontSize>
                   </Style>
@@ -585,7 +585,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>CUSTOMER</Value>
+                  <Value />
                   <Style>
                     <FontSize>18pt</FontSize>
                   </Style>

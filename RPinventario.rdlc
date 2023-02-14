@@ -70,7 +70,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>NAME</Value>
+                              <Value>Nombre</Value>
                               <Style>
                                 <FontStyle>Normal</FontStyle>
                                 <FontSize>12pt</FontSize>
@@ -106,7 +106,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>QTY</Value>
+                              <Value>Cantidad</Value>
                               <Style>
                                 <FontStyle>Normal</FontStyle>
                                 <FontSize>12pt</FontSize>
@@ -142,7 +142,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>COSTO</Value>
+                              <Value>Costo</Value>
                               <Style>
                                 <FontStyle>Normal</FontStyle>
                                 <FontSize>12pt</FontSize>
@@ -178,7 +178,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>PRECIO</Value>
+                              <Value>Precio</Value>
                               <Style>
                                 <FontStyle>Normal</FontStyle>
                                 <FontSize>12pt</FontSize>

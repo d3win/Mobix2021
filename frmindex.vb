@@ -4421,6 +4421,7 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
                 MsgBox("Venta realizada", MsgBoxStyle.Information, "Sistema")
 
                 imprimirreparacion()
+                MsgBox("Continuar", MsgBoxStyle.Information, "Ctrl+y")
                 imprimirreparacionseller()
 
 
@@ -5551,24 +5552,24 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
             e.Graphics.DrawString("==================================", prFont, Brushes.Black, x, yy(8))
 
             prFont = New Font("Arial", tfuente, FontStyle.Bold)
-            e.Graphics.DrawString("Tech." & cbseller.Text, prFont, Brushes.Black, x, yy(9))
+            e.Graphics.DrawString("Técnico" & cbseller.Text, prFont, Brushes.Black, x, yy(9))
 
             'imprimir el titutlo del ticket
             prFont = New Font("Arial", tfuente, FontStyle.Bold)
-            e.Graphics.DrawString("Customer:" & txtname.Text, prFont, Brushes.Black, x, yy(10))
+            e.Graphics.DrawString("Cliente:" & txtname.Text, prFont, Brushes.Black, x, yy(10))
             prFont = New Font("Arial", tfuente, FontStyle.Bold)
-            e.Graphics.DrawString("Date:" & Date.Now, prFont, Brushes.Black, x, yy(11))
+            e.Graphics.DrawString("Fecha:" & Date.Now, prFont, Brushes.Black, x, yy(11))
             prFont = New Font("Arial", tfuente2, FontStyle.Bold)
-            e.Graphics.DrawString("Order # " & lbfolio.Text, prFont, Brushes.Black, x, yy(12))
+            e.Graphics.DrawString("Orden #" & lbfolio.Text, prFont, Brushes.Black, x, yy(12))
             prFont = New Font("Arial", tfuente, FontStyle.Bold)
             e.Graphics.DrawString("==================================", prFont, Brushes.Black, x, yy(13))
 
             'imprimir el titutlo del ticket
 
             prFont = New Font("Arial", tfuente3, FontStyle.Bold)
-            e.Graphics.DrawString("Product", prFont, Brushes.Black, x, yy(14))
+            e.Graphics.DrawString("Producto", prFont, Brushes.Black, x, yy(14))
             prFont = New Font("Arial", tfuente3, FontStyle.Bold)
-            e.Graphics.DrawString("ID------Price------QTY----TOTAL", prFont, Brushes.Black, x, yy(15))
+            e.Graphics.DrawString("ID------Precio------Cant----TOTAL", prFont, Brushes.Black, x, yy(15))
 
             prFont = New Font("Arial", tfuente, FontStyle.Bold)
             e.Graphics.DrawString("==================================", prFont, Brushes.Black, x, yy(16))
@@ -5825,20 +5826,20 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
             prFont = New Font("Arial", tfuente, FontStyle.Bold)
             e.Graphics.DrawString("TEL:" & tickettelefono, prFont, Brushes.Black, x, yy(6))
             prFont = New Font("Arial", tfuente, FontStyle.Bold)
-            e.Graphics.DrawString("LIC." & rfc, prFont, Brushes.Black, x, yy(7))
+            e.Graphics.DrawString("RFC:" & rfc, prFont, Brushes.Black, x, yy(7))
             prFont = New Font("Arial", tfuente, FontStyle.Bold)
             e.Graphics.DrawString("==================================", prFont, Brushes.Black, x, yy(8))
 
             prFont = New Font("Arial", tfuente, FontStyle.Bold)
-            e.Graphics.DrawString("Tech:" & rcbseller.Text, prFont, Brushes.Black, x, yy(9))
+            e.Graphics.DrawString("Técnico" & rcbseller.Text, prFont, Brushes.Black, x, yy(9))
 
             'imprimir el titutlo del ticket
             prFont = New Font("Arial", tfuente, FontStyle.Bold)
-            e.Graphics.DrawString("Customer:" & rtxtcustomername.Text, prFont, Brushes.Black, x, yy(10))
+            e.Graphics.DrawString("Cliente:" & rtxtcustomername.Text, prFont, Brushes.Black, x, yy(10))
             prFont = New Font("Arial", tfuente, FontStyle.Bold)
-            e.Graphics.DrawString("Date:" & Date.Now, prFont, Brushes.Black, x, yy(11))
+            e.Graphics.DrawString("Fecha:" & Date.Now, prFont, Brushes.Black, x, yy(11))
             prFont = New Font("Arial", tfuente2, FontStyle.Bold)
-            e.Graphics.DrawString("ORDER #" & folio, prFont, Brushes.Black, x, yy(12))
+            e.Graphics.DrawString("ORDEN #" & folio, prFont, Brushes.Black, x, yy(12))
 
 
             '---------------------------------------------------------------------------------------------------------------------------------
@@ -5905,7 +5906,7 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
                 e.Graphics.DrawString("==================================", prFont, Brushes.Black, x, pp1)
 
                 prFont = New Font("Arial", tfuente, FontStyle.Bold)
-                e.Graphics.DrawString("--PROBLEM--", prFont, Brushes.Black, x, p2)
+                e.Graphics.DrawString("--PROBLEMA--", prFont, Brushes.Black, x, p2)
 
                 prFont = New Font("Arial", tfuente, FontStyle.Bold)
                 e.Graphics.DrawString(problema, prFont, Brushes.Black, x, p3)
@@ -5922,12 +5923,12 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
 
 
                 prFont = New Font("Arial", tfuente, FontStyle.Bold)
-                e.Graphics.DrawString("--Device--", prFont, Brushes.Black, x, p5)
+                e.Graphics.DrawString("--Dispositivo--", prFont, Brushes.Black, x, p5)
                 prFont = New Font("Arial", tfuente, FontStyle.Bold)
-                e.Graphics.DrawString("Item name:" & equipo, prFont, Brushes.Black, x, p6)
+                e.Graphics.DrawString("Nombre Dispo.:" & equipo, prFont, Brushes.Black, x, p6)
 
                 prFont = New Font("Arial", tfuente, FontStyle.Bold)
-                e.Graphics.DrawString("Model:" & modelo, prFont, Brushes.Black, x, p7)
+                e.Graphics.DrawString("Modelo:" & modelo, prFont, Brushes.Black, x, p7)
 
 
                 'prFont = New Font("Arial", tfuente, FontStyle.Bold)
@@ -6078,13 +6079,13 @@ INSERT INTO `dwin`.`tipo_pago` (`idtipo_pago`, `tipo`) VALUES ('3', 'TRANSFERENC
 
 
             prFont = New Font("Arial", tfuente, FontStyle.Bold)
-            e.Graphics.DrawString("Down payment:", prFont, Brushes.Black, x, p5)
+            e.Graphics.DrawString("Deposito:", prFont, Brushes.Black, x, p5)
             prFont = New Font("Arial", tfuente, FontStyle.Bold)
             e.Graphics.DrawString("$ " & deposito, prFont, Brushes.Black, x + 150, p6)
 
 
             prFont = New Font("Arial", tfuente, FontStyle.Bold)
-            e.Graphics.DrawString("Balance:", prFont, Brushes.Black, x, p7)
+            e.Graphics.DrawString("Resto:", prFont, Brushes.Black, x, p7)
             prFont = New Font("Arial", tfuente, FontStyle.Bold)
             e.Graphics.DrawString("$ " & resto, prFont, Brushes.Black, x + 150, p8)
 
@@ -9413,15 +9414,15 @@ ADD COLUMN `posicion` INT NULL AFTER `idventa`;"
             e.Graphics.DrawString("==================================", prFont, Brushes.Black, x, yy(8))
 
             prFont = New Font("Arial", tfuente, FontStyle.Bold)
-            e.Graphics.DrawString("Technical:" & rcbseller.Text, prFont, Brushes.Black, x, yy(9))
+            e.Graphics.DrawString("Técnico:" & rcbseller.Text, prFont, Brushes.Black, x, yy(9))
 
             'imprimir el titutlo del ticket
             prFont = New Font("Arial", tfuente, FontStyle.Bold)
-            e.Graphics.DrawString("Customer:" & rtxtcustomername.Text, prFont, Brushes.Black, x, yy(10))
+            e.Graphics.DrawString("Cliente:" & rtxtcustomername.Text, prFont, Brushes.Black, x, yy(10))
             prFont = New Font("Arial", tfuente, FontStyle.Bold)
-            e.Graphics.DrawString("Date:" & Date.Now, prFont, Brushes.Black, x, yy(11))
+            e.Graphics.DrawString("Fecha:" & Date.Now, prFont, Brushes.Black, x, yy(11))
             prFont = New Font("Arial", tfuente2, FontStyle.Bold)
-            e.Graphics.DrawString("Sheet Number:" & slbfolio.Text, prFont, Brushes.Black, x, yy(12))
+            e.Graphics.DrawString("Orden:" & slbfolio.Text, prFont, Brushes.Black, x, yy(12))
 
 
             '---------------------------------------------------------------------------------------------------------------------------------
@@ -9488,7 +9489,7 @@ ADD COLUMN `posicion` INT NULL AFTER `idventa`;"
                 e.Graphics.DrawString("==================================", prFont, Brushes.Black, x, pp1)
 
                 prFont = New Font("Arial", tfuente, FontStyle.Bold)
-                e.Graphics.DrawString("--PROBLEM--", prFont, Brushes.Black, x, p2)
+                e.Graphics.DrawString("--PROBLEMA--", prFont, Brushes.Black, x, p2)
 
                 prFont = New Font("Arial", tfuente, FontStyle.Bold)
                 e.Graphics.DrawString(problema, prFont, Brushes.Black, x, p3)
@@ -9505,12 +9506,12 @@ ADD COLUMN `posicion` INT NULL AFTER `idventa`;"
 
 
                 prFont = New Font("Arial", tfuente, FontStyle.Bold)
-                e.Graphics.DrawString("--Device data--", prFont, Brushes.Black, x, p5)
+                e.Graphics.DrawString("--Datos Disp.--", prFont, Brushes.Black, x, p5)
                 prFont = New Font("Arial", tfuente, FontStyle.Bold)
-                e.Graphics.DrawString("Item name:" & equipo, prFont, Brushes.Black, x, p6)
+                e.Graphics.DrawString("Nombre Disp.:" & equipo, prFont, Brushes.Black, x, p6)
 
                 prFont = New Font("Arial", tfuente, FontStyle.Bold)
-                e.Graphics.DrawString("Model:" & modelo, prFont, Brushes.Black, x, p7)
+                e.Graphics.DrawString("Modelo:" & modelo, prFont, Brushes.Black, x, p7)
 
 
                 prFont = New Font("Arial", tfuente, FontStyle.Bold)
@@ -9541,7 +9542,7 @@ ADD COLUMN `posicion` INT NULL AFTER `idventa`;"
 
 
             prFont = New Font("Arial", tfuente, FontStyle.Bold)
-            e.Graphics.DrawString("Deliver date:" & fechacalendarioentrega, prFont, Brushes.Black, x, p9)
+            e.Graphics.DrawString("Fecha entrega:" & fechacalendarioentrega, prFont, Brushes.Black, x, p9)
 
 
             Dim multi As Integer
@@ -9664,13 +9665,13 @@ ADD COLUMN `posicion` INT NULL AFTER `idventa`;"
 
 
             prFont = New Font("Arial", tfuente, FontStyle.Bold)
-            e.Graphics.DrawString("Down payment:", prFont, Brushes.Black, x, p3)
+            e.Graphics.DrawString("Anticipo:", prFont, Brushes.Black, x, p3)
             prFont = New Font("Arial", tfuente, FontStyle.Bold)
             e.Graphics.DrawString("$ " & deposito, prFont, Brushes.Black, x + 150, p4)
 
 
             prFont = New Font("Arial", tfuente, FontStyle.Bold)
-            e.Graphics.DrawString("Balance:", prFont, Brushes.Black, x, p5)
+            e.Graphics.DrawString("Resto:", prFont, Brushes.Black, x, p5)
             prFont = New Font("Arial", tfuente, FontStyle.Bold)
             e.Graphics.DrawString("$ " & resto, prFont, Brushes.Black, x + 150, p6)
 
@@ -10227,18 +10228,18 @@ ADD COLUMN `posicion` INT NULL AFTER `idventa`;"
             e.Graphics.DrawString("==================================", prFont, Brushes.Black, x, yy(1))
 
             prFont = New Font("Arial", tfuente, FontStyle.Bold)
-            e.Graphics.DrawString("Tech:" & rcbseller.Text, prFont, Brushes.Black, x, yy(2))
+            e.Graphics.DrawString("Técnico:" & rcbseller.Text, prFont, Brushes.Black, x, yy(2))
 
             'imprimir el titutlo del ticket
             prFont = New Font("Arial", tfuente, FontStyle.Bold)
-            e.Graphics.DrawString("Customer:" & rtxtcustomername.Text, prFont, Brushes.Black, x, yy(3))
+            e.Graphics.DrawString("Cliente:" & rtxtcustomername.Text, prFont, Brushes.Black, x, yy(3))
             prFont = New Font("Arial", tfuente, FontStyle.Bold)
-            e.Graphics.DrawString("Phone number" & rtxttelephone.Text, prFont, Brushes.Black, x, yy(4))
+            e.Graphics.DrawString("Telefono" & rtxttelephone.Text, prFont, Brushes.Black, x, yy(4))
             prFont = New Font("Arial", tfuente, FontStyle.Bold)
 
-            e.Graphics.DrawString("Date:" & Date.Now, prFont, Brushes.Black, x, yy(5))
+            e.Graphics.DrawString("Fecha:" & Date.Now, prFont, Brushes.Black, x, yy(5))
             prFont = New Font("Arial", tfuente2, FontStyle.Bold)
-            e.Graphics.DrawString("ORDER #" & folio, prFont, Brushes.Black, x, yy(6))
+            e.Graphics.DrawString("ORDEN #" & folio, prFont, Brushes.Black, x, yy(6))
 
 
             '---------------------------------------------------------------------------------------------------------------------------------
@@ -10305,7 +10306,7 @@ ADD COLUMN `posicion` INT NULL AFTER `idventa`;"
                 e.Graphics.DrawString("==================================", prFont, Brushes.Black, x, pp1)
 
                 prFont = New Font("Arial", tfuente, FontStyle.Bold)
-                e.Graphics.DrawString("--PROBLEM--", prFont, Brushes.Black, x, p2)
+                e.Graphics.DrawString("--PROBLEMA--", prFont, Brushes.Black, x, p2)
 
                 prFont = New Font("Arial", tfuente, FontStyle.Bold)
                 e.Graphics.DrawString(problema, prFont, Brushes.Black, x, p3)
@@ -10322,20 +10323,20 @@ ADD COLUMN `posicion` INT NULL AFTER `idventa`;"
 
 
                 prFont = New Font("Arial", tfuente, FontStyle.Bold)
-                e.Graphics.DrawString("--Device--", prFont, Brushes.Black, x, p5)
+                e.Graphics.DrawString("--Datos Dispo.--", prFont, Brushes.Black, x, p5)
                 prFont = New Font("Arial", tfuente, FontStyle.Bold)
-                e.Graphics.DrawString("Item name:" & equipo, prFont, Brushes.Black, x, p6)
+                e.Graphics.DrawString("Nombre Dispo.:" & equipo, prFont, Brushes.Black, x, p6)
 
                 prFont = New Font("Arial", tfuente, FontStyle.Bold)
-                e.Graphics.DrawString("Model:" & modelo, prFont, Brushes.Black, x, p7)
-
-
-                prFont = New Font("Arial", tfuente, FontStyle.Bold)
-                e.Graphics.DrawString("Pass Code: " & pass, prFont, Brushes.Black, x, p8)
+                e.Graphics.DrawString("Model0:" & modelo, prFont, Brushes.Black, x, p7)
 
 
                 prFont = New Font("Arial", tfuente, FontStyle.Bold)
-                e.Graphics.DrawString("Notes:" & notes, prFont, Brushes.Black, x, p9)
+                e.Graphics.DrawString("Password: " & pass, prFont, Brushes.Black, x, p8)
+
+
+                prFont = New Font("Arial", tfuente, FontStyle.Bold)
+                e.Graphics.DrawString("Nota:" & notes, prFont, Brushes.Black, x, p9)
                 '----------------------------------------------------------------------------------------------------------------------
 
                 pp1 = pp1 + (incremento * 9)
@@ -10372,7 +10373,7 @@ ADD COLUMN `posicion` INT NULL AFTER `idventa`;"
 
 
             prFont = New Font("Arial", tfuente, FontStyle.Bold)
-            e.Graphics.DrawString("Delivery date:" & fechacalendarioentrega, prFont, Brushes.Black, x, p2)
+            e.Graphics.DrawString("Fecha entrega:" & fechacalendarioentrega, prFont, Brushes.Black, x, p2)
 
 
             'aqui es donde tenemos que leer todos los datos de la grilla llamada "grilla"
@@ -10478,13 +10479,13 @@ ADD COLUMN `posicion` INT NULL AFTER `idventa`;"
 
 
             prFont = New Font("Arial", tfuente, FontStyle.Bold)
-            e.Graphics.DrawString("Down payment:", prFont, Brushes.Black, x, p5)
+            e.Graphics.DrawString("Anticipo:", prFont, Brushes.Black, x, p5)
             prFont = New Font("Arial", tfuente, FontStyle.Bold)
             e.Graphics.DrawString("$ " & deposito, prFont, Brushes.Black, x + 150, p6)
 
 
             prFont = New Font("Arial", tfuente, FontStyle.Bold)
-            e.Graphics.DrawString("Balance:", prFont, Brushes.Black, x, p7)
+            e.Graphics.DrawString("Resto:", prFont, Brushes.Black, x, p7)
             prFont = New Font("Arial", tfuente, FontStyle.Bold)
             e.Graphics.DrawString("$ " & resto, prFont, Brushes.Black, x + 150, p8)
 

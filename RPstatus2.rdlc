@@ -191,7 +191,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Update</Value>
+                              <Value>Actuali.</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -253,7 +253,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Status</Value>
+                              <Value>Estatus</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -284,7 +284,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Name</Value>
+                              <Value>Nombre</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -315,7 +315,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Phone</Value>
+                              <Value>Tel.</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -1109,7 +1109,7 @@
         <Top>0.34078cm</Top>
         <Left>0.28912cm</Left>
         <Height>1.2cm</Height>
-        <Width>23.22667cm</Width>
+        <Width>23.22666cm</Width>
         <Style>
           <Border>
             <Style>None</Style>

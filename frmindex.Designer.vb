@@ -258,6 +258,7 @@ Partial Class frmindex
         Me.totall = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ssgrilla = New System.Windows.Forms.DataGridView()
         Me.TabPage5 = New System.Windows.Forms.TabPage()
+        Me.Label72 = New System.Windows.Forms.Label()
         Me.GroupBox25 = New System.Windows.Forms.GroupBox()
         Me.Button46 = New System.Windows.Forms.Button()
         Me.Button27 = New System.Windows.Forms.Button()
@@ -381,7 +382,6 @@ Partial Class frmindex
         Me.PrintDocument4 = New System.Drawing.Printing.PrintDocument()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.Data1 = New Ctrly.data()
-        Me.Label72 = New System.Windows.Forms.Label()
         Me.FlowLayoutPanel2.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
         CType(Me.btventas, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -786,7 +786,7 @@ Partial Class frmindex
         Me.TabControl1.Controls.Add(Me.TabPage5)
         Me.TabControl1.Controls.Add(Me.TabPage6)
         Me.TabControl1.Controls.Add(Me.TabPage7)
-        Me.TabControl1.Location = New System.Drawing.Point(132, 58)
+        Me.TabControl1.Location = New System.Drawing.Point(132, 42)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
         Me.TabControl1.Size = New System.Drawing.Size(1467, 792)
@@ -819,7 +819,7 @@ Partial Class frmindex
         Me.TabPage1.Location = New System.Drawing.Point(4, 22)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(1460, 777)
+        Me.TabPage1.Size = New System.Drawing.Size(1459, 766)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "TabPage1"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -923,9 +923,9 @@ Partial Class frmindex
         Me.FlowLayoutPanel3.Controls.Add(Me.Button44)
         Me.FlowLayoutPanel3.Controls.Add(Me.Button45)
         Me.FlowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Right
-        Me.FlowLayoutPanel3.Location = New System.Drawing.Point(1327, 3)
+        Me.FlowLayoutPanel3.Location = New System.Drawing.Point(1326, 3)
         Me.FlowLayoutPanel3.Name = "FlowLayoutPanel3"
-        Me.FlowLayoutPanel3.Size = New System.Drawing.Size(130, 771)
+        Me.FlowLayoutPanel3.Size = New System.Drawing.Size(130, 760)
         Me.FlowLayoutPanel3.TabIndex = 102
         '
         'Button5
@@ -1452,7 +1452,7 @@ Partial Class frmindex
         Me.TabPage3.Location = New System.Drawing.Point(4, 22)
         Me.TabPage3.Name = "TabPage3"
         Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage3.Size = New System.Drawing.Size(1460, 777)
+        Me.TabPage3.Size = New System.Drawing.Size(1459, 766)
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "TabPage3"
         Me.TabPage3.UseVisualStyleBackColor = True
@@ -1830,9 +1830,9 @@ Partial Class frmindex
         Me.FlowLayoutPanel4.Controls.Add(Me.Button23)
         Me.FlowLayoutPanel4.Controls.Add(Me.btnreimpresion)
         Me.FlowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Right
-        Me.FlowLayoutPanel4.Location = New System.Drawing.Point(1316, 3)
+        Me.FlowLayoutPanel4.Location = New System.Drawing.Point(1315, 3)
         Me.FlowLayoutPanel4.Name = "FlowLayoutPanel4"
-        Me.FlowLayoutPanel4.Size = New System.Drawing.Size(141, 771)
+        Me.FlowLayoutPanel4.Size = New System.Drawing.Size(141, 760)
         Me.FlowLayoutPanel4.TabIndex = 103
         '
         'Button13
@@ -2583,7 +2583,7 @@ Partial Class frmindex
         Me.TabPage4.Location = New System.Drawing.Point(4, 22)
         Me.TabPage4.Name = "TabPage4"
         Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage4.Size = New System.Drawing.Size(1460, 777)
+        Me.TabPage4.Size = New System.Drawing.Size(1459, 766)
         Me.TabPage4.TabIndex = 3
         Me.TabPage4.Text = "TabPage4"
         Me.TabPage4.UseVisualStyleBackColor = True
@@ -2618,9 +2618,9 @@ Partial Class frmindex
         Me.FlowLayoutPanel6.Controls.Add(Me.Button26)
         Me.FlowLayoutPanel6.Controls.Add(Me.cbfuente)
         Me.FlowLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Right
-        Me.FlowLayoutPanel6.Location = New System.Drawing.Point(1327, 3)
+        Me.FlowLayoutPanel6.Location = New System.Drawing.Point(1326, 3)
         Me.FlowLayoutPanel6.Name = "FlowLayoutPanel6"
-        Me.FlowLayoutPanel6.Size = New System.Drawing.Size(130, 771)
+        Me.FlowLayoutPanel6.Size = New System.Drawing.Size(130, 760)
         Me.FlowLayoutPanel6.TabIndex = 105
         '
         'Button32
@@ -3019,6 +3019,20 @@ Partial Class frmindex
         Me.TabPage5.TabIndex = 4
         Me.TabPage5.Text = "TabPage5"
         Me.TabPage5.UseVisualStyleBackColor = True
+        '
+        'Label72
+        '
+        Me.Label72.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label72.AutoSize = True
+        Me.Label72.Font = New System.Drawing.Font("Arial", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label72.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.Label72.Location = New System.Drawing.Point(413, 585)
+        Me.Label72.Name = "Label72"
+        Me.Label72.Size = New System.Drawing.Size(58, 17)
+        Me.Label72.TabIndex = 95
+        Me.Label72.Text = "Estado:"
         '
         'GroupBox25
         '
@@ -4305,7 +4319,7 @@ Partial Class frmindex
         Me.TabPage7.Location = New System.Drawing.Point(4, 22)
         Me.TabPage7.Name = "TabPage7"
         Me.TabPage7.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage7.Size = New System.Drawing.Size(1460, 777)
+        Me.TabPage7.Size = New System.Drawing.Size(1459, 766)
         Me.TabPage7.TabIndex = 6
         Me.TabPage7.Text = "v"
         Me.TabPage7.UseVisualStyleBackColor = True
@@ -4318,9 +4332,9 @@ Partial Class frmindex
         Me.FlowLayoutPanel7.Controls.Add(Me.Button39)
         Me.FlowLayoutPanel7.Controls.Add(Me.Button36)
         Me.FlowLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Right
-        Me.FlowLayoutPanel7.Location = New System.Drawing.Point(1327, 3)
+        Me.FlowLayoutPanel7.Location = New System.Drawing.Point(1326, 3)
         Me.FlowLayoutPanel7.Name = "FlowLayoutPanel7"
-        Me.FlowLayoutPanel7.Size = New System.Drawing.Size(130, 771)
+        Me.FlowLayoutPanel7.Size = New System.Drawing.Size(130, 760)
         Me.FlowLayoutPanel7.TabIndex = 106
         '
         'Button33
@@ -4582,20 +4596,6 @@ Partial Class frmindex
         '
         Me.Data1.DataSetName = "data"
         Me.Data1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'Label72
-        '
-        Me.Label72.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label72.AutoSize = True
-        Me.Label72.Font = New System.Drawing.Font("Arial", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label72.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.Label72.Location = New System.Drawing.Point(413, 585)
-        Me.Label72.Name = "Label72"
-        Me.Label72.Size = New System.Drawing.Size(58, 17)
-        Me.Label72.TabIndex = 95
-        Me.Label72.Text = "Estado:"
         '
         'frmindex
         '

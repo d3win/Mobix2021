@@ -13,7 +13,7 @@ Module caconexion
 
     'Dim strconexion As String
 
-
+    '----------
 
     Public Function conexionok()
         Try
